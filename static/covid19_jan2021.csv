@@ -1,3 +1,8 @@
+# This file was downloaded form https://www.ncbi.nlm.nih.gov/labs/virus/vssi/ on Feb 3 2021
+# This subset was selected with Severe acute respiratory syndrom coronavirus 2, taxid:2697049
+# This subset was selected with Geo_location=USA 
+# This subset was selected with Collection_Date during January 2021
+# This is the full set of all available nucleotide genomes described by the above subsets
 Accession,Release_Date,Species,Molecule_type,Length,Geo_Location,USA,Host,Isolation_Source,Collection_Date
 MW560187,2021-02-03T00:00:00Z,Severe acute respiratory syndrome-related coronavirus,ssRNA(+),29786,USA: FL,FL,Homo sapiens,,2021-01-15
 MW560188,2021-02-03T00:00:00Z,Severe acute respiratory syndrome-related coronavirus,ssRNA(+),29797,USA: FL,FL,Homo sapiens,,2021-01-18
