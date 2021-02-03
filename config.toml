@@ -1,4 +1,4 @@
-baseURL = "https://training.fire.tryps.in/"
+baseURL = "https://fire-transcriptomics-of-disease.github.io/fire-cb-2021-training/"
 languageCode = "en-us"
 title = "2021 FIRE-CB Training Modules"
 theme = "ananke"
