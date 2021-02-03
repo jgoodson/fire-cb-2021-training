@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2021 FIRE-CB Training Modules</title>
+    <link>https://training.fire.tryps.in/</link>
+    <description>Recent content on 2021 FIRE-CB Training Modules</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://training.fire.tryps.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Filesystem Navigation</title>
+      <link>https://training.fire.tryps.in/basics_module/navigation/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.fire.tryps.in/basics_module/navigation/</guid>
+      <description>Although I&amp;rsquo;m sure most of you have some idea about the concepts of &amp;ldquo;files&amp;rdquo; or &amp;ldquo;folders&amp;rdquo; when it comes to computers, working with command-line programs will probably stretch anyone&amp;rsquo;s intuition about how to talk about, describe, or use files and folders unless they have previously done CLI work.
+ Watch the video &amp;ldquo;Filesystem Basics&amp;rdquo;
+Thinking about files and paths Paths CLI programs, like we will use, extensively use paths pointing to specific files or folders on the computer.</description>
+    </item>
+    
+    <item>
+      <title>Intermediate CLI Usage</title>
+      <link>https://training.fire.tryps.in/basics_module/cli_intermediate/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.fire.tryps.in/basics_module/cli_intermediate/</guid>
+      <description>More-advanced command-line usage Previously I promised you that there were some big advantages to command-line tools that leads to people actively using them decades after they were made when there are attractive, graphical alternatives. So far, we haven&amp;rsquo;t really seen anything that can&amp;rsquo;t be trivially done with tools you are more familiar with. That will change now. Like before, you may choose to follow this section here, in DataCamp, or both.</description>
+    </item>
+    
+    <item>
+      <title>Manipulating file contents and data</title>
+      <link>https://training.fire.tryps.in/basics_module/cli_basics/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.fire.tryps.in/basics_module/cli_basics/</guid>
+      <description>Manipulating file contents and data So far you have learned how to move around a filesystem and how manipulate files and folders, but done nothing with the contents of those files. Its time to change that! You may choose to complete the DataCamp Chapter Manipulating Data instead of or in addition to this section. I strongly recommend the DataCamps for their interactivity.
+If you are using ssh to connect to our remote server: save time connecting with ssh.</description>
+    </item>
+    
+    <item>
+      <title>Using the Command Line</title>
+      <link>https://training.fire.tryps.in/basics_module/cli/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.fire.tryps.in/basics_module/cli/</guid>
+      <description>Using the Command Line You have all extensively used computers in your life, whether that is a traditional desktop/laptop or just a smart phone. But so far, you&amp;rsquo;ve likely only interacted with computer programs through graphical user interfaces. For example, you would use an email client program through a graphical user interface, and select various options and buttons depending on what you wanted to do.
+During a single run of the email program, you could, for example, both add a new contact and then edit their name.</description>
+    </item>
+    
+  </channel>
+</rss>

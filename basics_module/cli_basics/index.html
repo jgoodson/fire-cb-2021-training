@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Manipulating file contents and data | 2021 FIRE-CB Training Modules</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Manipulating file contents and data So far you have learned how to move around a filesystem and how manipulate files and folders, but done nothing with the contents of those files. Its time to change that! You may choose to complete the DataCamp Chapter Manipulating Data instead of or in addition to this section. I strongly recommend the DataCamps for their interactivity.
+If you are using ssh to connect to our remote server: save time connecting with ssh.">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+
+  
+  
+    <link rel="stylesheet" href="/ananke/dist/main.css_5c99d70a7725bacd4c701e995b969fea.css" >
+  
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Manipulating file contents and data" />
+<meta property="og:description" content="Manipulating file contents and data So far you have learned how to move around a filesystem and how manipulate files and folders, but done nothing with the contents of those files. Its time to change that! You may choose to complete the DataCamp Chapter Manipulating Data instead of or in addition to this section. I strongly recommend the DataCamps for their interactivity.
+If you are using ssh to connect to our remote server: save time connecting with ssh." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://training.fire.tryps.in/basics_module/cli_basics/" />
+<meta property="article:published_time" content="2021-01-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-01-28T00:00:00+00:00" />
+<meta itemprop="name" content="Manipulating file contents and data">
+<meta itemprop="description" content="Manipulating file contents and data So far you have learned how to move around a filesystem and how manipulate files and folders, but done nothing with the contents of those files. Its time to change that! You may choose to complete the DataCamp Chapter Manipulating Data instead of or in addition to this section. I strongly recommend the DataCamps for their interactivity.
+If you are using ssh to connect to our remote server: save time connecting with ssh.">
+<meta itemprop="datePublished" content="2021-01-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-01-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2130">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Manipulating file contents and data"/>
+<meta name="twitter:description" content="Manipulating file contents and data So far you have learned how to move around a filesystem and how manipulate files and folders, but done nothing with the contents of those files. Its time to change that! You may choose to complete the DataCamp Chapter Manipulating Data instead of or in addition to this section. I strongly recommend the DataCamps for their interactivity.
+If you are using ssh to connect to our remote server: save time connecting with ssh."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        2021 FIRE-CB Training Modules
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        COMPUTATIONAL BIOLOGY BASICS MODULE
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://training.fire.tryps.in/basics_module/cli_basics/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://training.fire.tryps.in/basics_module/cli_basics/&amp;text=Manipulating%20file%20contents%20and%20data" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://training.fire.tryps.in/basics_module/cli_basics/&amp;title=Manipulating%20file%20contents%20and%20data" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Manipulating file contents and data</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-01-28T00:00:00Z">January 28, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="manipulating-file-contents-and-data">Manipulating file contents and data</h2>
+<p>So far you have learned how to move around a filesystem and how manipulate files and folders, but done nothing with the contents of those files. Its time to change that! You may choose to complete the <a href="https://campus.datacamp.com/courses/introduction-to-shell/manipulating-data?ex=1">DataCamp Chapter Manipulating Data</a> instead of or in addition to this section. I strongly recommend the DataCamps for their interactivity.</p>
+<p>If you are using ssh to connect to our remote server: <a href="https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f9ad098e-e5b5-4884-9623-acc20122030b">save time connecting with ssh</a>.</p>
+<h3 id="viewing-file-contents">Viewing file contents</h3>
+<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=71fb0191-d85a-4e12-b066-acc201220923&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<p><a href="https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=71fb0191-d85a-4e12-b066-acc201220923">Watch the video &ldquo;Working with File Contents&rdquo;</a></p>
+<p>While there are some equivalents to &ldquo;opening&rdquo; a file on the command-line like you might open a text document in Notepad, TextEdit, or Word (or any other application), we will first focus on more traditional Unix tools for viewing and modifying file contents.</p>
+<p>The simplest way to view the contents of a file is with the <code>cat</code> command. So far most of the commands have been more-plausibly abbreviated. <code>cat</code> is short for con<strong>cat</strong>enate.</p>
+<ul>
+<li><code>cat</code> takes one or more arguments and <strong>outputs</strong> the contents sequentially to <strong>standard output</strong>. Standard output is a concept we will learn more about in the next section. On its own, this command will simply output the contents of the files to the screen.</li>
+</ul>
+<p>For instance, these command will output the contents of one or more of the files in the shared folder we worked in last section:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat /shared/module1/people/jgoodson.txt
+$ cat /shared/module1/people/mmodak.txt
+$ cat /shared/module1/people/jgoodson.txt /shared/module1/people/mmodak.txt
+</code></pre></div><p>Run each command sequentially. Note how the first two commands each output the two lines of each file, while the third prints both files at once.</p>
+<p>At this point I&rsquo;d like to point out an incredibly useful feature of this particular shell. If you begin typing a command or path, you can hit the TAB key to <strong>autocomplete</strong> as much of the string as possible. For instance if you type <code>cat /shared/mo</code> followed by hitting TAB, the shell should automatically insert text to make your command read <code>cat /shared/module1/</code>. This feature is convenient both for working faster as well as avoiding typos and ensuring the path you type really exists!</p>
+<p>Some files are extremely large. Some text files we will work with in this stream can be hundreds, thousands, or even millions of lines long. Clearly we don&rsquo;t have any use for printing millions of lines of text to our screen! If you want to view only the first lines of a file, you can use the command <code>head</code>. Similarly, the <code>tail</code> command will output only the last lines:</p>
+<ul>
+<li><code>head</code> accepts an argument which is the file to print out only the opening lines. By default, <code>head</code> will print the first (up to) ten lines. You can modify how many lines the command prints with a parameter <code>-n</code>. <code>head -n 5 [filename]</code> will print out the first five lines of whichever file you use for <code>[filename]</code>. A space between <code>-n</code> and the number is optional. Head can also accept more than one file path and will print out both the name of the file as well as the initial lines.</li>
+<li><code>tail</code> works identically to <code>head</code>, except it is the last lines printed instead of the first.</li>
+</ul>
+<details>
+ <summary><i>Question: How would you print out the first line of both the jgoodson.txt and mmodak.txt files?</i> </summary>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ head -n1 /shared/module1/people/jgoodson.txt /shared/module1/people/mmodak.txt
+</code></pre></div></details>
+<p>There are two other ways I will show how to view files that are more similar to programs you may be used to. These are the commands <code>less</code> and <code>nano</code>.</p>
+<ul>
+<li><code>less</code> is a command dedicated to interactively viewing a long file piece-by-piece. Let&rsquo;s view the Markdown-format source code for an earlier section:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ less /shared/module1/assignments/asn1.txt
+</code></pre></div><p>Unlike many other commands we run, <code>less</code> does not immediately output data and exit, it stays open and is <em>interactable</em>. You can use up or down arrows to scroll up or down. When you are ready to exit, hit the <code>q</code> key. More information about options and keys for <code>less</code> can be found <a href="https://linuxize.com/post/less-command-in-linux/">here</a>.</p>
+<ul>
+<li><code>nano</code> is a full-featured text editor you can use from inside your terminal window. You can open files by calling <code>nano [filename]</code>. If the file does not already exist, <code>nano</code> will create it when you save.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ nano my_file.txt
+</code></pre></div><p>When you open this new file, the window should be empty, with a title bar at the top saying something like <code>GNU Nano 4.8</code> and a few lines at the bottom showing a variety of options. Many of these options look something like <code>^X Exit</code>. In many cases, the <code>^</code> symbol represents the control or CTRL key on your keyboard, usually near the bottom left. In nano this lines explain the different commands that you can do by hitting CTRL followed by the key. Other keys may read <code>M-U Undo</code>. The <code>M</code> stands for &ldquo;meta&rdquo; and means either your Alt or Option key depending on whether you have a PC or Mac motherboard.</p>
+<p>You can enter text simply by typing. Unless you hit a special key combination listed at the bottom, you can simply type into the <code>nano</code> window, navigate with arrow keys, and delete characters with delete or backspace. Try writing some text into your file! When you are ready to save, hit CTRL + O for the &ldquo;Write Out&rdquo; option. When you do this, the bottom bar will change and ask &ldquo;File Name to Write: my_file.txt&rdquo;. You have an option to change where the file is saved, but we are fine with that name, so go ahead and hit your enter key. The bottom bars will go back to the original commands with a message <code>[ Wrote 1 line ]</code> or similar depending on how much text you saved. When you are ready to exit, hit CTRL + X.</p>
+<details>
+ <summary><i>Question: How would you verify that you saved the text that you wrote to my_file.txt?</i> </summary>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat my_file.txt
+</code></pre></div><p>This should output the text you saved in <code>nano</code>!</p>
+</details>
+<h3 id="getting-help">Getting Help</h3>
+<p>Although you can always ask for help from your RE or PRMs, sometimes you might just need a reminder about exactly how the options for a command work or to see what other options are available. You can certainly consult these training modules, but they are far from comprehensive, tools in Linux are extremely flexible and powerful and have many many more options than I could ever teach you or remember myself. You can always look up a manual for a command online, but you can get the exact manual for the version installed on your computer with the <code>man</code> or <strong>man</strong>ual command.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ man cat
+</code></pre></div><p>This will pull up a text page explaining how the command works and all of its options, among with other information. This uses the <code>less</code> command, so you can navigate and exit the same way you did <code>less</code>, by hitting the <code>q</code> key.</p>
+<h3 id="avoiding-typing-part-two">Avoiding typing, part two</h3>
+<p>We already learned one way to cut down on typing: tab-completion. Another, perhaps even more helpful tool for avoiding typing is <strong>history</strong>. Our shell keeps track of all the commands we run. In fact, if you want to run the same command again, instead of typing out the whole command, simply hit the up arrow key. This will put the last command you run back on the command line. You can either run this again, or edit it to fix, or tweak what you run. If you hit the up arrow multiple times, it will iterate through your history one command at a time. Please expirment with this now!</p>
+<p>Additionally, you can use the <code>history</code> command to output a list of all of the command you&rsquo;ve run in your current session. This is helpful if you want to reconstruct what you&rsquo;ve done, or simply remember a command you ran previously.</p>
+<h3 id="manipulating-file-contents-programmatically">Manipulating file contents programmatically</h3>
+<p>Many times we will work with text files structured in a specific way. Very frequently we will use files containing tabular data, think spreadsheets. The format Excel or Google Sheets use natively are not very convenient to work with as text files. The primary formats we will use are tables formatted as &ldquo;csv&rdquo; or &ldquo;tsv&rdquo; files. In these formats you have one table per file. Each line of the file is like a row in a spreadsheet, and each line is seperated by a &ldquo;seperator symbol&rdquo; like a comma <code>,</code> or tab character <code>	</code>. You can save or export spreadsheets from Excel or Sheets as .csv or .tsv files to use in many command line tools.</p>
+<p>Let&rsquo;s take a look at one comma-seperated values (.csv) file in our shared folder:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat /shared/module1/people/firecb.csv
+</code></pre></div><p>This should print a comma-separated list of names and positions, everyone in our stream when I wrote this document. This is basically the same list you can find in Canvas in the People tab. This is reasonably readable for us humans and is also extremely convenient to use with a computer. There are many commands for programmatic manipulation of file contents that let use quickly and easily change even very large, complicated files that would takes ages to do by hand. We will learn more about these later. For now, I would like to try out the <code>cut</code> command. Unless <code>head</code> or <code>tail</code> which select only certain rows of a text file, <code>cut</code> allows you to output <em>certain columns</em>.</p>
+<p>To run <code>cut</code>, in addition to the file name, you need to specific two things:</p>
+<ol>
+<li>The column or <em>field</em>, or range of columns, to output. This is specified with the <code>-f</code> parameter. You may specify either one column, for instance <code>-f 2</code> to output the second column, a range of columns, for instance <code>-f 2-5</code> to print columns two through 4, or a selection of columns, for instance <code>-f 2,4,6</code> to print columns two, four, and six. You can combine ranges and single columns freely.</li>
+<li>The <em>separator</em>. Different file types frequently use different character to distinguish columns. Tabs and commas are common, though spaces, colons <code>:</code>, semicolons <code>;</code>, and pipes <code>|</code> are sometimes used. You specify your separater with the <code>-d</code> or <strong>d</strong>elimiter parameter. To use commas, use <code>-d ,</code>. To use tabs, you need to use the &ldquo;escape character&rdquo; or <code>\</code> to specify an otherwise-invisible character: <code>-d \t</code>. The <code>\t</code> is a special escape character representing a tab.</li>
+</ol>
+<p>Putting this together, if we want to just print the first and last name columns of our class:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cut -d , -f 1-2 /shared/module1/people/firecb.csv
+</code></pre></div><details>
+ <summary><i>Question: How would you output only  the first names and positions of each person in our stream?</i> </summary>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cut -d , -f 1,3 /shared/module1/people/firecb.csv
+</code></pre></div></details>
+<h3 id="searching-file-contents">Searching file contents</h3>
+<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=6c52acd5-8d4a-414f-9b14-acc2012203e5&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<p><a href="https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6c52acd5-8d4a-414f-9b14-acc2012203e5">Watch the video &ldquo;Using grep&rdquo;</a></p>
+<p>The final tool we&rsquo;ll learn about in this section completes a missing set up the puzzle. We can create files, delete files, move them around, modify them both manually and programmatically, but how do we search through them? There are separate commands for searing for files themselves and searching through their contents. Here, we are going to focus on searching through specific files. We do this with an amazingly-powerful program called <code>grep</code>. <code>grep</code> is useful not only through the command line, tools that use the same search scheme are frequent in advanced text and code editing programs.</p>
+<p>I&rsquo;m not even going to tell you what <code>grep</code> stands for, but it was made to search through files for instances of particular <strong>patterns</strong>. While <code>grep</code> can simply look to find a certain string of text or &ldquo;literal pattern&rdquo; in a file, it uses a system called <strong>regular expressions</strong> that let it search for variable patterns that can be as simple or complicated as you can imagine.</p>
+<p>You run <code>grep</code> with the following command, substituting in the text you want to search for in the filename you specify.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ grep <span style="color:#f92672">[</span>pattern<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>filename<span style="color:#f92672">]</span>
+</code></pre></div><p>Try searching for your first name in the <code>/shared/module1/people/firecb.csv</code></p>
+<details>
+ <summary><i>Hint</i> </summary>
+<p>You need to run the command something like this</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ grep Jonathan /shared/module1/people/firecb.csv
+</code></pre></div><p>By default <code>grep</code> is <strong>case-sensitive</strong>, so you need to match and upper- or lower-case letters. You can use the <code>-i</code> flag to <em>ignore case</em> and match regardless of upper- or lower-case.</p>
+</details>
+<p>We will discuss the more advanced features of <code>grep</code> in the next major part of the module, but there are a variety of simple options that are quite helpful:</p>
+<ul>
+<li>You can include more than one filename and <code>grep</code> will search through all of them and prefix the matches with the file they were in</li>
+<li><code>-c</code> prints out a <em>count</em> of how many lines contained the pattern</li>
+<li><code>-i</code> ignores case, letting you match upper-case letters with lower-case, and vice-versa</li>
+<li><code>-l</code> prints only the filenames if you search more than one file</li>
+<li><code>-n</code> prints the line number of the matches</li>
+<li><code>-v</code> prints the <strong>inverse</strong> of the match - only those lines that <em>don&rsquo;t</em> have the pattern in them</li>
+</ul>
+<p>If you had any trouble with this, please reach out to Dr. Goodson or one of your PRMs via Slack or email.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://training.fire.tryps.in/" >
+    &copy;  2021 FIRE-CB Training Modules 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

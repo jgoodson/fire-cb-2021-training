@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Filesystem Navigation | 2021 FIRE-CB Training Modules</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Although I&rsquo;m sure most of you have some idea about the concepts of &ldquo;files&rdquo; or &ldquo;folders&rdquo; when it comes to computers, working with command-line programs will probably stretch anyone&rsquo;s intuition about how to talk about, describe, or use files and folders unless they have previously done CLI work.
+ Watch the video &ldquo;Filesystem Basics&rdquo;
+Thinking about files and paths Paths CLI programs, like we will use, extensively use paths pointing to specific files or folders on the computer.">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+
+  
+  
+    <link rel="stylesheet" href="/ananke/dist/main.css_5c99d70a7725bacd4c701e995b969fea.css" >
+  
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Filesystem Navigation" />
+<meta property="og:description" content="Although I&rsquo;m sure most of you have some idea about the concepts of &ldquo;files&rdquo; or &ldquo;folders&rdquo; when it comes to computers, working with command-line programs will probably stretch anyone&rsquo;s intuition about how to talk about, describe, or use files and folders unless they have previously done CLI work.
+ Watch the video &ldquo;Filesystem Basics&rdquo;
+Thinking about files and paths Paths CLI programs, like we will use, extensively use paths pointing to specific files or folders on the computer." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://training.fire.tryps.in/basics_module/navigation/" />
+<meta property="article:published_time" content="2021-01-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-01-28T00:00:00+00:00" />
+<meta itemprop="name" content="Filesystem Navigation">
+<meta itemprop="description" content="Although I&rsquo;m sure most of you have some idea about the concepts of &ldquo;files&rdquo; or &ldquo;folders&rdquo; when it comes to computers, working with command-line programs will probably stretch anyone&rsquo;s intuition about how to talk about, describe, or use files and folders unless they have previously done CLI work.
+ Watch the video &ldquo;Filesystem Basics&rdquo;
+Thinking about files and paths Paths CLI programs, like we will use, extensively use paths pointing to specific files or folders on the computer.">
+<meta itemprop="datePublished" content="2021-01-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-01-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3015">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Filesystem Navigation"/>
+<meta name="twitter:description" content="Although I&rsquo;m sure most of you have some idea about the concepts of &ldquo;files&rdquo; or &ldquo;folders&rdquo; when it comes to computers, working with command-line programs will probably stretch anyone&rsquo;s intuition about how to talk about, describe, or use files and folders unless they have previously done CLI work.
+ Watch the video &ldquo;Filesystem Basics&rdquo;
+Thinking about files and paths Paths CLI programs, like we will use, extensively use paths pointing to specific files or folders on the computer."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        2021 FIRE-CB Training Modules
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        COMPUTATIONAL BIOLOGY BASICS MODULE
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://training.fire.tryps.in/basics_module/navigation/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://training.fire.tryps.in/basics_module/navigation/&amp;text=Filesystem%20Navigation" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://training.fire.tryps.in/basics_module/navigation/&amp;title=Filesystem%20Navigation" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Filesystem Navigation</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-01-28T00:00:00Z">January 28, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Although I&rsquo;m sure most of you have some idea about the concepts of &ldquo;files&rdquo; or &ldquo;folders&rdquo; when it comes to computers, working with command-line programs will probably stretch anyone&rsquo;s intuition about how to talk about, describe, or use files and folders unless they have previously done CLI work.</p>
+<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=198cf321-f6f4-4f88-bc00-acc200e84ea6&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<p><a href="https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=198cf321-f6f4-4f88-bc00-acc200e84ea6">Watch the video &ldquo;Filesystem Basics&rdquo;</a></p>
+<h2 id="thinking-about-files-and-paths">Thinking about files and paths</h2>
+<h4 id="paths">Paths</h4>
+<p>CLI programs, like we will use, extensively use <strong>paths</strong> pointing to specific files or folders on the computer. A <strong>file</strong> is simply a chunk of data stored as a unit on the computer. The <strong>filesystem</strong> describes the software and information that organizes data on the computer into files stored in a particular way. For the most part, computers organize data files using a tree-like structure of nested <strong>folders</strong> or <strong>directories</strong>. This is where the analogy of files as pieces of paper stored in folders breaks down a little bit, as there is no limit to how &ldquo;deeply nested&rdquo; folders can be. You can have folders inside folders inside folders inside&hellip;</p>
+<p><img src="/images/0NestedFolders.webp" alt="Nested Folders" title="Nested Folders"></p>
+<p>Since we frequently need to tell a program to work with a particular file, we need a system or convention for describing where to find a particular file or folder. Since we don&rsquo;t have pop up windows that let us select a particular file and we work primarily with text, this will be a string of text! Think of a street address telling a postal worker how to find a particular house. This address needs to unambiguously describe the particular location as well as increasingly broader general locations.</p>
+<p>The solution to pointing to a particular file is what are called <strong>paths</strong>. These are appropriately named, because they describe the path to follow from a particular reference point through nested folders to get to the intended location. You have (probably) seen paths used on computers before even if you haven&rsquo;t particular thought about it. If you&rsquo;ve used Windows you&rsquo;ve almost certainly seen strings of text starting with <code>c:\</code> or similar. This is the start of a path!</p>
+<h3 id="absolute-paths">Absolute Paths</h3>
+<p>A path like <code>c:\Program Files\Google\Google Chrome.exe</code> describes the path to take from the root of the filesystem on the &ldquo;C drive&rdquo; through a folder called &ldquo;Program Files&rdquo;, into a second folder called &ldquo;Google&rdquo;, and finally to a file called &ldquo;Google Chrome.exe&rdquo;. This is what is known as an absolute path. Think of absolute paths as like complete addresses, even including the country! They specify exactly and unambiguously where to find a file. The address:</p>
+<pre><code>4094 Campus Dr
+College Park, MD 20742
+United States
+</code></pre><p>unambigiously describes the Bio-Psych building on the UMD campus. You could give that address to anyone in the world with a map, and they should be able to find that building! On the other hand, if I was in College Park right now, talking to someone else in College Park, I might just tell them &ldquo;4094 Campus Dr&rdquo; and let them assume this refers to an address near our current location. They would probably have no trouble finding the Bio-Psych building.</p>
+<h3 id="relative-paths">Relative Paths</h3>
+<p>Now imagine we don&rsquo;t go far, just a few miles to the other side of Washington DC near Sterling, VA. If I told someone to go to &ldquo;4094 Campus Dr&rdquo; and they were in Sterling, they would probably end up at Northern Virginia Community College! This is because that incomplete address will probably be interpreted relative to the location of the reader. A second, frequently used type of path works this way called <strong>relative paths</strong>. Relative paths are relative to the so-called <strong>working directory</strong>.</p>
+<p>At any point, when we are working with the command line, I want you to think of yourself in cyberspace. You are in the computer! And you aren&rsquo;t just anywhere in the computer, you are in a very specific place in the computer, inside of one specific folder or directory in the tree of folders that is the filesystem. You are in a particular directory and around you are all the files or folders that are in that directory with you. Since you are in a folder there are more folders that exist further &ldquo;up&rdquo; in the direction of the folder that &ldquo;contains&rdquo; your current folder and there are more files and folders &ldquo;down&rdquo; &ldquo;inside&rdquo; the folders that are beside you.</p>
+<p>If you simply write the name of a file while you are in a particular folder, the computer will interpret this as a path relative to your working directory where you &ldquo;are&rdquo;. If you make a file in your current directory, you can refer to it just by name, but if you &ldquo;move&rdquo; somewhere else, you&rsquo;ll need to be more specific to refer to that file!</p>
+<p>Let&rsquo;s revisit that photo from earlier:</p>
+<p><img src="/images/0NestedFolders.webp" alt="Nested Folders" title="Nested Folders"></p>
+<p>If we consider that we are &ldquo;in&rdquo; the <code>Books</code> folder as our current working directory, there are four folders in there with us, <code>The Phantom Tollbooth</code>, <code>Kite Runner</code>, <code>Hamlet</code> and <code>And Still I Rise</code>. We can refer to the Hamlet directory simply by writing <code>Hamlet</code>. Imagine however that you are working with someone else, and they aren&rsquo;t in the <code>Books</code> folder. Unless they go through the effort of looking and searching through this directory tree, they won&rsquo;t see a <code>Hamlet</code> folder. If you weren&rsquo;t sure where they were, you could specify <code>Things I Love</code> - <code>Books</code> - <code>Hamlet</code> and they would have no problem!</p>
+<h3 id="actually-writing-paths-down">Actually writing paths down</h3>
+<p>Previously I mentioned c:\ as a special <strong>path</strong> pointing to the &ldquo;root&rdquo; of the C drive. This format is how Windows works, but not how anything else does! We will be using Linux, which like macOS, is based on Unix, and uses &ldquo;Unix-style paths&rdquo;. In Unix paths, folders are separated by forward-slashes <code>/</code>. Instead of having a separate root for each drive (main drive, USB drive, network drives, etc), Unix systems have a single root directory for the entire computer, simply named <code>/</code>. For this reason, if you &ldquo;start a path&rdquo; with <code>/</code> you are starting at the root of the filesystem, making it an absolute path. If you start a path with (almost) anything else, it is <em>relative</em> to your current working directory.</p>
+<ul>
+<li>Absolute paths: start with / and must trace the entire path from the root directory to the desired file or folder</li>
+<li>Relative paths: start with a name that is in the current working directory and must trace a path from the current directory to the desired file or folder</li>
+</ul>
+<p>There are three special symbols that you will need to know about besides <code>/.</code> These are <code>.</code>, <code>..</code>, and <code>~</code>.</p>
+<ul>
+<li>A <code>.</code> (one period) is a placeholder for the current directory. It can be used at the beginning or in the middle of a path and represents basically the status-quo, it doesn&rsquo;t move you anywhere. There are actually relatively few places we will want to use this symbol.</li>
+<li>A <code>..</code> (two periods) represents the parent directory. This is how you go &ldquo;upward&rdquo; in the file tree. It can also be used anywhere in a path and represents the folder one step upwards from the current position in a path.</li>
+<li>A <code>~</code> (a tilde, at the top-left of your keyboard) represents your home directory. This is a very special character since it is the only other way to create an absolute path. If you use the tilde at the beginning of a path, instead of starting in the root folder, it starts the path in your home directory.
+<ul>
+<li>Regardless of where you are, a path starting with <code>~</code> will always point to the same folder.</li>
+<li>Warning: The <code>~</code> represents the home folder, which is different for every user on a system. If you give a path to a teammate starting with <code>~</code>, this will represent a different location for them! For this reason when working in teams we will usually use a special shared directory outside of our home directories.</li>
+</ul>
+</li>
+</ul>
+<p>If we assume that <code>Things I Love</code> is in the root directory of our hypothetical system, all of the following are true:</p>
+<ul>
+<li>If we are currently in the Books folder:
+<ul>
+<li>The path to the Kite Runner folder is simply <code>Kite Runner</code> (relative) but could be <code>/Things I Love/Books/Kite Runner</code> (absolute)</li>
+<li>We could also refer to the <code>Kite Runner</code> folder as <code>./Kite Runner</code> (relative)</li>
+<li>The path to the Things I Love folder could be written as <code>/Things I Love</code> (absolute) or <code>..</code> (relative)</li>
+<li>The path to the Cats folder could be written as <code>/Things I Love/Cats</code> (absolute) or <code>../Cats</code> (relative)</li>
+</ul>
+</li>
+<li>If we were currently in the Food folder:
+<ul>
+<li>The path to the Kite Runner folder could be <code>../Books/Kite Runner</code> (relative) or <code>/Things I Love/Books/Kite Runner</code> (absolute, notice this is the same as before, because it is absolute!)</li>
+<li>The path to the Things I Love folder could be written as <code>/Things I Love</code> (absolute) or <code>..</code> (relative, Food and Books are &ldquo;siblings&rdquo; so they have the same parent!)</li>
+<li>The path to the Cats folder could be written as <code>/Things I Love/Cats</code> (absolute) or <code>../Cats</code> (relative, Food and Books are &ldquo;siblings&rdquo; so they have the same parent which contains Cats)</li>
+</ul>
+</li>
+<li>If we were in the Hamlet folder:
+<ul>
+<li>The path to the Kite Runner folder could be <code>../Kite Runner</code> (relative) or <code>/Things I Love/Books/Kite Runner</code> (absolute, notice this is the same as before, because it is absolute!)</li>
+<li>The path to the Things I Love folder could be written as <code>/Things I Love</code> (absolute) or <code>../..</code> (relative, you need to move &ldquo;up&rdquo; twice!)</li>
+<li>The path to the Cats folder could be written as <code>/Things I Love/Cats</code> (absolute) or <code>../../Cats</code> (relative)</li>
+</ul>
+</li>
+</ul>
+<p>You can see how both types of path might be more convenient in different circumstances. Relative paths are often shorter and easier when you are &ldquo;close&rdquo; to the intended target, while the further away you get the more complicated they become and the reliability and specificity of absolute paths becomes more useful!</p>
+<h2 id="navigating-a-filesystem-with-the-cli">Navigating a Filesystem with the CLI</h2>
+<p>At this point, I recommend you complete the first Chapter of the Introduction to <a href="https://campus.datacamp.com/courses/introduction-to-shell/manipulating-files-and-directories?ex=1">Shell Datacamp Module</a>. You must be registered for our DataCamp class for full access to these modules. I strongly recommend the DataCamps for their interactivity. You may do this instead of or in addition to reading the information in this section. To follow along with the commands in this section you should connect to compute-1.fire.tryps.in through SSH or another app like Termius or RStudio Server as described in <a href="https://umd.instructure.com/courses/1299512/pages/getting-connected-guide">Getting Connected</a>.</p>
+<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=6878ab5e-70b1-4afa-a958-acc200ec37e7&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<p><a href="https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6878ab5e-70b1-4afa-a958-acc200ec37e7">Watch the video &ldquo;Initial CLI&rdquo;</a></p>
+<h3 id="entering-commands-and-basic-navigation">Entering commands and basic navigation</h3>
+<p>When you are logged into a shell, you should have a prompt. This is a line of text ending with a dollar symbol and a space $ . Many systems are configured to present more information on this prompt line for convenience. Our compute server by default shows the current user, the name of the system, and the current working directory! When you log in, you will see something like this on the last line:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jgoodson@compute-1:~$ 
+</code></pre></div><p>This first tells you what use you are, in this case &ldquo;jgoodson&rdquo;. This use is at/on/<code>@</code> a particular computer, in this case the server named &ldquo;compute-1&rdquo;. The <code>:</code> separates this information from the <strong>path</strong> to the current working directory, which in this case is <code>~</code>, which you learned earlier is shorthand for your home directory.</p>
+<p>As a convention, throughout the rest of this training and future modules, I will tell you to run certain commands. I will format them like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pwd
+</code></pre></div><p>This first $ indicates that this is at a shell prompt. You should not enter the <code>$ </code> symbol, it will cause an error!</p>
+<p>Go ahead and enter the <code>pwd</code> command. This stands for <strong>p</strong>rint <strong>w</strong>orking <strong>d</strong>irectory and will do what the name advertises, print your current position in the filesystem to the screen. In my case, it prints <code>/home/jgoodson</code>. This is my home folder and is what <code>~</code> represents for me. If at any point things aren&rsquo;t working like you expect, especially when providing paths to files you know exist, use <code>pwd</code> to find out if you are where you think you are.</p>
+<p>Since we&rsquo;ve talked so much about being in a particular place, there must be a way to move around, to change where you are. The primary command for moving around on Unix systems is <code>cd</code> or change directory. This is a simple command that usually takes a single argument, a path where we want to move to. In this case, we should run the following command to move to a prepared toy directory that will be used for the rest of this section</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd /shared/module1
+</code></pre></div><details>
+ <summary><i>Question: What kind of path is this?</i> </summary><p>
+<p>absolute</p>
+</p></details>
+<p>At this point we are no longer in your home directory, and are instead in a shared directory with some toy files. So far we are moving blind, you had to take it on faith that this folder exists. If you try to move to a folder that doesn&rsquo;t exist, there will be an error. I encourage you to try to move to a random folder name now with <code>cd</code> and see what happens.</p>
+<p>To look around and see what files and folders are in a location, we use a command mentioned earlier: <code>ls</code>. Enter this command now to list the files and folders in your current directory.</p>
+<details>
+ <summary><i>Question: What files or folders were listed? What folder are these contained in?</i> </summary>
+<p><code>/shared/module1/</code></p>
+</details>
+<p>You should see a few folders. <code>ls</code> is not limited to just showing you what is in your current folder, it can also accept arguments of one or more paths to list the contents of. Try running the following command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls assignments
+</code></pre></div><details>
+ <summary><i>Question: What is the absolute path to the assignments folder you just listed the contents of? How many files are there in this folder?</i> </summary>
+<p><code>/shared/module1/assignments/</code></p>
+</details>
+<h3 id="manipulating-files">Manipulating files</h3>
+<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=b962a720-31c4-4904-a7b5-acc201220351&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<p><a href="https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b962a720-31c4-4904-a7b5-acc201220351">Watch the video &ldquo;Manipulating Files&rdquo;</a></p>
+<p>Everything we have done so far is passive, we haven&rsquo;t made any permanent changes to the system. Obviously to obtain data, save results, or generally accomplish anything, we need to make some changes. The shared folder you are in now is read-only, so that we can&rsquo;t break anything. You should run any example code in the following code blocks. Let&rsquo;s move back to your home folder:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd ~
+</code></pre></div><p>The simplest ways of creating files or folders are two commands which create empty files or empty folders, respetively: <code>touch</code> and <code>mkdir</code>.</p>
+<ul>
+<li><code>touch</code> creates an empty file at the specified path. Think of this like putting an empty piece of paper into a folder.</li>
+<li><code>mkdir</code> creates a new empty folder at the specified path.</li>
+</ul>
+<p>With either touch or mkdir we need to provide a path as the argument. As always, this can be either an absolute or relative path. If you want to create a file or folder in the current directory, you simply give it the name you want!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir module1
+</code></pre></div><p>Whereas if you want to create a file inside a folder that you are not in, say, the module1 folder you just made, you provide a relative or absolute path:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ touch module1/test_file1
+$ touch ~/module1/test_file2
+</code></pre></div><details>
+ <summary><i>Question: What command would you use to list the files you just made?</i> </summary>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls module1
+</code></pre></div></details>
+<p>We may also want to <strong>copy</strong> or <strong>move</strong> files around. We can do so with two commands: <code>cp</code> or <code>mv</code> respectively. (Are you getting an idea that old Unix authors were big fans of abbreviating words or phrases?)</p>
+<ul>
+<li><code>cp</code> requires at least two arguments. The first argument (or arguments) is a path (or paths) for the &ldquo;source file(s)&rdquo; which is/are to be copied. The second/last argument is the &ldquo;destination&rdquo; which can either be a path to a filename (if copying a file) or a folder. After running <code>cp</code> there will be a copy of the file in both locations.</li>
+<li><code>mv</code> works essentially the same way as <code>cp</code>, except that the file is moved and there will no longer be a copy in the original source location.</li>
+</ul>
+<p>Maybe we accidentally make a file in the current directory:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ touch test_file3
+</code></pre></div><p>but we really wanted it to be in the module1 folder. We could move this file to that folder with:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mv test_file3 module1
+</code></pre></div><details>
+ <summary><i>Question: What commands could you run to verify the file is now in the desired folder?</i> </summary>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls 
+$ ls module1
+</code></pre></div><p>The first command would list files in the current folder, which should not contain <code>test_file3</code>. The second lists files in <code>module1</code>, which should now contain all three test files.</p>
+</details>
+<p>Imagine we did want to work with one of these files in our current folder, but didn&rsquo;t want to disrupt our organization. We actually do want <code>test_file2</code> in the current folder. We want to move a file into a current folder. We could provide a full absolute path to our current folder, perhaps with <code>~</code>, but we can also use the <code>.</code> placeholder to use our current working directory as the destination:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cp module1/test_file2 ./
+</code></pre></div><p>Another common file manipulation you are probably familiar with with renaming files. We do not actually need a new command for this, one of our existing commands can do this job!</p>
+<details>
+ <summary><i>Question: Which of the commands we've already learned could be used to rename files?</i> </summary>
+<p>Using <code>mv</code> to move a file into the same folder it already is in, but with a different name, will accomplish renaming the file:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mv test_file2 renamed_test_file
+</code></pre></div></details>
+<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=b962a720-31c4-4904-a7b5-acc201220351&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<p><a href="https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b962a720-31c4-4904-a7b5-acc201220351">Watch the video &ldquo;Deleting Files&rdquo;</a></p>
+<p>Finally, once we are done working with this file (assuming you renamed it to <code>renamed_test_file</code>, we can <strong>delete</strong> or &ldquo;remove&rdquo; it using another command: <code>rm</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rm renamed_test_file
+</code></pre></div><p>Be careful using <code>rm</code>, it does not have a recycle bin feature, once a file is deleted it is <em>gone</em>. For this reason, <code>rm</code> is especially wary of deleting folders. To delete a folder <em>and its contents</em> you need to add a parameter: <code>-r</code> for <strong>r</strong>ecursive:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rm -r module1
+</code></pre></div><details>
+ <summary><i>Question: How do you check whether you've successfully deleted the folder?</i> </summary>
+<p>Use <code>ls</code> in the current folder and see if there is still a <code>module1</code> folder listed.</p>
+</details>
+<p>At this point, your home directory <em>should</em> be clean of all the files we created so far. If you had any trouble with this, please reach out to Dr. Goodson or one of your PRMs via Slack or email.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://training.fire.tryps.in/" >
+    &copy;  2021 FIRE-CB Training Modules 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
