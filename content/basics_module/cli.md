@@ -1,10 +1,13 @@
+---
+title: Using the Command Line
+date: "2021-01-28"
+---
+
 ## Using the Command Line
 
 You have all extensively used computers in your life, whether that is a traditional desktop/laptop or just a smart phone. But so far, you've likely only interacted with computer programs through **graphical user interfaces.** For example, you would use an email client program through a **graphical user interface,** and select various options and buttons depending on what you wanted to do. 
-<p align="center">
-    <img src="https://github.com/saboriocole/fire-cb-2021-training/blob/main/images/GUI%20example.jpeg" width="500" height="300">
-</p>
 
+![Example GUI](/images/GUI%20example.jpeg)
 
 During a single run of the email program, you could, for example, both add a new contact and then edit their name. This is because these programs have **state**: you do something and the program keeps that information in memory.   We will largely be working with **command-line programs** which operate on a drastically different paradigm.
 
@@ -23,9 +26,7 @@ To run a command-line program, you need one or more things:
 
 These different arguments are often combined in a variety of ways. **Options replace extensive and complicated menu systems in graphical programs, while parameters take the place of things like text boxes and tick boxes.** 
 
-<p align="center">
-<img src="https://github.com/saboriocole/fire-cb-2021-training/blob/main/images/CLI%20example.png" width="500" height="300" >
-</p>
+![Example CLI](/images/CLI%20example.png)
 
 We will be practicing using a variety of commands very soon.
 

@@ -1,6 +1,13 @@
+---
+title: Filesystem Navigation
+date: "2021-01-28"
+---
+
 Although I'm sure most of you have some idea about the concepts of "files" or "folders" when it comes to computers, working with command-line programs will probably stretch anyone's intuition about how to talk about, describe, or use files and folders unless they have previously done CLI work.
 
-[![Watch the video "Filesystem Basics"](images/emb_vid.png)](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=198cf321-f6f4-4f88-bc00-acc200e84ea6)
+<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=198cf321-f6f4-4f88-bc00-acc200e84ea6&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+[Watch the video "Filesystem Basics"](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=198cf321-f6f4-4f88-bc00-acc200e84ea6)
 
 ## Thinking about files and paths
 #### Paths
@@ -9,7 +16,7 @@ CLI programs, like we will use, extensively use **paths** pointing to specific f
 
 ![Nested Folders][nested_folders]
 
-[nested_folders]: images/0NestedFolders.webp "Nested Folders"
+[nested_folders]: /images/0NestedFolders.webp "Nested Folders"
 
 Since we frequently need to tell a program to work with a particular file, we need a system or convention for describing where to find a particular file or folder. Since we don't have pop up windows that let us select a particular file and we work primarily with text, this will be a string of text! Think of a street address telling a postal worker how to find a particular house. This address needs to unambiguously describe the particular location as well as increasingly broader general locations.
 
@@ -76,9 +83,11 @@ You can see how both types of path might be more convenient in different circums
 
 ## Navigating a Filesystem with the CLI
 
-At this point, I recommend you complete the first Chapter of the Introduction to [Shell Datacamp Module](https://campus.datacamp.com/courses/introduction-to-shell/manipulating-files-and-directories?ex=1). You must be registered for our DataCamp class for full access to these modules. You may do this instead of or in addition to reading the information in this section. To follow along with the commands in this section you should connect to compute-1.fire.tryps.in through SSH or another app like Termius or RStudio Server as described in [Getting Connected](https://umd.instructure.com/courses/1299512/pages/getting-connected-guide).
+At this point, I recommend you complete the first Chapter of the Introduction to [Shell Datacamp Module](https://campus.datacamp.com/courses/introduction-to-shell/manipulating-files-and-directories?ex=1). You must be registered for our DataCamp class for full access to these modules. I strongly recommend the DataCamps for their interactivity. You may do this instead of or in addition to reading the information in this section. To follow along with the commands in this section you should connect to compute-1.fire.tryps.in through SSH or another app like Termius or RStudio Server as described in [Getting Connected](https://umd.instructure.com/courses/1299512/pages/getting-connected-guide).
 
-[![Watch the video "Initial CLI"](images/emb_vid.png)](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6878ab5e-70b1-4afa-a958-acc200ec37e7)
+<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=6878ab5e-70b1-4afa-a958-acc200ec37e7&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+[Watch the video "Initial CLI"](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6878ab5e-70b1-4afa-a958-acc200ec37e7)
 
 
 ### Entering commands and basic navigation
@@ -142,7 +151,9 @@ $ ls assignments
 
 ### Manipulating files
 
-[![Watch the video "Manipulating Files"](images/emb_vid.png)](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b962a720-31c4-4904-a7b5-acc201220351)
+<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=b962a720-31c4-4904-a7b5-acc201220351&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+[Watch the video "Manipulating Files"](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b962a720-31c4-4904-a7b5-acc201220351)
 
 Everything we have done so far is passive, we haven't made any permanent changes to the system. Obviously to obtain data, save results, or generally accomplish anything, we need to make some changes. The shared folder you are in now is read-only, so that we can't break anything. You should run any example code in the following code blocks. Let's move back to your home folder:
 
@@ -225,7 +236,9 @@ $ mv test_file2 renamed_test_file
 
 </details>
 
-[![Watch the video "Deleting Files"](images/emb_vid.png)](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b962a720-31c4-4904-a7b5-acc201220351)
+<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=b962a720-31c4-4904-a7b5-acc201220351&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+[Watch the video "Deleting Files"](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b962a720-31c4-4904-a7b5-acc201220351)
 
 Finally, once we are done working with this file (assuming you renamed it to `renamed_test_file`, we can **delete** or "remove" it using another command: `rm`:
 

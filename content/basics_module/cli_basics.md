@@ -1,12 +1,19 @@
+---
+title: Manipulating file contents and data
+date: "2021-01-28"
+---
+
 ## Manipulating file contents and data
 
-So far you have learned how to move around a filesystem and how manipulate files and folders, but done nothing with the contents of those files. Its time to change that! You may choose to complete the [DataCamp Chapter Manipulating Data](https://campus.datacamp.com/courses/introduction-to-shell/manipulating-data?ex=1) instead of or in addition to this section.
+So far you have learned how to move around a filesystem and how manipulate files and folders, but done nothing with the contents of those files. Its time to change that! You may choose to complete the [DataCamp Chapter Manipulating Data](https://campus.datacamp.com/courses/introduction-to-shell/manipulating-data?ex=1) instead of or in addition to this section. I strongly recommend the DataCamps for their interactivity.
+
+If you are using ssh to connect to our remote server: [save time connecting with ssh](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f9ad098e-e5b5-4884-9623-acc20122030b).
 
 ### Viewing file contents
 
-[Save time connecting with ssh](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f9ad098e-e5b5-4884-9623-acc20122030b)
+<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=71fb0191-d85a-4e12-b066-acc201220923&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
-<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=71fb0191-d85a-4e12-b066-acc201220923&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="270" width="480" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+[Watch the video "Working with File Contents"](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=71fb0191-d85a-4e12-b066-acc201220923)
 
 While there are some equivalents to "opening" a file on the command-line like you might open a text document in Notepad, TextEdit, or Word (or any other application), we will first focus on more traditional Unix tools for viewing and modifying file contents. 
 
@@ -123,7 +130,9 @@ $ cut -d , -f 1,3 /shared/module1/people/firecb.csv
 
 ### Searching file contents
 
-[![Watch the video "Using grep"](images/emb_vid.png)](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6c52acd5-8d4a-414f-9b14-acc2012203e5)
+<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=6c52acd5-8d4a-414f-9b14-acc2012203e5&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+[Watch the video "Using grep"](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6c52acd5-8d4a-414f-9b14-acc2012203e5)
 
 The final tool we'll learn about in this section completes a missing set up the puzzle. We can create files, delete files, move them around, modify them both manually and programmatically, but how do we search through them? There are separate commands for searing for files themselves and searching through their contents. Here, we are going to focus on searching through specific files. We do this with an amazingly-powerful program called `grep`. `grep` is useful not only through the command line, tools that use the same search scheme are frequent in advanced text and code editing programs.
 

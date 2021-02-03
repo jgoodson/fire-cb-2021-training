@@ -1,8 +1,15 @@
+---
+title: Intermediate CLI Usage
+date: "2021-01-28"
+---
+
 ## More-advanced command-line usage
 
-Previously I promised you that there were some big advantages to command-line tools that leads to people actively using them decades after they were made when there are attractive, graphical alternatives. So far, we haven't really seen anything that can't be trivially done with tools you are more familiar with. That will change now. Like before, you may choose to follow this section here, [in DataCamp](https://campus.datacamp.com/courses/introduction-to-shell/combining-tools?ex=1), or both.
+Previously I promised you that there were some big advantages to command-line tools that leads to people actively using them decades after they were made when there are attractive, graphical alternatives. So far, we haven't really seen anything that can't be trivially done with tools you are more familiar with. That will change now. Like before, you may choose to follow this section here, [in DataCamp](https://campus.datacamp.com/courses/introduction-to-shell/combining-tools?ex=1), or both. I strongly recommend doing the DataCamps.
 
-[![Watch the video "Intermediate Input/Output"](images/emb_vid.png)](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b5f627f3-2ba3-40ee-a40c-acc2012acf5f)
+<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=b5f627f3-2ba3-40ee-a40c-acc2012acf5f&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+[Watch the video "Intermediate Input/Output"](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b5f627f3-2ba3-40ee-a40c-acc2012acf5f)
 
 ### Command input and output
 

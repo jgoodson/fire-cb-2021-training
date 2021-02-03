@@ -1,0 +1,7 @@
+baseURL = "https://training.fire.tryps.in/"
+languageCode = "en-us"
+title = "2021 FIRE-CB Training Modules"
+theme = "ananke"
+
+[markup.goldmark.renderer]
+unsafe= true
