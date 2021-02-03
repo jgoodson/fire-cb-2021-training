@@ -6,7 +6,7 @@ So far you have learned how to move around a filesystem and how manipulate files
 
 [Save time connecting with ssh](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f9ad098e-e5b5-4884-9623-acc20122030b)
 
-[![Watch the video "Working with File Contents"](images/emb_vid.png)](https://umd.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=71fb0191-d85a-4e12-b066-acc201220923)
+<iframe src="https://umd.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=71fb0191-d85a-4e12-b066-acc201220923&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="270" width="480" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
 While there are some equivalents to "opening" a file on the command-line like you might open a text document in Notepad, TextEdit, or Word (or any other application), we will first focus on more traditional Unix tools for viewing and modifying file contents. 
 
