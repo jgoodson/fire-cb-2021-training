@@ -97,7 +97,7 @@ OUTPUT RESULTS
         #### File Type= MSA             Format= fasta_aln       Name= asn4_subset.fasta_aln
 ```
 
-Take a look at the `asn4_subset.fasta_aln` file and ensure this looks like you expect. This aligned file will be our input to the following steps.
+Take a look at the `asn4_subset.fasta_aln` file and ensure this looks like you expect.
 
 ### Performing an MSA with MAFFT
 
@@ -137,7 +137,7 @@ And finally a version which shows that it can be run "in parallel" to take advan
 $ mafft --6merpair --thread -1 --addfragments [othersequences] [referencesequence] > [output]
 ```
 
-**Q9) What command would you use to align our 23 sequences to our reference genome, keeping only the characters in the reference genome, using parallel alignment? Please run this and ensure your output looks as expected. It should contain 24 aligned FASTA sequences. I suggest naming this file `asn4_subset_ref.aln`.**
+**Q9) What command would you use to align our 23 sequences to our reference genome, keeping only the characters in the reference genome, using parallel alignment? Please run this and ensure your output looks as expected. It should contain 24 aligned FASTA sequences. I suggest naming this file `asn4_subset_ref.aln`. We will use this for subsequent steps.**
 
 ## Tree building
 
@@ -231,5 +231,5 @@ You should see that the majority of the sequences have the sequence "AAT, which 
 
 ## Next steps
 
-This concludes the technical component of module 2, COVID Phylogenetics. We will continue this module with our module 2 deliverable. In the deliverable, I will ask your team to perform a similar, slightly longer, analysis on your own selection of data. Good job!
+This concludes the technical component of module 2, COVID Phylogenetics. You should answer each of the 13 questions in a text document and upload it as a doc, docx, or pdf file to Canvas for ASN4b. We will continue this module with our [Module 2 deliverable](https://umd.instructure.com/courses/1299512/assignments/5492680). In the deliverable, I will ask your team to perform a similar, slightly longer, analysis on your own selection of data. Good job!
 

@@ -135,5 +135,5 @@ Betacoronaviruses have some unusual genetic features, where "open reading frames
 
 ## Next steps
 
-This first half of our technical training module asked you to become familiar with how to access viral genomes from the NCBI database, how the sequence and annotation files are formatted, and to begin to think about what information is available to use in these genomes. In the second half, we will obtain more genomes, compare, and analyze them using phylogenetic techniques to learn more about how this pandemic has progressed.
+This first half of our technical training module asked you to become familiar with how to access viral genomes from the NCBI database, how the sequence and annotation files are formatted, and to begin to think about what information is available to use in these genomes. In the [second half](/phylo1_module/intro2/), we will obtain more genomes, compare, and analyze them using phylogenetic techniques to learn more about how this pandemic has progressed.
 
