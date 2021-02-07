@@ -227,7 +227,7 @@ $ cut -c 23063-23065 asn4_subset_ref_oneline.aln
 
 You should see that the majority of the sequences have the sequence "AAT, which indeed codes for an asparagine amino acid. 
 
-**Q13) Which, if any, sequence code for something other than an asparagine? What amino acid(s) are coded for instead? Could this be the "South Africa variant"? (You can use a variety of methods to match up the codons to sequences. You might simply count lines and match them up to the original file. You might use `grep -n` to output line numbers, or a variety of other methods I will let you think up!)**
+**Q13) Which, if any, sequence code for something other than an asparagine? What amino acid(s) are coded for instead? Could this be the "South Africa variant"? Does this make sense given the date of any samples you find and the information from the CNBC article? (You can use a variety of methods to match up the codons to sequences. You might simply count lines and match them up to the original file. You might use `grep -n` to output line numbers, or a variety of other methods I will let you think up!)**
 
 ## Next steps
 
