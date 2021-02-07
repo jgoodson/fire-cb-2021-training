@@ -1,3 +1,8 @@
+---
+title: COVID Phylogenetics Part 1 - MSA and Phylogenetics
+date: "2021-02-07"
+---
+
 ## Phylogenetics
 
 The process of evolution leaves traces in the very genes underlying all life. Mutations happen one or more nucleobases at a time, generally randomly. Through the process of selection, organisms with mutations which are beneficial are more likely to reproduce, organisms with neutral mutations with propagate those at an intermediate rate, and organisms with harmful mutations will be less likely to reproduce. As far as we can tell, time only moves forward, so this process of mutation and selection results in an ever-expanding tree of genetic information, as ancestor genomes split and their different progeny contain distinct mutations in different parts of their genomes. Since we understand how this process works, we can create mathematical models of evolution. With data (genome sequences) we can decide which nucleobases or protein amino acid residues correspond to the same original ancestor position, and back-calculate the path that evolution most likely took to transform one ancestor sequence into all of the available sequences in our dataset. This can be done on ancient time scales, with hundreds or thousands of changes across millions of years, where two sequences may be barely recognizable as having the same ancestor by eye. This can also be done on very short time scales, where we can track individual single nucleobase mutations happening one at a time across a scale of days or weeks. 
@@ -208,7 +213,7 @@ There are a variety of ways that we could tackle this. There is a way to do this
 $ awk '/^[>;]/ { if (seq) { print seq }; seq=""; print } /^[^>;]/ { seq = seq $0 } END { print seq }' asn4_subset_ref.aln > asn4_subset_ref_oneline.aln
 ```
 
-We can also use a nice sequence file toolkit called `seqtk` to do this same task:
+We can also use a nice [sequence file toolkit](https://github.com/lh3/seqtk) called `seqtk` to do this same task:
 
 ```bash
 $ seqtk seq -l 0 asn4_subset_ref.aln > asn4_subset_ref_oneline.aln
