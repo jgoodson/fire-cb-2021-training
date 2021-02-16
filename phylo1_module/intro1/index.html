@@ -40,7 +40,7 @@
 <meta itemprop="description" content="*Note: This assignment has a number of associated questions you&rsquo;ll find as you go through this that need to be submitted on ELMS. Some of these ask you to explain or guess why certain things may be the way that they are. I am not grading on correctness here, rather I am grading based on whether you have completed the assignment and put some thought into the answers. Feel free to discuss these with your group or with me in lab.">
 <meta itemprop="datePublished" content="2021-02-07T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-02-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2457">
+<meta itemprop="wordCount" content="2458">
 
 
 
@@ -193,7 +193,7 @@ wc NC_045512.fasta
 grep GAATTC NC_045512.fasta
 
 </code></pre></div><p><strong>Q4) How many of each base (A, C, G, T, or N) are present in the reference virus? There are multiple ways to answer this. Hint: using <code>grep -o [search_text] [filename]</code> with the <code>-o</code> flag outputs every match on a new line instead of entire matching lines. You can combine this with the <code>wc</code> command in a similar way to how we just combined <code>head</code> and <code>tail</code>.</strong></p>
-<p><em>Optional question: AQ1)</em> * <strong>Restriction sites</strong> are DNA elements targeted by special enzymes known as &ldquo;restriction enzymes&rdquo; which cut DNA at palindromic sequences. How many EcoRI sites are present in chromosome 22? How did you determine this? (This need to be correct, think carefully about how one big contiguous sequence of chromosome is represented in this FASTA file)*</p>
+<p><em>Optional question: AQ1)</em> * <strong>Restriction sites</strong> are DNA elements targeted by special enzymes known as &ldquo;restriction enzymes&rdquo; which cut DNA at palindromic sequences. How many HpaI sites are present in this viral genome? How did you determine this? (This need to be correct, think carefully about how one big contiguous sequence of chromosome is represented in this FASTA file)*</p>
 <h3 id="the-purpose-of-the-reference-genome-files">The purpose of the reference genome files</h3>
 <p>The FASTA reference genome sequence is essential for comparing other virus isolates. This reference represents a virus that existed near the beginning of the pandemic, before most of the spread and potential mutations had a chance to happen. It is a &ldquo;complete sequence&rdquo; representing the whole viral genome and has &ldquo;well-annotated&rdquo; features, letting us find out which of the 29,903 nucleotides represent which genes or protein-coding sequences. If we identify mutants, we probably would want to know where they are and what parts of the virus they might affect in order to guess at what they might do! In order to connect the genome sequence with this extra information, we need that <em>annotation</em>.</p>
 <h3 id="reference-genome-annotation">Reference Genome Annotation</h3>
