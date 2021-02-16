@@ -95,7 +95,7 @@ grep GAATTC NC_045512.fasta
 
 **Q4) How many of each base (A, C, G, T, or N) are present in the reference virus? There are multiple ways to answer this. Hint: using `grep -o [search_text] [filename]` with the `-o` flag outputs every match on a new line instead of entire matching lines. You can combine this with the `wc` command in a similar way to how we just combined `head` and `tail`.**
 
-*Optional question: AQ1)* * **Restriction sites** are DNA elements targeted by special enzymes known as "restriction enzymes" which cut DNA at palindromic sequences. How many EcoRI sites are present in chromosome 22? How did you determine this? (This need to be correct, think carefully about how one big contiguous sequence of chromosome is represented in this FASTA file)*
+*Optional question: AQ1)* * **Restriction sites** are DNA elements targeted by special enzymes known as "restriction enzymes" which cut DNA at palindromic sequences. How many HpaI sites are present in this viral genome? How did you determine this? (This need to be correct, think carefully about how one big contiguous sequence of chromosome is represented in this FASTA file)*
 
 ### The purpose of the reference genome files
 
