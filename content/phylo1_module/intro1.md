@@ -39,7 +39,7 @@ There are (at least) two primary databases with well-organized and available nov
 
 The NCBI has extensive databases for many, many ares of biology ranging from genome sequence ([RefSeq](https://www.ncbi.nlm.nih.gov/refseq/), [GenBank](https://www.ncbi.nlm.nih.gov/genbank/)), to experimental data ([SRA](https://www.ncbi.nlm.nih.gov/sra), [GEO](https://www.ncbi.nlm.nih.gov/geo/), or even scientific papers ([PubMed](https://pubmed.ncbi.nlm.nih.gov/)). NCBI has set up a [special web interface for interacting with the viral genomes in RefSeq and GenBank](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Nucleotide&VirusLineage_ss=Severe%20acute%20respiratory%20syndrome%20coronavirus%202,%20taxid:2697049). You should click on this final link, which should take you to a table. This table is the source for the genome metadata CSV file you used in module 1. The first genome listed (first row of the column) should have a "RefSeq" note next to the accession number.
 
-**Q1) An "Accession" number is a unique identifier for a particular item allowing you to *access* it from a particular database. An item might have more than one accession number for different databases. What is the RefSeq accession number for the SARS-CoV-2 reference genome? What data was this released to the public?**
+**Q1) An "Accession" number is a unique identifier for a particular item allowing you to *access* it from a particular database. An item might have more than one accession number for different databases. What is the RefSeq accession number for the SARS-CoV-2 reference genome? What date was this released to the public?**
 
 First, we should make a directory to do our work for this assignment. You can name this whatever you like or put it wherever you like.
 
@@ -95,7 +95,7 @@ grep GAATTC NC_045512.fasta
 
 **Q4) How many of each base (A, C, G, T, or N) are present in the reference virus? There are multiple ways to answer this. Hint: using `grep -o [search_text] [filename]` with the `-o` flag outputs every match on a new line instead of entire matching lines. You can combine this with the `wc` command in a similar way to how we just combined `head` and `tail`.**
 
-*Optional question: AQ1)* * **Restriction sites** are DNA elements targeted by special enzymes known as "restriction enzymes" which cut DNA at palindromic sequences. How many EcoRI sites are present in chromosome 22? How did you determine this? (This need to be correct, think carefully about how one big contiguous sequence of chromosome is represented in this FASTA file)*
+*Optional question: AQ1)* * **Restriction sites** are DNA elements targeted by special enzymes known as "restriction enzymes" which cut DNA at palindromic sequences. How many HpaI sites are present in this viral genome? How did you determine this? (This need to be correct, think carefully about how one big contiguous sequence of chromosome is represented in this FASTA file)*
 
 ### The purpose of the reference genome files
 
