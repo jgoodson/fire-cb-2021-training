@@ -197,6 +197,8 @@ We do have some extra information, and can make some assumptions. We included th
 
 At this point you could start to manually match up the information from the CSV file with the sequences on the tree, but that is painful and a lot of work. Most tree visualization tools let you add data or annoations to the trees. You can add this manually by going to the "Datasets" tab, hitting "Create a dataset" and entering data manually. To save time you can also create text files containing the annotation and drag-and-drop them onto the iTOL window and have them automatically loaded! I've created one of these for you that will replace the text labels with the accessions with the date the sample was isolated [https://training.fire.tryps.in/date_dataset.txt](https://training.fire.tryps.in/date_dataset.txt). You will need to download this *to your computer* and then drag the file on to your tree in iTOL. I also recommend you open up the text file and look at it. The format is very similar to a normal CSV file with some extra information to tell iTOL how to use it in the drawing. There are [many options for annotating trees in iTOL](https://itol.embl.de/help.cgi#annot).
 
+The iTOL website also has some [very thorough and helpful video tutorials](https://itol.embl.de/video_tutorial.cgi#) covering all topics you may need to know, including the basic user interface, annotating trees, and constructing datasets.
+
 We now have a customized, rooted, and annotated tree! There are many, many possibilities for drawing and annotating trees depending on our biological questions and objectives.
 
 **Q12) Look at the samples that connect near the base of the tree closest to the reference. Is there anything in common with these samples? What about the rest of the tree?**
