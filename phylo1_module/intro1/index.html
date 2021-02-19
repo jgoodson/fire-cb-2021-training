@@ -40,7 +40,7 @@
 <meta itemprop="description" content="*Note: This assignment has a number of associated questions you&rsquo;ll find as you go through this that need to be submitted on ELMS. Some of these ask you to explain or guess why certain things may be the way that they are. I am not grading on correctness here, rather I am grading based on whether you have completed the assignment and put some thought into the answers. Feel free to discuss these with your group or with me in lab.">
 <meta itemprop="datePublished" content="2021-02-07T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-02-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2459">
+<meta itemprop="wordCount" content="2460">
 
 
 
@@ -205,7 +205,7 @@ wget http://training.fire.tryps.in/NC_045512.gff3.gz
 gzip -d NC_045512.gff3.gz
 head -n <span style="color:#ae81ff">20</span> NC_045512.gff3
 
-</code></pre></div><p><strong>Q5) The third column of the gff3 files contain the type of feature. How many different types of features are present in this genome annotation? How many coding sequences (labeled <code>CDS</code>) are there? How many standard <code>gene</code> annotations are there? What could this tell you about the relationship between &ldquo;genes&rdquo; and coding sequences? You may need to combine commands from module 1, including <code>grep</code>, <code>wc</code>, or <code>cut</code>.</strong></p>
+</code></pre></div><p><strong>Q5) The third column of the gff3 files contain the type of feature. How many different types of features are present in this genome annotation? (<a href="https://stackoverflow.com/questions/3502177/how-to-count-number-of-unique-values-of-a-field-in-a-tab-delimited-text-file">hint</a>) How many coding sequences (labeled <code>CDS</code>) are there? How many standard <code>gene</code> annotations are there? What could this tell you about the relationship between &ldquo;genes&rdquo; and coding sequences? You may need to combine commands from module 1, including <code>grep</code>, <code>wc</code>, or <code>cut</code>.</strong></p>
 <h4 id="exploring-annotation-graphically">Exploring annotation graphically</h4>
 <p>You can access a convenient graphical view of the reference genome. You can find the GenBank page for the reference genome by clicking on the Accession in the table, which should pop up a &ldquo;Nucleotide Details&rdquo; window in the table. Clicking on the accession number in this window should take you to the main page for the nucleotide sequence of this virus. The default page is a web page version of a file format named &ldquo;GenBank&rdquo;. This file format shares its name with the GenBank database and is the primary format used for DNA sequences in that database. This format combines annotation, metadata, and sequence all in one file and is extremely convenient, but requires specialized tools or programs to work with that we will save for much later in this stream!</p>
 <p>Once on the GenBank page, there should be two links at the top, immediately under the (long) title of this sequence entry, labeled &ldquo;FASTA&rdquo; and &ldquo;Graphics&rdquo;. The &ldquo;FASTA&rdquo; link will take you to a page with the FASTA sequence you looked at earlier. Following the &ldquo;Graphics&rdquo; link on the other hand, takes you to the integrated GenBank graphical sequence viewing tool. This is a relatively powerful and convenient tool for exploring sequence files! There is a lot going on, so I recommend you watch my video on the NCBI GenBank viewer.</p>
