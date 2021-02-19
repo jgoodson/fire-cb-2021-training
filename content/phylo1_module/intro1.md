@@ -117,7 +117,7 @@ head -n 20 NC_045512.gff3
 
 ```
 
-**Q5) The third column of the gff3 files contain the type of feature. How many different types of features are present in this genome annotation? How many coding sequences (labeled `CDS`) are there? How many standard `gene` annotations are there? What could this tell you about the relationship between "genes" and coding sequences? You may need to combine commands from module 1, including `grep`, `wc`, or `cut`.**
+**Q5) The third column of the gff3 files contain the type of feature. How many different types of features are present in this genome annotation? ([hint](https://stackoverflow.com/questions/3502177/how-to-count-number-of-unique-values-of-a-field-in-a-tab-delimited-text-file)) How many coding sequences (labeled `CDS`) are there? How many standard `gene` annotations are there? What could this tell you about the relationship between "genes" and coding sequences? You may need to combine commands from module 1, including `grep`, `wc`, or `cut`.**
 
 #### Exploring annotation graphically
 
