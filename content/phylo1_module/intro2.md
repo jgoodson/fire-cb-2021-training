@@ -46,68 +46,15 @@ For this assignment, we will be using a dataset of 23 SARS-CoV-2 genome sequence
 **Q8) Open this file up using your choice of text file viewer (`less`, `nano`, etc). This FASTA file has sequence names corresponding to the accession numbers of the virus genomes, all of which are from the same geographical region. Using the web interface to search for a few of the accessions, what geographical region are these sequences from?**
 
 
-### Performing an MSA with T-COFFEE
-
-We are going to use a program called T-COFFEE to perform our multiple sequence alignment. In practice, T-COFFEE is a large package that can use a huge variety of methods to perform MSA and more. 
-
-http://www.tcoffee.org/Projects/tcoffee/index.html
-
-T-COFFEE has been pre-installed on compute-1 for you, so you do not need to install anything. T-COFFEE is also available as a web service which you can use online:
-
-http://tcoffee.crg.cat/
-
-Performing an alignment with T-COFFEE can be complicated, as there are many parameters, but performing an alignment can also be as simple as running:
-
-```bash
-$ t_coffee -seq [sequence file]
-```
-
-We use the `-seq` flag to tell T-COFFEE to look for sequences in the `[sequence file]` paramter. If you run this in your ASN4 folder with the file name of the virus FASTA file you downloaded, you should get quite a bit of output, first, some output describing what T_COFFEE is doing, followed by a large alignment, and finally a summary of the output, that may look something like this:
-
-```
-OUTPUT RESULTS
-        #### File Type= GUIDE_TREE      Format= newick          Name= asn4_subset.dnd
-        #### File Type= MSA             Format= aln             Name= asn4_subset.aln
-        #### File Type= MSA             Format= html            Name= asn4_subset.html
-
-# Command Line: t_coffee asn4_subset.fasta  [PROGRAM:T-COFFEE]
-# T-COFFEE Memory Usage: Current= 30.267 Mb, Max= 32.478 Mb
-# Results Produced with T-COFFEE Version_13.41.15.6eaf8df (2020-03-31 17:38:31 - Revision 8874b4a - Build 480)
-# T-COFFEE is available from http://www.tcoffee.org
-# Register on: https://groups.google.com/group/tcoffee/
-```
-
-We have three output files, a "guide tree" in `asn4_subset.dnd`, and MSA (alignment) files in `asn4_subset.aln` and `asn4_subset.html`. The HTML file is a formated web page that I encourage you to download to your own computer and open in your browser. The other appears to be an `.aln` file. This is the computer-readable alignment output we want.
-
-**Q9) Open this `.aln` file up using your choice of text file viewer (`less`, `nano`, etc). Is this a FASTA format file? If not, can you tell what file format this is?**
-
-It turns out T-COFFEE doesn't default to creating the FASTA alignment file we want. Fortunately, T-COFFEE is flexible and has an option to let us specify what output we would like. You can find this feature and many more in the T-COFFEE documentation:
-
-http://www.tcoffee.org/Projects/tcoffee/documentation/index.html#document-tcoffee_quickstart
-
-```bash
-$ t_coffee -seq [sequence file] -output=fasta_aln
-```
-
-Again, you will see essentially the same output, except now you get these results:
-
-```
-OUTPUT RESULTS
-        #### File Type= GUIDE_TREE      Format= newick          Name= asn4_subset.dnd
-        #### File Type= MSA             Format= fasta_aln       Name= asn4_subset.fasta_aln
-```
-
-Take a look at the `asn4_subset.fasta_aln` file and ensure this looks like you expect.
-
 ### Performing an MSA with MAFFT
 
-You may have noticed that even with only 23 sequences, T-COFFEE took a few seconds to compute the MSA. These types of algorithms do not scale well, a program that takes 5 seconds for twelve sequence may take minutes for 100 sequences, hours for thousands, and many days for ten thousand. In some situations, we would like to perform analyses on much larger sets of sequences, and (basic) T-COFFEE is not suitable. There are a huge variety of programs which can perform multiple sequence alignments with a wide range of speeds and accuracy. One flexible, high-performing tool is called MAFFT. 
+There are a huge variety of programs which can perform multiple sequence alignments with a wide range of speeds and accuracy. One flexible, high-performing tool is called MAFFT. 
 
 https://mafft.cbrc.jp/alignment/software/
 
-Again, MAFFT has been pre-installed for you. MAFFT is capable of aligning thousands of sequences very quickly with reasonable accuracy. Additionally, it has recently been updated with options targetting the needs of SARS-CoV-2 work, quickly aligning many long, but very similar, sequences.
+MAFFT has been pre-installed for you. MAFFT is capable of aligning thousands of sequences very quickly with reasonable accuracy. Additionally, it has recently been updated with options targetting the needs of SARS-CoV-2 work, quickly aligning many long, but very similar, sequences.
 
-MAFFT is even simpler to run than T-COFFEE. You can simply run `mafft` with the FASTA filename as the only argument. Unlikely T-COFFEE, which outputs the alignment and other data directly to files, MAFFT outputs the alignment to standard output, so we need to redirect the output:
+You can simply run `mafft` with the FASTA filename as the only argument. MAFFT outputs the alignment to standard output, so we need to redirect the output:
 
 ```bash
 $ mafft asn4_subset.fasta > asn4_subset.aln
@@ -137,7 +84,7 @@ And finally a version which shows that it can be run "in parallel" to take advan
 $ mafft --6merpair --thread -1 --addfragments [othersequences] [referencesequence] > [output]
 ```
 
-**Q9) What command would you use to align our 23 sequences to our reference genome, keeping only the characters in the reference genome, using parallel alignment? Please run this and ensure your output looks as expected. It should contain 24 aligned FASTA sequences. I suggest naming this file `asn4_subset_ref.aln`. We will use this for subsequent steps.**
+**Q8) What command would you use to align our 23 sequences to our reference genome, keeping only the characters in the reference genome, using parallel alignment? Please run this and ensure your output looks as expected. It should contain 24 aligned FASTA sequences. I suggest naming this file `asn4_subset_ref.aln`. We will use this for subsequent steps.**
 
 ## Tree building
 
@@ -175,7 +122,7 @@ FastTree works on the standard Unix syntax, and sends the output Newick tree fil
 
 FastTree is a sort of "quick and dirty" method of alignment, without many options or the highest degree of accuracy, but it is often good for simple problems or exploratory work, and is as the name implies, quite fast. For more in-depth approaches we will later learn about other tools including IQ-TREE2. 
 
-**Q10) Identify the "support values" for the tree in the Newick file. How confident, on average, would you say the program is about this tree? What about the specific values makes you say that?**
+**Q9) Identify the "support values" for the tree in the Newick file. How confident, on average, would you say the program is about this tree? What about the specific values makes you say that?**
 
 ## Tree Visualization with iTOL
 
@@ -191,7 +138,7 @@ This tree represents a likely way that these viruses evolved from a common ances
 
 By default, all tree reconstruction algorithms output "unrooted trees" since you require additional information or assumptions to decide where the root, or original common ancestor of the sequences, is in a tree. If you take a look at the menu at the top right, the first option is "Display Mode". Click "Unrooted" to have iTOL draw the tree in a manner that does not assume a specific common ancestor. 
 
-**Q11) Where does the reference genome fit in the overall shape of this unrooted tree? (You may want to increase the size of the "Branch lines" and "Dashed lines" to better view the structure of the tree, depending on your browser)**
+**Q10) Where does the reference genome fit in the overall shape of this unrooted tree? (You may want to increase the size of the "Branch lines" and "Dashed lines" to better view the structure of the tree, depending on your browser)**
 
 We do have some extra information, and can make some assumptions. We included the reference genome from late 2019. We can make *an assumption* that the common ancestor of the virus in the Wuhan patient was likely closer to the common ancestor than all the Texas samples from at least several months later. You probably want to return the "Display mode" to "Normal". Click on the reference virus in the tree, go to "Tree Structure" and choose "Re-root the tree here". 
 
@@ -201,7 +148,7 @@ The iTOL website also has some [very thorough and helpful video tutorials](https
 
 We now have a customized, rooted, and annotated tree! There are many, many possibilities for drawing and annotating trees depending on our biological questions and objectives.
 
-**Q12) Look at the samples that connect near the base of the tree closest to the reference. Is there anything in common with these samples? What about the rest of the tree?**
+**Q11) Look at the samples that connect near the base of the tree closest to the reference. Is there anything in common with these samples? What about the rest of the tree?**
 
 ## Identifying mutations
 
@@ -235,7 +182,7 @@ $ cut -c 23063-23065 asn4_subset_ref_oneline.aln
 
 You should see that the majority of the sequences have the sequence "AAT, which indeed codes for an asparagine amino acid. 
 
-**Q13) Which, if any, sequence code for something other than an asparagine? What amino acid(s) are coded for instead? Could this be the "South Africa variant"? Does this make sense given the date of any samples you find and the information from the CNBC article? (You can use a variety of methods to match up the codons to sequences. You might simply count lines and match them up to the original file. You might use `grep -n` to output line numbers, or a variety of other methods I will let you think up!)**
+**Q12) Which, if any, sequence code for something other than an asparagine? What amino acid(s) are coded for instead? Could this be the "South Africa variant"? Does this make sense given the date of any samples you find and the information from the CNBC article? (You can use a variety of methods to match up the codons to sequences. You might simply count lines and match them up to the original file. You might use `grep -n` to output line numbers, or a variety of other methods I will let you think up!)**
 
 ## Next steps
 
