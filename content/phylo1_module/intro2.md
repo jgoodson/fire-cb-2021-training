@@ -1,5 +1,5 @@
 ---
-title: COVID Phylogenetics Part 1 - MSA and Phylogenetics
+title: COVID Phylogenetics Part 2 - MSA and Phylogenetics
 date: "2021-02-07"
 ---
 
