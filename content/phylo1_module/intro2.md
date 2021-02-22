@@ -84,7 +84,7 @@ And finally a version which shows that it can be run "in parallel" to take advan
 $ mafft --6merpair --thread -1 --addfragments [othersequences] [referencesequence] > [output]
 ```
 
-**Q8) What command would you use to align our 23 sequences to our reference genome, keeping only the characters in the reference genome, using parallel alignment? Please run this and ensure your output looks as expected. It should contain 24 aligned FASTA sequences. I suggest naming this file `asn4_subset_ref.aln`. We will use this for subsequent steps.**
+**Q9) What command would you use to align our 23 sequences to our reference genome, keeping only the characters in the reference genome, using parallel alignment? Please run this and ensure your output looks as expected. It should contain 24 aligned FASTA sequences. I suggest naming this file `asn4_subset_ref.aln`. We will use this for subsequent steps.**
 
 ## Tree building
 
@@ -122,7 +122,7 @@ FastTree works on the standard Unix syntax, and sends the output Newick tree fil
 
 FastTree is a sort of "quick and dirty" method of alignment, without many options or the highest degree of accuracy, but it is often good for simple problems or exploratory work, and is as the name implies, quite fast. For more in-depth approaches we will later learn about other tools including IQ-TREE2. 
 
-**Q9) Identify the "support values" for the tree in the Newick file. How confident, on average, would you say the program is about this tree? What about the specific values makes you say that?**
+**Q10) Identify the "support values" for the tree in the Newick file. How confident, on average, would you say the program is about this tree? What about the specific values makes you say that?**
 
 ## Tree Visualization with iTOL
 
@@ -138,7 +138,7 @@ This tree represents a likely way that these viruses evolved from a common ances
 
 By default, all tree reconstruction algorithms output "unrooted trees" since you require additional information or assumptions to decide where the root, or original common ancestor of the sequences, is in a tree. If you take a look at the menu at the top right, the first option is "Display Mode". Click "Unrooted" to have iTOL draw the tree in a manner that does not assume a specific common ancestor. 
 
-**Q10) Where does the reference genome fit in the overall shape of this unrooted tree? (You may want to increase the size of the "Branch lines" and "Dashed lines" to better view the structure of the tree, depending on your browser)**
+**Q11) Where does the reference genome fit in the overall shape of this unrooted tree? (You may want to increase the size of the "Branch lines" and "Dashed lines" to better view the structure of the tree, depending on your browser)**
 
 We do have some extra information, and can make some assumptions. We included the reference genome from late 2019. We can make *an assumption* that the common ancestor of the virus in the Wuhan patient was likely closer to the common ancestor than all the Texas samples from at least several months later. You probably want to return the "Display mode" to "Normal". Click on the reference virus in the tree, go to "Tree Structure" and choose "Re-root the tree here". 
 
@@ -148,7 +148,7 @@ The iTOL website also has some [very thorough and helpful video tutorials](https
 
 We now have a customized, rooted, and annotated tree! There are many, many possibilities for drawing and annotating trees depending on our biological questions and objectives.
 
-**Q11) Look at the samples that connect near the base of the tree closest to the reference. Is there anything in common with these samples? What about the rest of the tree?**
+**Q12) Look at the samples that connect near the base of the tree closest to the reference. Is there anything in common with these samples? What about the rest of the tree?**
 
 ## Identifying mutations
 
@@ -182,7 +182,7 @@ $ cut -c 23063-23065 asn4_subset_ref_oneline.aln
 
 You should see that the majority of the sequences have the sequence "AAT, which indeed codes for an asparagine amino acid. 
 
-**Q12) Which, if any, sequence code for something other than an asparagine? What amino acid(s) are coded for instead? Could this be the "South Africa variant"? Does this make sense given the date of any samples you find and the information from the CNBC article? (You can use a variety of methods to match up the codons to sequences. You might simply count lines and match them up to the original file. You might use `grep -n` to output line numbers, or a variety of other methods I will let you think up!)**
+**Q13) Which, if any, sequence code for something other than an asparagine? What amino acid(s) are coded for instead? Could this be the "South Africa variant"? Does this make sense given the date of any samples you find and the information from the CNBC article? (You can use a variety of methods to match up the codons to sequences. You might simply count lines and match them up to the original file. You might use `grep -n` to output line numbers, or a variety of other methods I will let you think up!)**
 
 ## Next steps
 
