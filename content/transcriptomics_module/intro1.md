@@ -58,7 +58,7 @@ Since this file is compressed, we won't be able to work with it directly. The `.
 
 Note: Whenever I give you a command with an element in `[square brackets]` that is just a placeholder. You should replace everything, including the brackets, with the text you need (in this case the filename of the file you just downloaded).
 
-Q1) What does this do to the file and file name? (Check with `ls -lh` before and after)
+**Q1) What does this do to the file and file name? (Check with `ls -lh` before and after)**
 
 Take a look inside the chr22 sequence file to look at the general format of the FASTA files:
 
@@ -78,7 +78,7 @@ head -n 425000 [filename] | tail
 
 ```
 
-Q3) Do the beginning and middle of the file look similar? Why might one part be different than another? (Speculation is good here, I'm not judging based on correctness)
+**Q2) Do the beginning and middle of the file look similar? Why might one part be different than another? (Speculation is good here, I'm not judging based on correctness)**
 
 ### The purpose of the reference genome files
 
@@ -116,7 +116,7 @@ ATCGATGGGACGATGTATGCGTATG
 
 The sequence name line always starts with the `>` character.
 
-Q5) How many transcripts are in each version of the cDNA sequence files? (Hint: if you use the `>` symbol in a command line and you want to mean it is a text character, you should put it in quote `">"`, otherwise it will be used as a special character like the `|`.)
+**Q3) How many transcripts are in each version of the cDNA sequence files? (Hint: if you use the `>` symbol in a command line and you want to mean it is a text character, you should put it in quote `">"`, otherwise it will be used as a special character like the `|`.)**
 
 ### The purpose of the reference transcript files
 
@@ -138,7 +138,7 @@ head -n 20 Homo_sapiens.GRCh38.86.chromosome.22.gff3
 
 ```
 
-Q6) [TODO COME UP WITH A NEW QUESTION]
+**Q4) [TODO COME UP WITH A NEW QUESTION]**
 
 ###  The purpose of the reference sequence annotation
 
@@ -162,7 +162,7 @@ The `BioProject` entries themselves often contain only a brief summary of the ex
  
 ![Run selector](images/SRASelector.png)
  
-Q7) How many RNA-seq datasets are present in this project? How many of these correspond to samples from healthy patients and how many to patients who retested positive? What other potentially import biological variables can you find in the annotation for these experiments?
+**Q5) How many RNA-seq datasets are present in this project? How many of these correspond to samples from healthy patients and how many to patients who retested positive? What other potentially import biological variables can you find in the annotation for these experiments?**
  
 ### Downloading raw data
  
@@ -185,7 +185,7 @@ gzip -dc /shared/data/transcriptomics/SRR13639979_2.fastq.gz | head
 
 ```
 
-Q9) Given the output of the previous command, how can you tell which read from file 1 corresponds to its paired read in file 2? (Hint: look at what is similar between the first lines of the FASTQ files)
+**Q6) Given the output of the previous command, how can you tell which read from file 1 corresponds to its paired read in file 2? (Hint: look at what is similar between the first lines of the FASTQ files)**
 
 ### Initial quality control
 
@@ -195,7 +195,7 @@ There are several programs designed to generally analyze the output from high-th
 
 If you choose to run FastQC on your own computer, ensure that you have at least 15 GB of free space on your hard drive first. This method is also only advisable if you are on a fast on-campus internet connection. Finally, you will need Java installed on your computer. If none of these apply, please don't use this method and skip to method 2. Download FastQC from the link above, choosing either "FastQC v0.11.8 (Win/Linux zip file)" if you run Windows or "FastQC v0.11.8 (Mac DMG image)" if you have a Mac. Extract the file you downloaded and run FastQC following the instructions for either version.
 
-Next, you will pick one of the SRA datasets from `transcriptomics` folder. **Do not use the SRR13639979 dataset in the examples.** Connect to the server with your SFTP program of choice and navigate to `/shared/data/`. Enter either the `tcruzi` or `leishmania` folders and download one dataset (both the `_1.fastq.gz` and `_2.fastq.gz` files). Finally, in the FastQC program go to the open file menu, navigate to, and select the two `.fastq.gz` files you downloaded from the server. This will take a few minutes to analyze both files and should show you the progress as it works.
+Next, you will pick one of the SRA datasets from `transcriptomics` folder. **Do not use the SRR13639979 dataset in the examples.** Connect to the server with your SFTP program of choice and navigate to `/shared/data/transcriptomics`. Download one dataset to your computer (both the `_1.fastq.gz` and `_2.fastq.gz` files). Finally, in the FastQC program go to the open file menu, navigate to, and select the two `.fastq.gz` files you downloaded from the server. This will take a few minutes to analyze both files and should show you the progress as it works.
 
 #### Run FastQC remotely on compute-1 and download the results
  
@@ -214,9 +214,9 @@ After this completes, running `ls` in your current (output) directory should sho
 
 Once you have the results for both files, take a look through the different results sections. For the following questions you may want to refer to this guide from Michigan State University for help interpreting the results: https://rtsf.natsci.msu.edu/genomics/tech-notes/fastqc-tutorial-and-faq/
 
-Q10) Compare the html files results from both of the read 1 and read 2 files you analyzed. Do you notice any differences between them? How many reads were present in the dataset you chose?
+**Q7) Compare the html files results from both of the read 1 and read 2 files you analyzed. Do you notice any differences between them? How many reads were present in the dataset you chose?**
 
-Q11) Did any of the FastQC analysis modules flag potential problems? For each problem, refer to the MSU guide. Do you think we should worry about these problems? If not, why not? If so, what might we do to address the problem?
+**Q8) Did any of the FastQC analysis modules flag potential problems? For each problem, refer to the MSU guide. Do you think we should worry about these problems? If not, why not? If so, what might we do to address the problem?**
 
 
 # 2-ii. Aligning our RNA-Seq reads
@@ -280,7 +280,7 @@ tail counts/[output name]/quant.sf
 
 You should construct and run a command to count the transcripts in the SRR13639979 sample. It will output some progress as it runs and will take a few minutes to complete.
 
-Q?) What command did you run? How many lines are in the out file? Look up how many genes are in the human genome. Does the number of lines match up with this? Should it? (Speculation is good at the end here)
+**Q9) What command did you run? How many lines are in the out file? Look up how many genes are in the human genome. Does the number of lines match up with this? Should it? (Speculation is good at the end here)**
 
 We can see that Salmon quantification output has five tab-delimited columns: Name, Length, EffectiveLength, TPM, NumReads.
 

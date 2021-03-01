@@ -24,14 +24,14 @@ If we combine this assumption with the assumption that cells on average contain 
 
 If sample 2 ends up having more reads, we would say that BRCA2 is "over-expressed" in sample 2 compared to sample 1, that the cells were making more of that mRNA, and probably more of the corresponding protein. If there are fewer reads, the opposite is likely true, that this gene is "under-expressed" in sample 2 compared to sample 1. 
 
-**Q2) Assume that Sample A has 112 million reads and that Sample B has 78 million reads. We count the number of reads mapping to TNF in sample A and there are 300,000. If sample B had twice as much TNF mRNA to begin with, how many TNF reads would be expect to get from sample B?**
+**Q10) Assume that Sample A has 112 million reads and that Sample B has 78 million reads. We count the number of reads mapping to TNF in sample A and there are 300,000. If sample B had twice as much TNF mRNA to begin with, how many TNF reads would be expect to get from sample B?**
 
 This simple normalization with the total number of reads found in each sample generally works well for comparing the same gene in each dataset. There are two additional, common complications:
 
 1. If we want to compare two different transcripts in the same dataset, the number of reads each will get is proportional both to the number of mRNAs per cell, but also to the length of each transcript. Accounting for this leads to a very commonly used normalization method: RPKMs. This stands for Reads Per-Kilobase per Million mapped reads. RPKM = reads\*(1,000/transcript_length)\*(1,000,000/total_reads)  This accounts for both total reads (library size) and transcription length. Choosing to normalize to transcript length in kilobases and library size in millions of reads is largely historical and convenient: it results in nice numbers in the 1-4 digit range for most genes.
 2. It is not always safe to assume that all cells have the same amount of RNA on average. Especially in the case that there are a few very highly expressed genes, it may be a safer assumption to assume that *most* genes are unchanged and present in similar numbers in all cells. There are a variety of methods that have been developed that utilize the number of reads coming from average genes, excluding extreme outliers in expression. These methods are often included in statistical software tool that analyze differential expression, and the normalization method used in our program, DESeq2, works something like this.
 
-**Q3) One of our sequencing samples has 58 million reads. The CD70 transcript had 50,000 reads and is 911 bases long. What is the RPKM-normalized expression value for this gene in this sample?**
+**Q11) One of our sequencing samples has 58 million reads. The CD70 transcript had 50,000 reads and is 911 bases long. What is the RPKM-normalized expression value for this gene in this sample?**
 
 ### Differential expression: fold-changes
 
@@ -56,7 +56,7 @@ One part of the puzzle of how to look at our data changes in comparison to our r
 
 One final touch, which we tend to use when doing lots of math or statistics, is to formalize this by applying the logarithmic transformation not just to the plot, but directly to the fold-change ratios we calculated. If we simply take the base-2 (or base-10) logarithm, we get log fold-changes which we can plot directly, and get that same symmetric relationship, doubling or halving a value has the same magnitude of change when we visualize it, just in different directions! Many of the tools we might use for expression analysis take advantage of this log-transformation technique both for visualization as well as for statistical purposes.
 
-**Q4) If a gene has 28000 normalized reads in sample A and 49000 in sample B, what is the fold-change of this gene in sample B compared to sample A? What is the log2 fold-change?**
+**Q12) If a gene has 28000 normalized reads in sample A and 49000 in sample B, what is the fold-change of this gene in sample B compared to sample A? What is the log2 fold-change?**
 
 ### The final component: experimental design
 
@@ -133,7 +133,7 @@ We can load this into R by using the `read.csv` function
 sampleInfo <- read.csv('/storage/data/transcriptomics/sampletable.csv')
 ```
 
-**Q5) What labels are we using for each of the two variables? What are the values used for each one? (look at `sampleInfo` using R. You can just type the variable name into the console and hit return/enter)** 
+**Q13) What labels are we using for each of the two variables? What are the values used for each one? (look at `sampleInfo` using R. You can just type the variable name into the console and hit return/enter)** 
 
 DESeq2 includes special functions for directly importing transcript quantification data, which is perfect for us! These functions needs three things. It needs the list of file names, the program that made the quantification files, and finally a mapping from transcripts to genes.
 
@@ -181,7 +181,7 @@ dds <- dds[keep,]
 dds
 ```
 
-**Q6) Compare the output of listing the dds object before and after we did the filtering. What changed? How many genes are left?**
+**Q14) Compare the output of listing the dds object before and after we did the filtering. What changed? How many genes are left?**
 
 You can take a direct look at the data by running
 
