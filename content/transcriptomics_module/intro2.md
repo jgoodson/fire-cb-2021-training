@@ -6,11 +6,11 @@ date: "2021-02-24"
 
 ## Differential Expression
 
-<img src="Images/mRNAvReads.png" width="500">
+<img src="images/mRNAvReads.png" width="500">
 
 At its core, transcriptomics seeks to study differences in the abundance of distinct RNA transcripts. We start with different biological samples that all have different numbers of each mRNA (Upper half of figure). Through the process of sequencing and then alignment, we get a certain number of these sequence reads matching with each mRNA-producing gene sequence (Lower half of figure). The hope, if the experiment works as planned, is that the number of reads corresponding to each sequence is proportional to the number of mRNAs in the starting cell. This is usually the case, with a few caveats.
 
-<img src="Images/tracking.png" width="500">
+<img src="images/tracking.png" width="500">
 
 The first caveat is that during the multi-step process of transforming mRNA to DNA and then sequencing it, you effectively lose track of how much RNA was in each sample to begin with. If we start with slightly different amounts of cells, and our cells generally have the same amount of mRNA in each cell (similar samples should!) then the amount of RNA extract will be roughly proportional (if our lab tech is good). When we convert our purified mRNA into DNA for sequencing, we will end up with more DNA, probably roughly proportional, but depending on technique we might have more or less amplification in each sample. Finally, when we actually sequence each sample, the number of reads we get can vary significantly depending on some subtle properties of each sample as well as the evenness with which the lab tech mixes the samples together. It is very easy, at this step, to have substantially different amounts of reads for each sample, in any direction.
 
@@ -48,7 +48,7 @@ Imagine this scenario. For a particular gene in sample A, we have twice as much 
 
 The first two are convenient, but only work with a few ratios for which we have nice english words. The second two work well, they are symmetric, so that the inverse of the ratio uses the same number (2-fold) but applies this to either an increase or decrease in abundance. The final two are perhaps most familiar for arbitrary ratios, and are directly describing the abundance. These have a big downside though, as a gene increases you get larger and large numbers, while decreases result in ever smaller fractions. This issue parallels an issue we have when trying to illustrate these types of changes graphically.
 
-<img src="Images/changes.png" width="500">
+<img src="images/changes.png" width="500">
 
 If we take a normalized dataset with three samples and two genes as shown above, we can describe the situation this way. We take sample A to be our "reference", a baseline or control sample. Both gene 1 and gene 2 have similar levels of expression in this dataset. In sample B both genes are increased substantially, by either 4-fold or 400-fold, while in sample C these genes are decreased by the same ratios. If we plot the normalized values directly, the plot for gene 1 looks pretty representative of what we expect, but because of the huge differences in gene 2, it is nearly impossible to tell the difference between samples A and C! It is also nearly impossible to compare both genes on the same plot.
 
@@ -92,7 +92,7 @@ In this way we can have a complicated multi-variable experiment and simultaneous
 
 The tool we will use for differential expression analysis in this stream is called DESeq2. This is available as a library for the R programming language. You may have been exposed to a program called RStudio in the past. This is a graphical program that lets you use the R interpreter like you have in the DataCamp ASN4, but also includes a text editor and graphical viewers for individual variables and files. For this lab we will use a special version of RStudio, called RStudio Server, that is available via website and runs on the same server that we connect to the command line via Termius. To access RStudio Server, browse to http://rstudio.fire.tryps.in and log in with your Terpmail account.
 
-<img src="Images/rstudio.png" width="500">
+<img src="images/rstudio.png" width="500">
 
 DESeq2 is available at 
 
