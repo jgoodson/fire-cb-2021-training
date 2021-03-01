@@ -7,5 +7,5 @@ date: "2021-02-24"
 
 ## Submission
 
-This assignment will be linked on ELMS and there should be a submission form for . You should submit this assignment individually. Feel free to work with and discuss the process and questions with teammates, other classmates, or peer mentors.
+This assignment will be linked on ELMS and there should be a submission form for ASN6b. You should submit this assignment individually. Feel free to work with and discuss the process and questions with teammates, other classmates, or peer mentors.
 
