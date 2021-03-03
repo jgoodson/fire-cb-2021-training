@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Transcriptomics Part 2 - Differential Expression Analysis | 2021 FIRE-CB Training Modules</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Differential Expression At its core, transcriptomics seeks to study differences in the abundance of distinct RNA transcripts. We start with different biological samples that all have different numbers of each mRNA (Upper half of figure). Through the process of sequencing and then alignment, we get a certain number of these sequence reads matching with each mRNA-producing gene sequence (Lower half of figure). The hope, if the experiment works as planned, is that the number of reads corresponding to each sequence is proportional to the number of mRNAs in the starting cell.">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+
+  
+  
+    <link rel="stylesheet" href="/ananke/dist/main.css_5c99d70a7725bacd4c701e995b969fea.css" >
+  
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Transcriptomics Part 2 - Differential Expression Analysis" />
+<meta property="og:description" content="Differential Expression At its core, transcriptomics seeks to study differences in the abundance of distinct RNA transcripts. We start with different biological samples that all have different numbers of each mRNA (Upper half of figure). Through the process of sequencing and then alignment, we get a certain number of these sequence reads matching with each mRNA-producing gene sequence (Lower half of figure). The hope, if the experiment works as planned, is that the number of reads corresponding to each sequence is proportional to the number of mRNAs in the starting cell." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://training.fire.tryps.in/transcriptomics_module/intro2/" />
+<meta property="article:published_time" content="2021-02-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-24T00:00:00+00:00" />
+<meta itemprop="name" content="Transcriptomics Part 2 - Differential Expression Analysis">
+<meta itemprop="description" content="Differential Expression At its core, transcriptomics seeks to study differences in the abundance of distinct RNA transcripts. We start with different biological samples that all have different numbers of each mRNA (Upper half of figure). Through the process of sequencing and then alignment, we get a certain number of these sequence reads matching with each mRNA-producing gene sequence (Lower half of figure). The hope, if the experiment works as planned, is that the number of reads corresponding to each sequence is proportional to the number of mRNAs in the starting cell.">
+<meta itemprop="datePublished" content="2021-02-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-02-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3979">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Transcriptomics Part 2 - Differential Expression Analysis"/>
+<meta name="twitter:description" content="Differential Expression At its core, transcriptomics seeks to study differences in the abundance of distinct RNA transcripts. We start with different biological samples that all have different numbers of each mRNA (Upper half of figure). Through the process of sequencing and then alignment, we get a certain number of these sequence reads matching with each mRNA-producing gene sequence (Lower half of figure). The hope, if the experiment works as planned, is that the number of reads corresponding to each sequence is proportional to the number of mRNAs in the starting cell."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        2021 FIRE-CB Training Modules
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        TRANSCRIPTOMICS MODULE
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://training.fire.tryps.in/transcriptomics_module/intro2/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://training.fire.tryps.in/transcriptomics_module/intro2/&amp;text=Transcriptomics%20Part%202%20-%20Differential%20Expression%20Analysis" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://training.fire.tryps.in/transcriptomics_module/intro2/&amp;title=Transcriptomics%20Part%202%20-%20Differential%20Expression%20Analysis" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Transcriptomics Part 2 - Differential Expression Analysis</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-02-24T00:00:00Z">February 24, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="differential-expression">Differential Expression</h2>
+<img src="images/mRNAvReads.png" width="500">
+<p>At its core, transcriptomics seeks to study differences in the abundance of distinct RNA transcripts. We start with different biological samples that all have different numbers of each mRNA (Upper half of figure). Through the process of sequencing and then alignment, we get a certain number of these sequence reads matching with each mRNA-producing gene sequence (Lower half of figure). The hope, if the experiment works as planned, is that the number of reads corresponding to each sequence is proportional to the number of mRNAs in the starting cell. This is usually the case, with a few caveats.</p>
+<img src="images/tracking.png" width="500">
+<p>The first caveat is that during the multi-step process of transforming mRNA to DNA and then sequencing it, you effectively lose track of how much RNA was in each sample to begin with. If we start with slightly different amounts of cells, and our cells generally have the same amount of mRNA in each cell (similar samples should!) then the amount of RNA extract will be roughly proportional (if our lab tech is good). When we convert our purified mRNA into DNA for sequencing, we will end up with more DNA, probably roughly proportional, but depending on technique we might have more or less amplification in each sample. Finally, when we actually sequence each sample, the number of reads we get can vary significantly depending on some subtle properties of each sample as well as the evenness with which the lab tech mixes the samples together. It is very easy, at this step, to have substantially different amounts of reads for each sample, in any direction.</p>
+<p>We might think this is going to cause us a lot of problems! What does it mean to have 100,000 reads for the BRCA2 gene in one sample and 200,000 reads for the same gene in another sample if those numbers are arbitrary based on the quirks of pipetting by our lab tech? If we could go backwards and calculate from the exact number of cells in each sample we might be able to normalize these numbers to the original number of cells. If the first sample has 100,000 reads for BRCA2 and 29,000 cells total then we could calculate how many reads from BRCA2 mRNA were found for each original cell (100000/290000~=3.5). <em>This makes a pretty big assumption: that all of the steps between counting 29,000 cells and sequence were all perfectly performed and identical for each sample</em> <strong>This is a bad assumption to make.</strong></p>
+<h3 id="total-read-normalization">Total read normalization</h3>
+<p>If assuming every step worked perfectly is out, how can we use this data? A safer assumption is that, rather than every step working perfectly the same on every sample, following the same protocol should treat each individual mRNA in each sample the same way. Put another way, if our protocol works well, we can assume that if we started with 10 picograms of BRCA2 mRNA and 20 picograms of TNF mRNA, we should get roughly twice as many reads mapping to the TNF gene than the BRCA2 gene. I am not going to prove this here, but over the years this assumption has been generally validated for common RNA-sequencing protocols and machines.</p>
+<p>If we combine this assumption with the assumption that cells on average contain the same amount of RNA, we can compare the same gene in different samples by normalizing to the total number of reads. If there are 100,000 reads of BRCA2 in sample 1, which had 83 million reads total, we could assume that BRCA2 made up 1e5/83e6=0.12% of the total mRNA pool. If sample 2 had 96 million reads and reads with similar amounts of RNA per cell, then if these gene was identical in both samples, we would expect 0.12%*96e6 = 115,662 reads of BRCA2 in sample 2.</p>
+<p>If sample 2 ends up having more reads, we would say that BRCA2 is &ldquo;over-expressed&rdquo; in sample 2 compared to sample 1, that the cells were making more of that mRNA, and probably more of the corresponding protein. If there are fewer reads, the opposite is likely true, that this gene is &ldquo;under-expressed&rdquo; in sample 2 compared to sample 1.</p>
+<p><strong>Q10) Assume that Sample A has 112 million reads and that Sample B has 78 million reads. We count the number of reads mapping to TNF in sample A and there are 300,000. If sample B had twice as much TNF mRNA to begin with, how many TNF reads would be expect to get from sample B?</strong></p>
+<p>This simple normalization with the total number of reads found in each sample generally works well for comparing the same gene in each dataset. There are two additional, common complications:</p>
+<ol>
+<li>If we want to compare two different transcripts in the same dataset, the number of reads each will get is proportional both to the number of mRNAs per cell, but also to the length of each transcript. Accounting for this leads to a very commonly used normalization method: RPKMs. This stands for Reads Per-Kilobase per Million mapped reads. RPKM = reads*(1,000/transcript_length)*(1,000,000/total_reads)  This accounts for both total reads (library size) and transcription length. Choosing to normalize to transcript length in kilobases and library size in millions of reads is largely historical and convenient: it results in nice numbers in the 1-4 digit range for most genes.</li>
+<li>It is not always safe to assume that all cells have the same amount of RNA on average. Especially in the case that there are a few very highly expressed genes, it may be a safer assumption to assume that <em>most</em> genes are unchanged and present in similar numbers in all cells. There are a variety of methods that have been developed that utilize the number of reads coming from average genes, excluding extreme outliers in expression. These methods are often included in statistical software tool that analyze differential expression, and the normalization method used in our program, DESeq2, works something like this.</li>
+</ol>
+<p><strong>Q11) One of our sequencing samples has 58 million reads. The CD70 transcript had 50,000 reads and is 911 bases long. What is the RPKM-normalized expression value for this gene in this sample?</strong></p>
+<h3 id="differential-expression-fold-changes">Differential expression: fold-changes</h3>
+<p>Because gene expression (like many things in biology) can vary over a huge range, and both increases and decreases in RNA abundance can be equally important and interesting, we often choose to use logarithms to describe changes.</p>
+<p>Imagine this scenario. For a particular gene in sample A, we have twice as much RNA as in sample B. We can describe this relationship in the following ways, and all are equally valid:</p>
+<ul>
+<li>The gene is twice as expressed in sample A.</li>
+<li>The gene is expressed half as well in sample B.</li>
+<li>The gene is 2-fold increased in sample A compared to sample B.</li>
+<li>The gene is 2-fold decreased in sample B compared to sample A.</li>
+<li>There is 2x as much of the gene in sample A than sample B.</li>
+<li>There is 0.5x as much of the gene in sample B than sample A.</li>
+</ul>
+<p>The first two are convenient, but only work with a few ratios for which we have nice english words. The second two work well, they are symmetric, so that the inverse of the ratio uses the same number (2-fold) but applies this to either an increase or decrease in abundance. The final two are perhaps most familiar for arbitrary ratios, and are directly describing the abundance. These have a big downside though, as a gene increases you get larger and large numbers, while decreases result in ever smaller fractions. This issue parallels an issue we have when trying to illustrate these types of changes graphically.</p>
+<img src="images/changes.png" width="500">
+<p>If we take a normalized dataset with three samples and two genes as shown above, we can describe the situation this way. We take sample A to be our &ldquo;reference&rdquo;, a baseline or control sample. Both gene 1 and gene 2 have similar levels of expression in this dataset. In sample B both genes are increased substantially, by either 4-fold or 400-fold, while in sample C these genes are decreased by the same ratios. If we plot the normalized values directly, the plot for gene 1 looks pretty representative of what we expect, but because of the huge differences in gene 2, it is nearly impossible to tell the difference between samples A and C! It is also nearly impossible to compare both genes on the same plot.</p>
+<p>One part of the puzzle of how to look at our data changes in comparison to our reference sample. In the second row we calculate the fold-changes between samples B/C and A. Sample A is always 1 (compared to itself!) while now the values for samples B and C are the fold-change ratios with A. When plotted directly this doesn&rsquo;t improve the situation, but if we change the axis to be a logarithmic axis, now we start to see that symmetric relationship between over- and under-expression we mentioned earlier.4</p>
+<p>One final touch, which we tend to use when doing lots of math or statistics, is to formalize this by applying the logarithmic transformation not just to the plot, but directly to the fold-change ratios we calculated. If we simply take the base-2 (or base-10) logarithm, we get log fold-changes which we can plot directly, and get that same symmetric relationship, doubling or halving a value has the same magnitude of change when we visualize it, just in different directions! Many of the tools we might use for expression analysis take advantage of this log-transformation technique both for visualization as well as for statistical purposes.</p>
+<p><strong>Q12) If a gene has 28000 normalized reads in sample A and 49000 in sample B, what is the fold-change of this gene in sample B compared to sample A? What is the log2 fold-change?</strong></p>
+<h3 id="the-final-component-experimental-design">The final component: experimental design</h3>
+<p>So far we have looked at differences between individual samples. We could imagine extending this to experiments with multiple replicate samples easily enough. Just averaging the normalized read counts for each gene among replicate samples should work well enough. For the simplest experiments, a comparison of two sets of samples with only a single experimental variable, direct calculation of the ratios between genes, combined with some simple statistics analogous to a t-test would be sufficient.</p>
+<p>Unfortunately, things are rarely this simple, and we would like to do experiments that efficiently capture the differences caused by several variables, or to account for extraneous variables like experimental batch. Now this is more complicated, if we have several variables, how do we do calculate what the differences are?</p>
+<p>If we do an experiment where we test every possible combination of variables, each with sufficient replicates, we could do individual, pairwise comparisons for every variable we care about. If we have two variables, for instance: male vs female and healthy vs convalescent (conv.) vs re-testing positive (RTP), there are six possible combinations.</p>
+<table>
+<thead>
+<tr>
+<th>Sample</th>
+<th>Status</th>
+<th>Sex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Healthy</td>
+<td>M</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Healthy</td>
+<td>F</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Conv.</td>
+<td>M</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Conv.</td>
+<td>F</td>
+</tr>
+<tr>
+<td>E</td>
+<td>RTP</td>
+<td>M</td>
+</tr>
+<tr>
+<td>F</td>
+<td>RTP</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<p>We can compare healthy/female vs convalescent/female and get some effect due just to the infection (and recovery from the infection) in females. We might also compare healthy/male vs convalescent/male and get another effect due just to the infection in amels. These effects may be slightly different even though the both seem to be our effect from &ldquo;infection&rdquo;! This is because different variables can <em>interact</em>, having one variable change can itself modify the differences created by another variable. For this reason, we tend to model our experiments as having effects from individual values of each variable (healthy, or convalescent effect) as well as the individual interactions (healthy+male or convalescent+female).</p>
+<p>Without going into the justification, a common way to handle this is to deal with log-transformed count data, and assume that these effects can be added together to get the final expected value. (Adding logarithms is like multiplying base numbers, and in biology effects on transciption tend to be multiplicative). Fortunately, even with complicated multi-variable experimental designs, these types of linear models are approachable and (relatively) easy to solve with techniques known as Generalized Linear Models (GLMs).</p>
+<p>We aren&rsquo;t going to learn how GLMs work, but it is important to understand that what we are doing is starting with some arbitrary baseline sample (healthy + female) and calculating from the data what effect each variable or combination of variable has on the expression of each gene. Essentially for every gene and every sample you have an equation:</p>
+<ul>
+<li>Expr(Status + Sex) = Expr(Baseline) + ΔExpr(Status)+ ΔExpr(Sex) + ΔExpr(Status * Sex) + random error</li>
+</ul>
+<p>The program combines many thousands of these into one giant system of equations and tries to find a solution that best explains the data by finding the effect of every variable on every gene. When it finds that best answer, those values are our estimated log-fold changes due to that variable!</p>
+<p>In this way we can have a complicated multi-variable experiment and simultaneously estimate the effect from all of the variables, as long as we have samples that cover enough of the variable possiblities for the system of equations to be solved. In effect, this means you need to make sure that you have either every variable combination, or at least one type of sample in which each variable has been isolated from all of the other variables.</p>
+<h2 id="differential-expression-analysis-with-deseq2">Differential Expression Analysis with DESeq2</h2>
+<p>The tool we will use for differential expression analysis in this stream is called DESeq2. This is available as a library for the R programming language. You may have been exposed to a program called RStudio in the past. This is a graphical program that lets you use the R interpreter like you have in the DataCamp ASN4, but also includes a text editor and graphical viewers for individual variables and files. For this lab we will use a special version of RStudio, called RStudio Server, that is available via website and runs on the same server that we connect to the command line via Termius. To access RStudio Server, browse to <a href="http://rstudio.fire.tryps.in">http://rstudio.fire.tryps.in</a> and log in with your Terpmail account.</p>
+<img src="images/rstudio.png" width="500">
+<p>DESeq2 is available at</p>
+<ul>
+<li><a href="https://bioconductor.org/packages/release/bioc/html/DESeq2.html">https://bioconductor.org/packages/release/bioc/html/DESeq2.html</a></li>
+</ul>
+<p>But we will load this directly with the command below in the R console.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(DESeq2)
+</code></pre></div><p>Running these should take a few minutes and generate a lot of output.</p>
+<p>DESeq2 includes an excellent, if technical, walkthrough of how to complete expression analysis on their website</p>
+<ul>
+<li><a href="https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html">https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html</a></li>
+</ul>
+<p>We will cover the basics, focusing on the methods we are using in this lab, in this assignment. To perform an analysis of different expression we will need a few things:</p>
+<ol>
+<li>Expression data: this is our counts generated by Salmon</li>
+<li>Experimental design: this is the information telling us which what variables exist and which value each sample corresponds to.</li>
+<li>Annotation connecting transcripts to genes (we probably want to think about expression of genes and not transcripts).</li>
+</ol>
+<p>The expression data for our dataset can be found in the &ldquo;counts&rdquo; subfolder of our dataset. If you open up SSH or use the &ldquo;Terminal&rdquo; tab in RStudio (which does the same thing!) you can see that there are a series of folders in this folder, ones for each sample. There are a variety of files in these subfolders, but the important one is the <code>quant.sf</code> we looked at at the end of the last section. This file provides the expression data we need for our DESeq2 analysis.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#This command runs in the commandline/terminal</span>
+ls /storage/data/transcriptomics/counts
+ls /storage/data/transcriptomics/counts/SRR13639979
+
+</code></pre></div><p>The second thing we need is a description of the variable values for each sample. We are going to have two variables here, infected status and biological sex. I have already prepared a table (just using Excel manually!) with the file names of each sample, as well as the values for each variable. This file is found at <code>/storage/data/transcriptomics/sampletable.csv</code>. You can either view this with the command line, navigate to and open this file in RStudio, or download it using Cyberduck/RStudio.</p>
+<p>We can load this into R by using the <code>read.csv</code> function</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">sampleInfo <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#39;/storage/data/transcriptomics/sampletable.csv&#39;</span>)
+</code></pre></div><p><strong>Q13) What labels are we using for each of the two variables? What are the values used for each one? (look at <code>sampleInfo</code> using R. You can just type the variable name into the console and hit return/enter)</strong></p>
+<p>DESeq2 includes special functions for directly importing transcript quantification data, which is perfect for us! These functions needs three things. It needs the list of file names, the program that made the quantification files, and finally a mapping from transcripts to genes.</p>
+<p>Making the last bit can be incredibly finicky and annoying, but there is a package <code>tximeta</code> that will automatically detect and download everything necessary. First, we load our libraries, including <code>tximport</code> and the annotation package for our hg38 genome version:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(<span style="color:#e6db74">&#34;tximeta&#34;</span>)
+<span style="color:#a6e22e">library</span>(<span style="color:#e6db74">&#34;readr&#34;</span>)
+</code></pre></div><p>Next we generate a list of filenames and add it to our sampleInfo DataFrame:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">files <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">file.path</span>(<span style="color:#e6db74">&#39;/shared/data/transcriptomics/counts&#39;</span>, sampleInfo<span style="color:#f92672">$</span>names, <span style="color:#e6db74">&#34;quant.sf&#34;</span>)
+sampleInfo<span style="color:#f92672">$</span>files <span style="color:#f92672">&lt;-</span> files
+</code></pre></div><p>Finally, we can load our data and combine transcripts into genes:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">se <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">tximeta</span>(sampleInfo)
+gse <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">summarizeToGene</span>(se)
+</code></pre></div><p>The first command may ask you about where you save database files. You should enter the number &ldquo;1&rdquo; for the first option, and then answer &ldquo;yes&rdquo; to the second question.</p>
+<p><em>A note: this step, collecting the information, picking and describing your samples in a sampletable.csv, and getting this imported into DESeq2 for your group&rsquo;s experimental samples is going to be the first and most important step in your project! You will need to construct your own sample table and possibly collect <code>.counts</code> files from multiple directories into one place.</em></p>
+<p>Finally, we can create a DESeq2 dataset from our gene-level SummarizedExperiment object:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">dds <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">DESeqDataSet</span>(gse,
+                    design<span style="color:#f92672">=</span> <span style="color:#f92672">~</span> status <span style="color:#f92672">+</span> sex )
+dds
+</code></pre></div><p>Now, <code>dds</code> is a variable that contains the entirety of our experiment! Not that this last line (simply outputting the value of <code>dds</code> shows us a summary of what this object holds. It has the size (dim/dimensions, number of genes and samples), it contains the row names (genes) and column names (samples), as well as the names of the variable information we provided!</p>
+<p>We will run a quick filter to remove genes that always have extremely low counts, partly because they are likely unimportant to us and partly because it will make all of this run much faster!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">keep <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rowSums</span>(<span style="color:#a6e22e">counts</span>(dds)) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">10</span>
+dds <span style="color:#f92672">&lt;-</span> dds[keep,]
+dds
+</code></pre></div><p><strong>Q14) Compare the output of listing the dds object before and after we did the filtering. What changed? How many genes are left?</strong></p>
+<p>You can take a direct look at the data by running</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">counts</span>(dds)
+</code></pre></div><p>The last step in preparation for running our analysis is mostly for convenience. Earlier we learned that these analyses pick a baseline combination of variables that all samples will be compared to. If we don&rsquo;t specify what we want, DESeq2 can&rsquo;t read our mind! It will just pick whichever variable values come first alphabetically. We can use the <code>relevel</code> function to take in an existing factor and set the reference level explicitly.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">dds<span style="color:#f92672">$</span>status <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">relevel</span>(dds<span style="color:#f92672">$</span>status, ref <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;healthy&#34;</span>)
+dds<span style="color:#f92672">$</span>sex <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">relevel</span>(dds<span style="color:#f92672">$</span>sex, ref <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;female&#34;</span>)
+</code></pre></div><p>All of these functions have been called on some data and then assigned the result back to the <code>dds</code> object, so we have been modifying it in place, so it now contains the complete experiment, minus low-expression genes, and with the baseline samples set to 4 hour post-infection, uninfected samples from batch A.</p>
+<p>Now, we run the extremely complicated process of taking this data matrix of almost a million datapoints with a dozen or more variable combinations, normalizing these to library size, estimating and fitting dispersion factors, and fitting a negative binomial GLM model and computing Wald statistics&hellip;all of this is done by running the command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">dds <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">DESeq</span>(dds)
+</code></pre></div><p>Not so hard was it? You&rsquo;ve now completed a state-of-the-art differential expression analysis on a complicated large scale human transcriptome experiment. Now what we have left to do is&hellip;examine the results.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">res <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">results</span>(dds)
+res
+</code></pre></div><p>Wow, there is a lot going on here. This data table is has six columns, and a row for every gene. We&rsquo;ll go through these columns one by one.</p>
+<ol>
+<li>baseMean is the normalized read count for the baseline samples</li>
+<li>log2FoldChange is the log2 ratio of the condition listed at the top (Effect of batch B to baseline batch A) to the baseline (4hr uninfected batch A)</li>
+<li>lfcSE is a special &ldquo;shrunken&rdquo; version of the log2 fold change that accounts for low-expression genes have inflated differential expression due to high variance.</li>
+<li>stat is an intermediate statistic value used for calculating the p-values, we won&rsquo;t use it at all.</li>
+<li>pvalue is the&hellip;p-value of the comparison, low numbers mean the difference is statistically signficant at a stronger level</li>
+<li>padj is an adjusted p-value taking into account the fact that we are simultaneously performing tends of thousands of tests, so just by chance we should get &ldquo;signficant&rdquo; p-values occasionally. This affects borderline p-values more than the lowest p-values.</li>
+</ol>
+<p>We an generate a summary of these results:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">summary</span>(res)
+</code></pre></div><p>**Q7) What comparison is DESeq2 making (in terms of variables) by default? You will need to look early in the output of the summary.</p>
+<p>Like we mentioned before, there are many comparisons that can be made with all of our combinations of variables, and DESeq2 has calculated the effect of all of those possibilities. Perhaps the comparison of batch B vs batch A is not the most biologically relavent comparison we could make&hellip; We can see a list of these comparisons, or &ldquo;contrasts&rdquo;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">resultsNames</span>(dds)
+</code></pre></div><p>This gives us all of the direct comparisons between variables extracted from our data model. We can access these results, and use them to generate the same type of results table we got with <code>results(dds)</code> earlier. This can be done either by directly giving the <code>results</code> function the text name of the result we just listed, or we can specify a contrast by giving it three things: a variable name, the comparison level, and the baseline level of that variable:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">res_cvh <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">results</span>(dds, name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;status_convalescent_vs_healthy&#34;</span>)
+res_cvh <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">results</span>(dds, contrast<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#39;status&#39;</span>, <span style="color:#e6db74">&#39;convalescent&#39;</span>, <span style="color:#e6db74">&#39;healthy&#39;</span>))
+</code></pre></div><p>Running either of these commands should have the same results. Using the same summary command as we used previously, we can get a summary out of this new <code>res_cvh</code> results variable.</p>
+<p>**Q8) How many genes are over-expressed in convalescent patients compared to healthy patients? How many are under-expressed?</p>
+<p>We can either export these results tables by saving them to a CSV file, downloading them, and opening them in a spreadsheet program like Google Sheets or Microsoft Excel, or we can use R functions to investigate them directly.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">write.csv</span>(<span style="color:#a6e22e">as.data.frame</span>(res_cvh), 
+          file<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;human_convalescent_vs_healthy.csv&#34;</span>)
+</code></pre></div><p>Or for instance, we can remove any results with adjusted p-values above 0.05 and sort them by significance:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">res_cvh_signif <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">subset</span>(res_cvh<span style="color:#a6e22e">[order</span>(res_cvh<span style="color:#f92672">$</span>padj),], padj <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.05</span>)
+res_cvh_signif
+</code></pre></div><p>**Q9) What is the most significantly differentially expressed gene in convalescent patients (compared to healthy)? What is the name of this human gene and what is its general function? (You need to look this up on the Internet)</p>
+<p>While there are many things we might do with these results, most will involve various subsequent steps processing the exported results tables for each comparison we care about. One additional feature DESeq2 has is the ability to generate plots showing the overall level of differential expression in a results set.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">plotMA</span>(res, ylim<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">-2</span>,<span style="color:#ae81ff">2</span>), main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Male vs Female&#34;</span>)
+<span style="color:#a6e22e">plotMA</span>(res_cvh, ylim<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">-6</span>,<span style="color:#ae81ff">6</span>), main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Convalescent vs Healthy&#34;</span>)
+</code></pre></div><p>In these scatter plots, known as MA-plots, each datapoint represents one feature or gene. The position on the X axis represents the average level of expression (how many transcripts of that gene there were), on a log axis. The location on the y-axis shows the log2 fold-change (the difference between the conditions you are comparing, where positive values mean more expression compared to the baseline, and negative values mean lower expression. By default, red colored genes are statistically significant at p&lt;0.1.</p>
+<p>**Q10) Compare the plots of the male vs female and the convalescent vs healthy results. Which comparison has more differential expression? Which variable has more effects on this type of blood cells, recovery from coronavirus or sex?</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://training.fire.tryps.in/" >
+    &copy;  2021 FIRE-CB Training Modules 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

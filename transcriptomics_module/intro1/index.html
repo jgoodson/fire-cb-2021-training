@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Transcriptomics Part 1 - Sequence Reads and Transcript Counting | 2021 FIRE-CB Training Modules</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="*Note: This assignment has a number of associated questions you&rsquo;ll find as you go through this that need to be submitted on ELMS. Some of these ask you to explain or guess why certain things may be the way that they are. I am not grading on correctness here, rather I am grading based on whether you have completed the assignment and put some thought into the answers. Feel free to discuss these with your group or with me in lab.">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+
+  
+  
+    <link rel="stylesheet" href="/ananke/dist/main.css_5c99d70a7725bacd4c701e995b969fea.css" >
+  
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Transcriptomics Part 1 - Sequence Reads and Transcript Counting" />
+<meta property="og:description" content="*Note: This assignment has a number of associated questions you&rsquo;ll find as you go through this that need to be submitted on ELMS. Some of these ask you to explain or guess why certain things may be the way that they are. I am not grading on correctness here, rather I am grading based on whether you have completed the assignment and put some thought into the answers. Feel free to discuss these with your group or with me in lab." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://training.fire.tryps.in/transcriptomics_module/intro1/" />
+<meta property="article:published_time" content="2021-02-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-24T00:00:00+00:00" />
+<meta itemprop="name" content="Transcriptomics Part 1 - Sequence Reads and Transcript Counting">
+<meta itemprop="description" content="*Note: This assignment has a number of associated questions you&rsquo;ll find as you go through this that need to be submitted on ELMS. Some of these ask you to explain or guess why certain things may be the way that they are. I am not grading on correctness here, rather I am grading based on whether you have completed the assignment and put some thought into the answers. Feel free to discuss these with your group or with me in lab.">
+<meta itemprop="datePublished" content="2021-02-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-02-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4884">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Transcriptomics Part 1 - Sequence Reads and Transcript Counting"/>
+<meta name="twitter:description" content="*Note: This assignment has a number of associated questions you&rsquo;ll find as you go through this that need to be submitted on ELMS. Some of these ask you to explain or guess why certain things may be the way that they are. I am not grading on correctness here, rather I am grading based on whether you have completed the assignment and put some thought into the answers. Feel free to discuss these with your group or with me in lab."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        2021 FIRE-CB Training Modules
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        TRANSCRIPTOMICS MODULE
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://training.fire.tryps.in/transcriptomics_module/intro1/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://training.fire.tryps.in/transcriptomics_module/intro1/&amp;text=Transcriptomics%20Part%201%20-%20Sequence%20Reads%20and%20Transcript%20Counting" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://training.fire.tryps.in/transcriptomics_module/intro1/&amp;title=Transcriptomics%20Part%201%20-%20Sequence%20Reads%20and%20Transcript%20Counting" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Transcriptomics Part 1 - Sequence Reads and Transcript Counting</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-02-24T00:00:00Z">February 24, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>*Note: This assignment has a number of associated questions you&rsquo;ll find as you go through this that need to be submitted on ELMS. Some of these ask you to explain or guess why certain things may be the way that they are. I am not grading on correctness here, rather I am grading based on whether you have completed the assignment and put some thought into the answers. Feel free to discuss these with your group or with me in lab. We will likely go over some of the more important material during class as well.</p>
+<h2 id="submission">Submission</h2>
+<p>This assignment will be linked on ELMS and there should be a submission form for ASN6b. You should submit this assignment individually. Feel free to work with and discuss the process and questions with teammates, other classmates, or peer mentors.</p>
+<h2 id="understanding-our-reference-genome">Understanding our reference genome</h2>
+<h2 id="module-split---clir">Module split - CLI/R</h2>
+<p>The first half of this module will re-introduce concepts used in FIRE-CB intro and phylogenetics module. It will use the same sort of shell commands and will go over these from scratch. Feel free to skim these parts if you are comfortable with the CLI, otherwise this should help reinforce the most useful concepts.</p>
+<p>*If you are still struggling with using the CLI and have not already, I strongly encourage you to work through the first three chapters of the DataCamp Introduction To Shell course, available at <a href="https://www.datacamp.com/courses/introduction-to-shell-for-data-science">https://www.datacamp.com/courses/introduction-to-shell-for-data-science</a> *</p>
+<p>The second part of the module will introduce you to the R programming language very frequently used in bioinformatics, statistics, and other analytical fields. Although you will not be graded on completion of the DataCamp, I again <em>strongly</em> encourage completion of the <a href="https://learn.datacamp.com/courses/free-introduction-to-r">Introduction to R DataCamp course</a> before or along the second half of this module.</p>
+<h2 id="reference-genome-sequences">Reference genome sequences</h2>
+<p>To begin, we want to get more familiar with the genome and transcriptome we will be studying initially. This will have similar or identical files to those for the novel coronavirus genomes we looked at in the COVID Phylogenetics module, but will be much bigger! In our case, this main genome is the human reference genome. We will be using the most recent version, version 38 from NCBI Ensembl (GRCh38). We will be interacting with the data in a few ways.</p>
+<ul>
+<li>Directly on the raw sequence data at the whole-genome, chromosome, or individual transcript levels</li>
+<li>Using annotated versions of the genomic data where genes, regulatory elements, or other features are listed by location</li>
+<li>With a web-based interacting database allowing us to search and explore a wide range of database resources from one location</li>
+</ul>
+<p>To save some time and space during these steps, you&rsquo;ll be using only one chromosome at a time for this exercise, chromosome 22.</p>
+<h2 id="obtaining-the-reference-genome">Obtaining the reference genome</h2>
+<p>The web-based database for the genome assembly is available at the Ensembl website (<a href="https://useast.ensembl.org/Homo_sapiens/Info/Index)">https://useast.ensembl.org/Homo_sapiens/Info/Index)</a>. Another resource for viewing this information is available on the UCSC website and GRCh38/hg38 (<a href="https://genome.ucsc.edu/cgi-bin/hgGateway)">https://genome.ucsc.edu/cgi-bin/hgGateway)</a>.</p>
+<p>The most current human genome sequences are available on the EMBL-EBI FTP (<a href="ftp://ftp.ensembl.org/pub/release-86/fasta/homo_sapiens/dna/)">ftp://ftp.ensembl.org/pub/release-86/fasta/homo_sapiens/dna/)</a>. These are compressed FASTA files containing raw assembled genome sequence. There are three variants of the files, one that is labeled &ldquo;dna&rdquo; and contains the full sequence. The other two are labeled &ldquo;dna_rm&rdquo; and &ldquo;dna_sm&rdquo;. These are the same sequence, but with some repetitive or duplicated elements removed or &ldquo;masked&rdquo; out. We will be using the main &ldquo;dna&rdquo; files.</p>
+<p>First, we should make a directory to do our work for this assignment. You can name this whatever you like or put it wherever you like.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+cd ~
+mkdir ASN6b
+cd ASN6b
+
+</code></pre></div><p>We can now download the sequence for chromosome 22 directly from the EMBL-EBI FTP.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+wget ftp://ftp.ensembl.org/pub/release-86/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.22.fa.gz
+ls -lh
+
+</code></pre></div><p>Since this file is compressed, we won&rsquo;t be able to work with it directly. The <code>.gz</code> suffix indicates that it is a &ldquo;gzip&rdquo; compressed file. We can decompress this file with the command <code>gzip -d [filename]</code>.</p>
+<p>Note: Whenever I give you a command with an element in <code>[square brackets]</code> that is just a placeholder. You should replace everything, including the brackets, with the text you need (in this case the filename of the file you just downloaded).</p>
+<p><strong>Q1) What does this do to the file and file name? (Check with <code>ls -lh</code> before and after)</strong></p>
+<p>Take a look inside the chr22 sequence file to look at the general format of the FASTA files:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+head Homo_sapiens.GRCh38.dna.chromosome.22.fa
+
+</code></pre></div><p>The beginning of our sequence file may look a little funny. Use the line count you got from the <code>wc</code> command to take a look in the middle of the file. To easily pull out some lines in the middle, you can use a combination of the <code>head</code> and <code>tail</code> commands to get the front of the file up to a certain point, and then the end of that section. Aim for a number of lines roughly halfway through the file.</p>
+<p>The <code>|</code> symbol is a special character that takes the output from one command, and sends it as input to the second command. In this case, instead of printing 425,000 lines of DNA to the screen, it sends those to the <code>tail</code> command, which instead will print the last 10 lines of its input.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+head -n <span style="color:#ae81ff">425000</span> <span style="color:#f92672">[</span>filename<span style="color:#f92672">]</span> | tail
+
+</code></pre></div><p><strong>Q2) Do the beginning and middle of the file look similar? Why might one part be different than another? (Speculation is good here, I&rsquo;m not judging based on correctness)</strong></p>
+<h3 id="the-purpose-of-the-reference-genome-files">The purpose of the reference genome files</h3>
+<p>The FASTA reference genome sequence is essential for determining where any particular DNA/RNA sequence in our sequencing data derived from. Read alignment software like TopHat, BWA, or HISAT2 will require these FASTA files to match the short DNA sequence fragments to. After we know what part of the genome a particular fragment comes from, we can infer which transcripts this fragment may have been a part of and in aggregate how many of each transcript there were in the original sample.</p>
+<h2 id="reference-transcriptome">Reference transcriptome</h2>
+<p>The reference genome is a great resource and has every bit of genome information we know about at this point, but it represents the entire physical existence of the DNA chromosomes. We care about how that information gets transcribed into RNA, and that process involves selecting only certain bits of DNA, transcribing them into RNA, and then cutting and pasting bits of that RNA back together to generate the final transcript. The information that we need to predict how this happens is present in some annotation we will look at next, but the transcript sequences themselves are also available for us. These can be found on the same Ensembl FTP as the genome sequences in a different folder (<a href="ftp://ftp.ensembl.org/pub/release-86/fasta/homo_sapiens/cdna/)">ftp://ftp.ensembl.org/pub/release-86/fasta/homo_sapiens/cdna/)</a>.</p>
+<p>These are labeled as cDNA, as opposed to RNA or transcripts. Since modern sequencing methods require DNA, to determine the sequence of RNA transcripts, a biology trick is necessary to &ldquo;reverse transcribe&rdquo; RNA into DNA. Since this generates a piece of DNA complementary to the RNA strand, this is known as &ldquo;complementary DNA&rdquo; or &ldquo;cDNA&rdquo;. There are two types of sequence files available one labeled &ldquo;abinitio&rdquo; and one labeled &ldquo;all&rdquo;. The <em>ab initio</em> sequences are a limited set of sequences predicted using simple models directly from the genome file. The <em>all</em> sequence files contain several times more transcripts, types of transcripts, and variant transcripts (isoforms) and represent all of the known transcripts compiled from experimental databases.</p>
+<p>Let&rsquo;s download each version:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+wget ftp://ftp.ensembl.org/pub/release-86/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.abinitio.fa.gz
+wget ftp://ftp.ensembl.org/pub/release-86/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz
+gzip -d Homo_sapiens.GRCh38.cdna.abinitio.fa.gz
+gzip -d Homo_sapiens.GRCh38.cdna.all.fa.gz
+
+</code></pre></div><p>Since the FASTA format begins each sequence with a special line and follows with any number of lines of sequence, multiple sequences may be included in a single file. This is an example sequence file, the names and sequence will be different.</p>
+<pre><code>
+&gt;Sequence1
+CGGCATTATCGGAGCTAGCTAGCTGACTG
+CGATGAGCATTACGGTA
+&gt;Sequence2
+GCTAGCGATGCGGCGATTAGCGGGGAGAG
+ATCGATGGGACGATGTATGCGTATG
+
+</code></pre><p>The sequence name line always starts with the <code>&gt;</code> character.</p>
+<p><strong>Q3) How many transcripts are in each version of the cDNA sequence files? (Hint: if you use the <code>&gt;</code> symbol in a command line and you want to mean it is a text character, you should put it in quote <code>&quot;&gt;&quot;</code>, otherwise it will be used as a special character like the <code>|</code>.)</strong></p>
+<h3 id="the-purpose-of-the-reference-transcript-files">The purpose of the reference transcript files</h3>
+<p>Not all methods for transcriptome analysis use direct read alignment to genomes. In recent years, tools such as Sailfish, Kallisto, or Salmon have become available to rapidly and directly estimate the original number of transcripts directly from the individual DNA fragment sequences. These approaches use lists of individual transcript sequences instead of the original genome sequence. Although these methods do not give you full alignments useful for things like variant calling or other techniques and cannot identify any new transcripts, they can be invaluable for efficiently quantifying the number of each transcript for expression analysis. Since this is the main focus of this module as well as the pharmacogenomics module, we will likely lean heavily on these transcript-focused approaches.</p>
+<h2 id="reference-genome-annotation">Reference genome annotation</h2>
+<p>With only the raw DNA sequence, or even the raw cDNA sequences, there isn&rsquo;t a lot we can do. I certainly can&rsquo;t figure out much biologically meaningful information manually from one cDNA sequence, much less tens of thousands. Fortunately, since we began sequencing and studying the human genome, thousands of researchers have spent decades investigating every bit of the human genome. Since this is science, the community has published, collected, and organized this information in a variety of ways to let use associate bits of the human genome with relevant biological information. In general, this process is called <em>annotation</em>.</p>
+<p>There are several common file formats for containing gene-level annotation of genomes, but perhaps the most common is GTF/GFF. Both file types are very similar, with some subtle differences (<a href="https://www.ncbi.nlm.nih.gov/genbank/genomes_gff/)">https://www.ncbi.nlm.nih.gov/genbank/genomes_gff/)</a>. Both formats are simple text files containing one feature annotation per line. Lines that start with <code>#</code> are &ldquo;comment&rdquo; lines and don&rsquo;t represent features but do include information that might be useful for orienting yourself with the file. Each normal line contains nine columns separated by tabs. The first eight columns are simple names, numbers, or symbols representing the name, type, and location of the feature. The final column can be much more complicated and contains a list of attributes in name=value pairs. The details of the GFF3 format may be found at <a href="https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md">https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md</a></p>
+<p>Since these features are referenced to specific numeric locations in a sequence file, any annotations much match up to a specific reference genome sequence. The Ensembl FTP has files available both for individual chromosomes as well as the entire chromosome or transcript cDNA files.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+wget ftp://ftp.ensembl.org/pub/release-86/gff3/homo_sapiens/Homo_sapiens.GRCh38.86.chromosome.22.gff3.gz
+gzip -d Homo_sapiens.GRCh38.86.chromosome.22.gff3.gz
+head -n <span style="color:#ae81ff">20</span> Homo_sapiens.GRCh38.86.chromosome.22.gff3
+
+</code></pre></div><p><strong>Q4) [TODO COME UP WITH A NEW QUESTION]</strong></p>
+<h3 id="the-purpose-of-the-reference-sequence-annotation">The purpose of the reference sequence annotation</h3>
+<p>When running alignment-based approaches, the exon and transcript level annotations are essential for determining what RNA/cDNA sequences might exist. Individual strings of DNA letters may show up in our RNA sequencing data that do not exist together in the original genome. These might be due to events like splicing which fuse two distant sequences together, or from non-templated addition like in the poly-A tails at the end of mRNAs.  Aligners like TopHat or HISAT2 will use these annotations to properly map these types of reads.</p>
+<p>Beyond the process of alignment, these annotation files contain the information that lets us know what gene or gene variant is associated with any particular transcript. Knowing what sequence is what gene is essential for interpreting the results, understanding what changes and what doesn&rsquo;t change and therefore what is happening in the biology of our samples. This is the case whether we choose to align directly to the genome or use transcriptome-level quantification tools.</p>
+<p>##Obtaining transcriptome quantification data</p>
+<p>So far we have taken a look specifically at the human reference information. None of this is specific to the experiments we want to analyze. Much like the reference, our data is present in some sequence databases. In contrast to the reference genome though, our data is in a more specialized database intended to provide a warehouse for large amounts of publicly-accessible high-throughput sequence data called the Short Read Archive (SRA). The SRA is hosted by the NCBI, part of the National Institute of Health in Bethesda, Maryland. It is part of an interconnected series of databases which include a variety of annotation about about experimental data.</p>
+<h3 id="exploring-the-data-in-the-ncbi-databases">Exploring the data in the NCBI databases</h3>
+<p>Some of the relevant NCBI databases for obtaining and understanding our data will be <code>BioProject</code>, <code>BioSample</code>, <code>SRA</code>, and <code>PubMed</code>. The first of these, <code>BioProject</code>, (<a href="https://www.ncbi.nlm.nih.gov/bioproject/">https://www.ncbi.nlm.nih.gov/bioproject/</a>) is designed to contain, categorize, and describe whole experimental projects. This database will contain links not only to the raw data hosted in databases like <code>SRA</code> or <code>GEO</code>, but also to any publications that may be associated with this data as well as metadata associated with the raw data itself.</p>
+<p>Some of this metadata is present in the <code>BioSample</code> database. This is intended to be a higher-level description of the raw data, each entry is, much like the name, a biological sample that some data derived from. This could be a particular batch of cells grown in a test tube, an environmental sample of water, a biopsy of human tissue, or essentially any other biological unit of physical <em>stuff</em> we might sample to generate data. The <code>BioSample</code> entries themselves may then be associated with raw data that was derived from that particular biological sample. The quality of this annotation may vary from experiment to experiment because it is up to the individual scientist submitting this to the database to decide which information to include in the submission to the database.</p>
+<p>The <code>BioProject</code> entries themselves often contain only a brief summary of the experimental goals and data content. In many cases, to really understand what all of the samples represent and how they were generated, you may need to read the associated publications to get enough information.</p>
+<p><em>We will be working with data that largely resides in one <code>BioProject</code> entry. The accession number for these datasets has the <code>BioProject</code> accession PRJNA699856. Searching for this in the link provided above should bring up the summary page for the project. Clicking on the number of SRA experiments brings you to a result list in the SRA database. A link at the top of the page should bring you to the SRA Run Selector which lets you interact and download a table containing more information about the data itself.</em></p>
+<p><img src="images/SRASelector.png" alt="Run selector"></p>
+<p><strong>Q5) How many RNA-seq datasets are present in this project? How many of these correspond to samples from healthy patients and how many to patients who retested positive? What other potentially import biological variables can you find in the annotation for these experiments?</strong></p>
+<h3 id="downloading-raw-data">Downloading raw data</h3>
+<p>There are several ways to download the raw sequence data from the SRA database. These can be directly downloaded from the website, from several cloud services, or through command line tools called <code>sra-tools</code>. Because together these datasets take up almost an entire terabyte even compressed, these have already been downloaded and are present in a folder on compute-1 at <code>/shared/data/</code> in the <code>transcriptomics</code> folders respectively. If you do need to download any additional datasets, instructions for using the <code>fasterq-dump</code> program to directly download SRA datasets is found at <a href="https://github.com/ncbi/sra-tools/wiki/HowTo:-fasterq-dump">https://github.com/ncbi/sra-tools/wiki/HowTo:-fasterq-dump</a></p>
+<p>You can list the downloaded datasets:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> 
+ls -lh /shared/data/transcriptomics
+ 
+</code></pre></div><p>Since these are very large files, we would like to keep them compressed as much as possible. Forunately, through the magic of piping, in many cases it is not necessary to run gzip before you run additional commands, the <code>gzip</code> program can be chained just like other unix programs. Adding the <code>-c</code> flag to the gzip command forces it to read input or send output to the console, allowing us to either directly print or pipe the data to other programs. Each dataset consists of two files, ending in either <code>_1.fastq.gz</code> or <code>_2.fastq.gz</code>. This is a consequence of the method of sequencing our samples used, which generates sequence from both ends of each DNA fragment, in a process called &ldquo;paired-end sequencing&rdquo;. Each set of four lines in each file represent a single read.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+gzip -dc /shared/data/transcriptomics/SRR13639979_1.fastq.gz | head
+gzip -dc /shared/data/transcriptomics/SRR13639979_2.fastq.gz | head
+
+</code></pre></div><p><strong>Q6) Given the output of the previous command, how can you tell which read from file 1 corresponds to its paired read in file 2? (Hint: look at what is similar between the first lines of the FASTQ files)</strong></p>
+<h3 id="initial-quality-control">Initial quality control</h3>
+<p>There are several programs designed to generally analyze the output from high-throughput sequencing to screen for a variety of common problems or contamination issues that arise. Perhaps the most popular is a program called FastQC (<a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)</a>. You can use FastQC in two modes. One mode involves running FastQC like a normal GUI program. Download it onto your computer, unzip, and run the <code>run_fastqc.bat</code> file. You can then open up <code>fastq.gz</code> files you have downloaded to your computer and analyze them directly. The other mode runs via the command line and instead generates HTML output that you can download and view in a web browser. For the final part of the assignment, you have a choice to follow either method. Both will ultimately involve transferring files from the server to your own computer with WinSCP, Fetch, or other SFTP program.</p>
+<h4 id="run-fastqc-graphically-on-your-own-computer">Run FastQC graphically on your own computer</h4>
+<p>If you choose to run FastQC on your own computer, ensure that you have at least 15 GB of free space on your hard drive first. This method is also only advisable if you are on a fast on-campus internet connection. Finally, you will need Java installed on your computer. If none of these apply, please don&rsquo;t use this method and skip to method 2. Download FastQC from the link above, choosing either &ldquo;FastQC v0.11.8 (Win/Linux zip file)&rdquo; if you run Windows or &ldquo;FastQC v0.11.8 (Mac DMG image)&rdquo; if you have a Mac. Extract the file you downloaded and run FastQC following the instructions for either version.</p>
+<p>Next, you will pick one of the SRA datasets from <code>transcriptomics</code> folder. <strong>Do not use the SRR13639979 dataset in the examples.</strong> Connect to the server with your SFTP program of choice and navigate to <code>/shared/data/transcriptomics</code>. Download one dataset to your computer (both the <code>_1.fastq.gz</code> and <code>_2.fastq.gz</code> files). Finally, in the FastQC program go to the open file menu, navigate to, and select the two <code>.fastq.gz</code> files you downloaded from the server. This will take a few minutes to analyze both files and should show you the progress as it works.</p>
+<h4 id="run-fastqc-remotely-on-compute-1-and-download-the-results">Run FastQC remotely on compute-1 and download the results</h4>
+<p>As an alternative to running FastQC on your computer and directly viewing the results, you can use the FastQC program installed on the compute-1 server. Pick one of the SRA datasets from the <code>transcriptomics</code> folder. <strong>Do not use the SRR13639979 dataset in the examples.</strong> Next, you should run the <code>fastqc</code> program and give it the full path to the files you chose, as well as the location you want to store the output. On the command line the <code>.</code> character as a file represents the current directory you are in. Either of the following commands will analyze both files at the same time. This will take a few minutes to analyze both files and should show you the progress as it works.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+fastqc /shared/data/transcriptomics/<span style="color:#f92672">[</span>dataset<span style="color:#f92672">]</span>_1.fastq.gz /shared/data/transcriptomics/<span style="color:#f92672">[</span>dataset<span style="color:#f92672">]</span>_2.fastq.gz --outdir<span style="color:#f92672">=</span>. 
+fastqc /shared/data/transcriptomics/<span style="color:#f92672">[</span>dataset<span style="color:#f92672">]</span>_*.fastq.gz --outdir<span style="color:#f92672">=</span>. 
+ 
+</code></pre></div><p>After this completes, running <code>ls</code> in your current (output) directory should show several additional files. There should be two additional <code>.html</code> files and two <code>.zip</code> files. You will need to download these to your own computer to view them. Connect to the server with your SFTP program of choice (Cyberduck, RStudio, etc) and navigate to the folder your are currently in. If you followed this exactly this will probably be <code>ASN6b</code> in your home directory. Download the <code>.html</code> files to a folder on your computer, and open these in your preferred web browser.</p>
+<h3 id="in-either-case">In either case&hellip;</h3>
+<p>Once you have the results for both files, take a look through the different results sections. For the following questions you may want to refer to this guide from Michigan State University for help interpreting the results: <a href="https://rtsf.natsci.msu.edu/genomics/tech-notes/fastqc-tutorial-and-faq/">https://rtsf.natsci.msu.edu/genomics/tech-notes/fastqc-tutorial-and-faq/</a></p>
+<p><strong>Q7) Compare the html files results from both of the read 1 and read 2 files you analyzed. Do you notice any differences between them? How many reads were present in the dataset you chose?</strong></p>
+<p><strong>Q8) Did any of the FastQC analysis modules flag potential problems? For each problem, refer to the MSU guide. Do you think we should worry about these problems? If not, why not? If so, what might we do to address the problem?</strong></p>
+<h1 id="2-ii-aligning-our-rna-seq-reads">2-ii. Aligning our RNA-Seq reads</h1>
+<p>It is finally time to put our dataset together with the human genomes we downloaded! Remember, the idea behind this RNA-seq process is to measure how much of each transcript, each RNA is present in our sample cells. When a gene is transcribed from the genome into RNA, the resulting RNA should have exactly the same sequence as the DNA is was copied from (with T replaced with U). The RNA-seq process converts this RNA back into DNA before sequenncing. The result: the individual chunks of sequence we get out should be nearly identical to some chunk of the human genome, accounting for differences between the individual person and the reference genomes and any mistakes made by the sequencing process. The sequencing process generates DNA reads in numbers proportional to the amount of each RNA that they were derived from. Now that we have millions of these fragments, we want to figure out which part of the genome, which possible RNA transcripts these derived from. If we count up how many DNA fragments came from each possible RNA, we&rsquo;ll have a measure of how many RNA there were physically there in the first place!</p>
+<p>To find out exactly where in the genome a piece of DNA came from, we need to compare this to the genome, and find a position in the genome with the same (or very similar) sequence to the DNA read itself. We could hypothetically compare each read to every position in the genome. There are approximately 3 billion bases in the human genome. Each of our reads is 100 bases long, so to check if one read is the same as one position we need to compare 100 letters. Since our samples have approximately 100 million reads, we would need to do 3 billion * 100 million * 100 comparisons. Even if we have a computer that can perform 40 billion comparisons per second, which is pretty reasonable in this case, it would take over 200 years to check one sample this way. Even this underestimates how long this process might take, because we would like to take into account possible sequencing mistakes.</p>
+<h2 id="alignment">Alignment</h2>
+<p>Fortunately, some very smart computer scientists have come up with algorithms that let us match reads to positions in the genome, lining up a read with its genomic match in a process called &ldquo;alignment&rdquo;. These operate dramatically faster than the straightforward comparison of every read with every possible position.</p>
+<p><img src="images/Read_alignment.png" alt="Read alignment"></p>
+<p><img src="images/Read_alignment2.jpg" alt="Read alignment2"></p>
+<p>You can visualize this process. Each of our reads (one of the red lines) is a short fragment. This sequence read should have the same sequence as a chunk of our genome, probably a part corresponding to a gene or transcript (blue regions). We have a big pool of reads, and by finding their matching position in the genome we know that we had some fraction of our RNA transcribed from that position. Sometimes the reads don&rsquo;t match perfectly in sequence to the genome. This can be because of errors, or because the genome of the organism we sequenced (maybe my macrophages!) don&rsquo;t have exactly the same sequence as the reference genome, generated from a variety of humans that weren&rsquo;t me. As long as the differences are small (like a single base difference represented by the star and green dots), the aligner will just note the mismatch but align the read to the correct position.</p>
+<p>In higher organisms, RNA transcripts are frequently not identical to the underlying genomic sequence because of a process called &ldquo;splicing&rdquo;.</p>
+<p><img src="images/splicing.PNG" alt="Splicing"></p>
+<p>Eukaryotic organisms construct their final mRNA transcripts by initially transcribing a much longer intermediate transcript and essentially cut-and-pasting individual chunks of RNA sequence together into the final form. If we sequence one of these mature mRNA sequences and the sequence happens to cross this &ldquo;splice point&rdquo;, the sequence won&rsquo;t match up to the genome anymore. The first part of the read may align to one section of the genome and the second part may align thousands of nucleotides away! For this reason, aligning these types of potentially spliced reads is a substantially harder computational problem and uses different, more advanced alignment software.</p>
+<p><img src="images/spliced_reads.svg" alt="Spliced reads"></p>
+<p>We can use special algorithms to search for the best match between our sequences and the reference genome. If that best match is found in a particular gene, we say that that sequence represents a transcript made from that gene. We can do this for all of the millions of sequence reads in our genome and generate a list of how many transcripts were made from each and every gene. This represents our <em>transcriptome</em> which we can use in all sorts of cool ways.</p>
+<h2 id="counting-transcripts-with-salmon">Counting transcripts with Salmon</h2>
+<h2 id="obtaining-and-indexing-the-reference-genome">Obtaining and indexing the reference genome</h2>
+<p>Salmon needs as input a list of transcripts to look for matching sequence reads to. We have already downloaded one of these for the human genome earlier in the assignment: <code>Homo_sapiens.GRCh38.cdna.all.fa.gz</code>. We decompressed this file so it should be called <code>Homo_sapiens.GRCh38.cdna.all.fa</code> now. Part of the magic behind these transcript quantification tools is that they don&rsquo;t simply run through the transcripts one-by-one looking for matches. Instead, they use a computer science construct called a <em>suffix array</em> that lets it find matches much more quickly. To do this, it needs to make a set of &ldquo;index&rdquo; files storing this information. To save time, we will use a pre-built version of the GRCh38 version genome (hg38) from this page: <a href="http://refgenomes.databio.org/">http://refgenomes.databio.org/</a></p>
+<p>This index is available in <code>/shared/data/transcriptomics/salmon_hg38/</code> if you want to look at it.</p>
+<h2 id="how-do-we-know-which-read-corresponds-to-which-feature">How do we know which read corresponds to which feature?</h2>
+<p>When a gene is transcribed from the genome into RNA, the resulting RNA should have exactly the same sequence as the DNA is was copied from (with T replaced with U). The RNA-seq process converts this RNA back into DNA before sequenncing. The result: the individual chunks of sequence we get out should be nearly identical to some chunk of the human genome, accounting for differences between the individual person and the reference genomes and any mistakes made by the sequencing process. We can use special algorithms to search for the best match between our sequences and the reference genome. If that best match is found in a particular gene, we say that that sequence represents a transcript made from that gene. We can do this for all of the millions of sequence reads in our genome and generate a list of how many transcripts were made from each and every gene. This represents our <em>transcriptome</em> which we can use in all sorts of cool ways.</p>
+<h2 id="running-salmon">Running Salmon</h2>
+<p>To start counting our features, we only need two things. The transcriptome index (discussed above) and the sequence reads that will correspond to them.</p>
+<p>Salmon has been pre-installed for you and is ready to go. We will run it with a command something like this. You will need to substitute in the following:</p>
+<ul>
+<li>The path to the salmon index folder for [index folder]</li>
+<li>The path to the [SRA Accession]_1.fastq.gz for the [fastq read 1]</li>
+<li>The path to the [SRA Accession]_2.fastq.gz for the [fastq read 2]</li>
+<li>A folder name for the output to be stored in, I recommend the SRA accession of the file you use</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+salmon quant -i <span style="color:#f92672">[</span>index folder<span style="color:#f92672">]</span> -l A -1 <span style="color:#f92672">[</span>fastq read 1<span style="color:#f92672">]</span> -2 <span style="color:#f92672">[</span>fastq read 2<span style="color:#f92672">]</span> -p <span style="color:#ae81ff">4</span> --validateMappings -o counts/<span style="color:#f92672">[</span>output name<span style="color:#f92672">]</span>
+
+head counts/<span style="color:#f92672">[</span>output name<span style="color:#f92672">]</span>/quant.sf
+tail counts/<span style="color:#f92672">[</span>output name<span style="color:#f92672">]</span>/quant.sf
+
+</code></pre></div><p>You should construct and run a command to count the transcripts in the SRR13639979 sample. It will output some progress as it runs and will take a few minutes to complete.</p>
+<p><strong>Q9) What command did you run? How many lines are in the out file? Look up how many genes are in the human genome. Does the number of lines match up with this? Should it? (Speculation is good at the end here)</strong></p>
+<p>We can see that Salmon quantification output has five tab-delimited columns: Name, Length, EffectiveLength, TPM, NumReads.</p>
+<ul>
+<li><em>Name</em> is the name/identifier for the transcript</li>
+<li><em>Length</em> is the length, in nucleotides, of that transcript</li>
+<li><em>EffectiveLength</em> is the &ldquo;effective length&rdquo;, in nucleotides, of that transcript. This is relevant for some statistics</li>
+<li><em>TPM</em> stands for &ldquo;transcripts per million&rdquo; and represents the number of counts normalized for many many total sequence reads we have</li>
+<li><em>NumReads</em> The raw number of reads that corresponded to that transcript.</li>
+</ul>
+<p>Now that we have this sort of tabular summary of each gene in the genome, with values corresponding to the amount of RNA in each sample, we are ready to begin our statistical analysis!</p>
+<p>In the next section, we will have count tables like this prepared for all of the samples in the experiment so we don&rsquo;t have to have everyone run hours of feature counting. Next, you should work on a DataCamp course <a href="https://learn.datacamp.com/courses/free-introduction-to-r">Introduction to R DataCamp course</a> to get an introduction to R, a statistical scripting language that will allow us to use some very powerful analysis tools to follow up on these tables, if you have not already.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://training.fire.tryps.in/" >
+    &copy;  2021 FIRE-CB Training Modules 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

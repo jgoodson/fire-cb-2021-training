@@ -6,7 +6,25 @@
     <description>Recent content on 2021 FIRE-CB Training Modules</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://training.fire.tryps.in/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://training.fire.tryps.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Transcriptomics Part 1 - Sequence Reads and Transcript Counting</title>
+      <link>https://training.fire.tryps.in/transcriptomics_module/intro1/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.fire.tryps.in/transcriptomics_module/intro1/</guid>
+      <description>*Note: This assignment has a number of associated questions you&amp;rsquo;ll find as you go through this that need to be submitted on ELMS. Some of these ask you to explain or guess why certain things may be the way that they are. I am not grading on correctness here, rather I am grading based on whether you have completed the assignment and put some thought into the answers. Feel free to discuss these with your group or with me in lab.</description>
+    </item>
+    
+    <item>
+      <title>Transcriptomics Part 2 - Differential Expression Analysis</title>
+      <link>https://training.fire.tryps.in/transcriptomics_module/intro2/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.fire.tryps.in/transcriptomics_module/intro2/</guid>
+      <description>Differential Expression At its core, transcriptomics seeks to study differences in the abundance of distinct RNA transcripts. We start with different biological samples that all have different numbers of each mRNA (Upper half of figure). Through the process of sequencing and then alignment, we get a certain number of these sequence reads matching with each mRNA-producing gene sequence (Lower half of figure). The hope, if the experiment works as planned, is that the number of reads corresponding to each sequence is proportional to the number of mRNAs in the starting cell.</description>
+    </item>
+    
     <item>
       <title>COVID Phylogenetics Part 1 - Sequence and Annotation Data</title>
       <link>https://training.fire.tryps.in/phylo1_module/intro1/</link>
