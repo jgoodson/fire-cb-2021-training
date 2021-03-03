@@ -293,3 +293,7 @@ We can see that Salmon quantification output has five tab-delimited columns: Nam
 Now that we have this sort of tabular summary of each gene in the genome, with values corresponding to the amount of RNA in each sample, we are ready to begin our statistical analysis! 
 
 In the next section, we will have count tables like this prepared for all of the samples in the experiment so we don't have to have everyone run hours of feature counting. Next, you should work on a DataCamp course [Introduction to R DataCamp course](https://learn.datacamp.com/courses/free-introduction-to-r) to get an introduction to R, a statistical scripting language that will allow us to use some very powerful analysis tools to follow up on these tables, if you have not already.
+
+## Next steps
+
+This first half of our technical training module asked you to become familiar with how to access genome annotation and sequencing data from the NCBI databases , how the sequence and annotation files are formatted, and how to process this data for analysis. In the [second half](/transcriptomics_module/intro2/), we will obtain use R and DESeq2 for differential expression analysis to learn more about what effects occur in peripheral blood immune cells when infected by COVID-19.
