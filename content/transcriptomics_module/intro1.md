@@ -138,7 +138,7 @@ head -n 20 Homo_sapiens.GRCh38.86.chromosome.22.gff3
 
 ```
 
-**Q4) [TODO COME UP WITH A NEW QUESTION]**
+**Q4) How many coding sequences ("CDS" annotations) are present on chromsome 22?**
 
 ###  The purpose of the reference sequence annotation
 
