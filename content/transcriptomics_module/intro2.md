@@ -6,11 +6,12 @@ date: "2021-02-24"
 
 ## Differential Expression
 
-<img src="images/mRNAvReads.png" width="500">
+![mRNA and Sequence Reads](/images/mRNAvReads.png)
 
 At its core, transcriptomics seeks to study differences in the abundance of distinct RNA transcripts. We start with different biological samples that all have different numbers of each mRNA (Upper half of figure). Through the process of sequencing and then alignment, we get a certain number of these sequence reads matching with each mRNA-producing gene sequence (Lower half of figure). The hope, if the experiment works as planned, is that the number of reads corresponding to each sequence is proportional to the number of mRNAs in the starting cell. This is usually the case, with a few caveats.
 
-<img src="images/tracking.png" width="500">
+
+![Tracking Reads](/images/tracking.png)
 
 The first caveat is that during the multi-step process of transforming mRNA to DNA and then sequencing it, you effectively lose track of how much RNA was in each sample to begin with. If we start with slightly different amounts of cells, and our cells generally have the same amount of mRNA in each cell (similar samples should!) then the amount of RNA extract will be roughly proportional (if our lab tech is good). When we convert our purified mRNA into DNA for sequencing, we will end up with more DNA, probably roughly proportional, but depending on technique we might have more or less amplification in each sample. Finally, when we actually sequence each sample, the number of reads we get can vary significantly depending on some subtle properties of each sample as well as the evenness with which the lab tech mixes the samples together. It is very easy, at this step, to have substantially different amounts of reads for each sample, in any direction.
 
@@ -48,7 +49,7 @@ Imagine this scenario. For a particular gene in sample A, we have twice as much 
 
 The first two are convenient, but only work with a few ratios for which we have nice english words. The second two work well, they are symmetric, so that the inverse of the ratio uses the same number (2-fold) but applies this to either an increase or decrease in abundance. The final two are perhaps most familiar for arbitrary ratios, and are directly describing the abundance. These have a big downside though, as a gene increases you get larger and large numbers, while decreases result in ever smaller fractions. This issue parallels an issue we have when trying to illustrate these types of changes graphically.
 
-<img src="images/changes.png" width="500">
+![Relative Changes](/images/changes.png)
 
 If we take a normalized dataset with three samples and two genes as shown above, we can describe the situation this way. We take sample A to be our "reference", a baseline or control sample. Both gene 1 and gene 2 have similar levels of expression in this dataset. In sample B both genes are increased substantially, by either 4-fold or 400-fold, while in sample C these genes are decreased by the same ratios. If we plot the normalized values directly, the plot for gene 1 looks pretty representative of what we expect, but because of the huge differences in gene 2, it is nearly impossible to tell the difference between samples A and C! It is also nearly impossible to compare both genes on the same plot.
 
@@ -92,7 +93,7 @@ In this way we can have a complicated multi-variable experiment and simultaneous
 
 The tool we will use for differential expression analysis in this stream is called DESeq2. This is available as a library for the R programming language. You may have been exposed to a program called RStudio in the past. This is a graphical program that lets you use the R interpreter like you have in the DataCamp ASN4, but also includes a text editor and graphical viewers for individual variables and files. For this lab we will use a special version of RStudio, called RStudio Server, that is available via website and runs on the same server that we connect to the command line via Termius. To access RStudio Server, browse to http://rstudio.fire.tryps.in and log in with your Terpmail account.
 
-<img src="images/rstudio.png" width="500">
+![RStudio](/images/rstudio.png)
 
 DESeq2 is available at 
 
@@ -226,7 +227,7 @@ We an generate a summary of these results:
 summary(res)
 ```
 
-**Q7) What comparison is DESeq2 making (in terms of variables) by default? You will need to look early in the output of the summary.
+**Q15) What comparison is DESeq2 making (in terms of variables) by default? You will need to look early in the output of the summary.**
 
 Like we mentioned before, there are many comparisons that can be made with all of our combinations of variables, and DESeq2 has calculated the effect of all of those possibilities. Perhaps the comparison of batch B vs batch A is not the most biologically relavent comparison we could make... We can see a list of these comparisons, or "contrasts"
 
@@ -243,7 +244,7 @@ res_cvh <- results(dds, contrast=c('status', 'convalescent', 'healthy'))
 
 Running either of these commands should have the same results. Using the same summary command as we used previously, we can get a summary out of this new `res_cvh` results variable.
 
-**Q8) How many genes are over-expressed in convalescent patients compared to healthy patients? How many are under-expressed?
+**Q16) How many genes are over-expressed in convalescent patients compared to healthy patients? How many are under-expressed?**
 
 We can either export these results tables by saving them to a CSV file, downloading them, and opening them in a spreadsheet program like Google Sheets or Microsoft Excel, or we can use R functions to investigate them directly.
 
@@ -259,7 +260,7 @@ res_cvh_signif <- subset(res_cvh[order(res_cvh$padj),], padj < 0.05)
 res_cvh_signif
 ```
 
-**Q9) What is the most significantly differentially expressed gene in convalescent patients (compared to healthy)? What is the name of this human gene and what is its general function? (You need to look this up on the Internet)
+**Q17) What is the most significantly differentially expressed gene in convalescent patients (compared to healthy)? What is the name of this human gene and what is its general function? (You need to look this up on the Internet)**
 
 While there are many things we might do with these results, most will involve various subsequent steps processing the exported results tables for each comparison we care about. One additional feature DESeq2 has is the ability to generate plots showing the overall level of differential expression in a results set.
 
@@ -270,4 +271,4 @@ plotMA(res_cvh, ylim=c(-6,6), main="Convalescent vs Healthy")
 
 In these scatter plots, known as MA-plots, each datapoint represents one feature or gene. The position on the X axis represents the average level of expression (how many transcripts of that gene there were), on a log axis. The location on the y-axis shows the log2 fold-change (the difference between the conditions you are comparing, where positive values mean more expression compared to the baseline, and negative values mean lower expression. By default, red colored genes are statistically significant at p<0.1.
 
-**Q10) Compare the plots of the male vs female and the convalescent vs healthy results. Which comparison has more differential expression? Which variable has more effects on this type of blood cells, recovery from coronavirus or sex?
+**Q18) Compare the plots of the male vs female and the convalescent vs healthy results. Which comparison has more differential expression? Which variable has more effects on this type of blood cells, recovery from coronavirus or sex?**

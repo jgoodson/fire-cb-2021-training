@@ -160,7 +160,7 @@ The `BioProject` entries themselves often contain only a brief summary of the ex
 
 *We will be working with data that largely resides in one `BioProject` entry. The accession number for these datasets has the `BioProject` accession PRJNA699856. Searching for this in the link provided above should bring up the summary page for the project. Clicking on the number of SRA experiments brings you to a result list in the SRA database. A link at the top of the page should bring you to the SRA Run Selector which lets you interact and download a table containing more information about the data itself.*
  
-![Run selector](images/SRASelector.png)
+![Run selector](/images/SRASelector.png)
  
 **Q5) How many RNA-seq datasets are present in this project? How many of these correspond to samples from healthy patients and how many to patients who retested positive? What other potentially import biological variables can you find in the annotation for these experiments?**
  
@@ -229,19 +229,19 @@ To find out exactly where in the genome a piece of DNA came from, we need to com
 
 Fortunately, some very smart computer scientists have come up with algorithms that let us match reads to positions in the genome, lining up a read with its genomic match in a process called "alignment". These operate dramatically faster than the straightforward comparison of every read with every possible position. 
 
-![Read alignment](images/Read_alignment.png)
+![Read alignment](/images/Read_alignment.png)
 
-![Read alignment2](images/Read_alignment2.jpg)
+![Read alignment2](/images/Read_alignment2.jpg)
 
 You can visualize this process. Each of our reads (one of the red lines) is a short fragment. This sequence read should have the same sequence as a chunk of our genome, probably a part corresponding to a gene or transcript (blue regions). We have a big pool of reads, and by finding their matching position in the genome we know that we had some fraction of our RNA transcribed from that position. Sometimes the reads don't match perfectly in sequence to the genome. This can be because of errors, or because the genome of the organism we sequenced (maybe my macrophages!) don't have exactly the same sequence as the reference genome, generated from a variety of humans that weren't me. As long as the differences are small (like a single base difference represented by the star and green dots), the aligner will just note the mismatch but align the read to the correct position.
 
 In higher organisms, RNA transcripts are frequently not identical to the underlying genomic sequence because of a process called "splicing".
 
-![Splicing](images/splicing.PNG)
+![Splicing](/images/splicing.PNG)
 
 Eukaryotic organisms construct their final mRNA transcripts by initially transcribing a much longer intermediate transcript and essentially cut-and-pasting individual chunks of RNA sequence together into the final form. If we sequence one of these mature mRNA sequences and the sequence happens to cross this "splice point", the sequence won't match up to the genome anymore. The first part of the read may align to one section of the genome and the second part may align thousands of nucleotides away! For this reason, aligning these types of potentially spliced reads is a substantially harder computational problem and uses different, more advanced alignment software.
 
-![Spliced reads](images/spliced_reads.svg)
+![Spliced reads](/images/spliced_reads.svg)
 
 We can use special algorithms to search for the best match between our sequences and the reference genome. If that best match is found in a particular gene, we say that that sequence represents a transcript made from that gene. We can do this for all of the millions of sequence reads in our genome and generate a list of how many transcripts were made from each and every gene. This represents our *transcriptome* which we can use in all sorts of cool ways.
 
