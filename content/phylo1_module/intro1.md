@@ -55,7 +55,7 @@ While you could download the genome "FASTA" file from the site and upload it, we
 
 ```bash
 
-wget http://training.fire.tryps.in/NC_045512.fasta.gz
+wget https://github.com/jgoodson/fire-cb-2021-training/raw/hugo/static/NC_045512.fasta.gz
 ls -lh
 
 ```
