@@ -121,17 +121,17 @@ The expression data for our dataset can be found in the "counts" subfolder of ou
 
 ```bash
 #This command runs in the commandline/terminal
-ls /storage/data/transcriptomics/counts
-ls /storage/data/transcriptomics/counts/SRR13639979
+ls /shared/data/transcriptomics/counts
+ls /shared/data/transcriptomics/counts/SRR13639979
 
 ```
 
-The second thing we need is a description of the variable values for each sample. We are going to have two variables here, infected status and biological sex. I have already prepared a table (just using Excel manually!) with the file names of each sample, as well as the values for each variable. This file is found at `/storage/data/transcriptomics/sampletable.csv`. You can either view this with the command line, navigate to and open this file in RStudio, or download it using Cyberduck/RStudio.
+The second thing we need is a description of the variable values for each sample. We are going to have two variables here, infected status and biological sex. I have already prepared a table (just using Excel manually!) with the file names of each sample, as well as the values for each variable. This file is found at `/shared/data/transcriptomics/sampletable.csv`. You can either view this with the command line, navigate to and open this file in RStudio, or download it using Cyberduck/RStudio.
 
 We can load this into R by using the `read.csv` function
 
 ```r
-sampleInfo <- read.csv('/storage/data/transcriptomics/sampletable.csv')
+sampleInfo <- read.csv('/shared/data/transcriptomics/sampletable.csv')
 ```
 
 **Q13) What labels are we using for each of the two variables? What are the values used for each one? (look at `sampleInfo` using R. You can just type the variable name into the console and hit return/enter)** 
