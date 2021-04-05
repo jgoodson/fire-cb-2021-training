@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dl_modules on 2021 FIRE-CB Training Modules</title>
+    <link>https://training.fire.tryps.in/dl_module/</link>
+    <description>Recent content in Dl_modules on 2021 FIRE-CB Training Modules</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://training.fire.tryps.in/dl_module/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://training.fire.tryps.in/dl_module/walkthrough/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.fire.tryps.in/dl_module/walkthrough/</guid>
+      <description>Introduction In our previous module we got an introduction to some machine learning concepts including modeling, supervised training, and classification. Machine learning, and deep learning are obviously increasingly big fields tackling an ever-increasing variety of problems. So far, we have learned about models that take in numerical input of a specific size and output predictions about individual data points. We had individual observations (cell lines) that we had a fixed number of input features for (individual genes).</description>
+    </item>
+    
+  </channel>
+</rss>

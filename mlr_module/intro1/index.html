@@ -40,7 +40,7 @@
 <meta itemprop="description" content="*Note: This assignment has a number of associated questions you&rsquo;ll find as you go through this that need to be submitted on ELMS. Some of these ask you to explain or guess why certain things may be the way that they are. I am not grading on correctness here, rather I am grading based on whether you have completed the assignment and put some thought into the answers. Feel free to discuss these with your group or with me in lab.">
 <meta itemprop="datePublished" content="2021-03-30T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-03-30T00:00:00+00:00" />
-<meta itemprop="wordCount" content="5536">
+<meta itemprop="wordCount" content="2641">
 
 
 
@@ -226,7 +226,7 @@ ccle_metadata <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22
 <p>We can also see that the maximum value across the board is no more than &ldquo;8&rdquo;. What is happening here?</p>
 <p>The way that susceptibility is measured in this case is a biochemistry concept called IC50 or EC50. This is a measurement of the concentration of a compound required to reach 50% of the maximum inhibition possible. If complete killing of cancer cells occurs, we would say that is 100% inhibited, whereas if a drug doesn&rsquo;t slow them down at all, they are 0% inhibited. The amount of a drug necessary to get to 50% would be called the IC50 or EC50 and can represent how powerful that drug is: the lower, the better.</p>
 <p>We measure this by exposing the cells to a variety of concentrations of the drug compounds and measuring the inhibition for each. In this case, the maximum concentration used in the experiment was &ldquo;8 uM&rdquo; or 8-micromolar. Concentrations above that aren&rsquo;t relevant because they are nearly impossible to reach and would probably kill patients. If a value is 8, we can safely assume that the cells are not vulnerable to that drug.</p>
-<p>#todo insert image</p>
+<p><img src="/images/curvefit.png" alt="Inhibition Curve" title="Nested Folders"></p>
 <p>We might want to eliminate rows that don&rsquo;t have useful data. <em>R</em> has a variety of functions to test various aspects of the data. We can use the <code>is.na()</code> function to test whether these are valid numbers or not.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">is.na</span>(ccle_metadata<span style="color:#f92672">$</span>PHA<span style="color:#ae81ff">-665752</span>)
 </code></pre></div><p>We can then use R selection to choose only those rows of the dataframe that aren&rsquo;t NA for PHA-665752:</p>
@@ -280,224 +280,8 @@ ccle_targets_log
 <p>We can transform or <a href="https://mlr.mlr-org.com/articles/tutorial/preproc.html"><em>preprocess</em> our input data</a> in a variety of ways. So far we have only looked at one (log transformation), but many are available and might be suitable for different problems.</p>
 <h4 id="question-5">Question #5</h4>
 <p>Try to make a similar plot to the above but for <a href="https://en.wikipedia.org/wiki/Paclitaxel">Paclitaxel</a> and <a href="https://en.wikipedia.org/wiki/Tubulin">a-Tubulin</a> (TUBA1A). What kind of relationship does TUB1A expression have with Paclitaxel sensitivity?</p>
-<h2 id="lets-teach-some-machines">Let&rsquo;s teach some machines</h2>
-<p>You might be asking, <em>when are we going to do machine learning?</em> Arguably, we already are! Machine learning is, at its core, fitting a model to some input features to predict an output target. By telling ggplot2 to make a &ldquo;lm&rdquo; plot, it fit a simple, linear, model on one variable (the X value, one gene expression estimate) to predict another (the y value, the IC50 values). This process, predicting a continue value, is called <em>regression</em>, both in the context of machine learning and in statistics. In fact, linear models and linear regression are a great starting point for modelling in both statistics and machine learning. Regression is one of two, related, core forms of machine learning: regression and classification.</p>
-<h3 id="regression">Regression</h3>
-<p><em>Regression</em> is a form of modeling where you are trying to predict a continuous, numerical value from one or more features. Perhaps the simplest method, linear regression, is commonly used in many, many fields. You may have already been exposed to linear regression in classes like chemistry, physics, or statistics. We can do linear regression with a single feature or independent variable, like in the previous section, or we can do it with more than one! Linear regression models take the form of (all equivalent):</p>
-<p>$y = ax+b$</p>
-<p>or</p>
-<p>$y=wX + w_0$</p>
-<p>or</p>
-<p>$y=w_1x_1 + w_2x_2 + &hellip; + w_0$</p>
-<p>The idea is that we input our feature values as X, these are multiplied by some <em>learned</em> weight <code>w</code>, added together with a <em>intercept</em> or <em>bias</em>, and the resulting value is the prediction for our target variable! These &ldquo;weights&rdquo; are the values that our machine is <em>learning</em> during the process of fitting a model to data.</p>
-<p>Linear regression can be solved exactly by a particular mathematical process caled &ldquo;ordinary least squares&rdquo;, but other types of regression need more complicated algorithms to learn their weights. A simple linear regression with one feature variable only has two weights, while complicated neural network models might have billions. At their core, they are both models and the process of fitting them is very similar!</p>
-<p>Let&rsquo;s use mlr to do a simple linear regression with two feature varaibles:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">data <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cbind</span>(ccle_txomes<span style="color:#a6e22e">[c</span>(<span style="color:#e6db74">&#39;BRCA1&#39;</span>, <span style="color:#e6db74">&#39;HTT&#39;</span>)], ccle_targets_log<span style="color:#a6e22e">[c</span>(<span style="color:#e6db74">&#39;Topotecan&#39;</span>)])
-topo_valid_cell_lines <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">is.na</span>(ccle_targets_log[<span style="color:#e6db74">&#39;Topotecan&#39;</span>])
-topo_valid_data <span style="color:#f92672">&lt;-</span> data[topo_valid_cell_lines,]
-
-regr.task <span style="color:#f92672">=</span> <span style="color:#a6e22e">makeRegrTask</span>(id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;topo2&#34;</span>, data<span style="color:#f92672">=</span>topo_valid_data, target<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Topotecan&#34;</span>)
-regr.lrn <span style="color:#f92672">=</span> <span style="color:#a6e22e">makeLearner</span>(<span style="color:#e6db74">&#34;regr.lm&#34;</span>)
-model <span style="color:#f92672">=</span> <span style="color:#a6e22e">train</span>(regr.lrn, regr.task)
-</code></pre></div><p>Since we had two features, we should have two weight values, one for each value, and one intercept value. We can find those by access some specific attributes of our <code>WrappedModel</code> object:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">model<span style="color:#f92672">$</span>learner.model
-</code></pre></div><p><em>Don&rsquo;t worry about understanding all the code in this next block yourself</em>. The following code makes a 3D scatterplot and surface plot. An linear equation in three dimensions makes a surface instead of a line ($z = f(x,y)$). You should see an interactable 3d plot when you run this, click around on it to manipulate it.</p>
-<p>We can see that the linear model creates a surface going through the middle of a cloud of data points. We can&rsquo;t easily expand our visualizations past three dimensions, but machine learning algorithms can easily work in dozens or hundreds of dimensions at once.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">
-fig <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">plot_ly</span>(
-  data<span style="color:#f92672">=</span>topo_valid_data,
-  x<span style="color:#f92672">=~</span>BRCA1,
-  y<span style="color:#f92672">=~</span>HTT,
-  z<span style="color:#f92672">=~</span>Topotecan,
-  type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;scatter3d&#34;</span>,
-  mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;markers&#34;</span>,
-  marker<span style="color:#f92672">=</span><span style="color:#a6e22e">list</span>(size<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
-  )
-
-i <span style="color:#f92672">=</span> model<span style="color:#f92672">$</span>learner.model<span style="color:#f92672">$</span>coefficients[1]
-w1 <span style="color:#f92672">=</span> model<span style="color:#f92672">$</span>learner.model<span style="color:#f92672">$</span>coefficients[2]
-w2 <span style="color:#f92672">=</span> model<span style="color:#f92672">$</span>learner.model<span style="color:#f92672">$</span>coefficients[3]
-
-x<span style="color:#f92672">=</span><span style="color:#a6e22e">seq</span>(from<span style="color:#f92672">=</span><span style="color:#a6e22e">min</span>(topo_valid_data<span style="color:#f92672">$</span>BRCA1), to<span style="color:#f92672">=</span><span style="color:#a6e22e">max</span>(topo_valid_data<span style="color:#f92672">$</span>BRCA1), length.out<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
-y<span style="color:#f92672">=</span><span style="color:#a6e22e">seq</span>(from<span style="color:#f92672">=</span><span style="color:#a6e22e">min</span>(topo_valid_data<span style="color:#f92672">$</span>HTT), to<span style="color:#f92672">=</span><span style="color:#a6e22e">max</span>(topo_valid_data<span style="color:#f92672">$</span>HTT), length.out<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
-z<span style="color:#f92672">=</span><span style="color:#a6e22e">outer</span>(x,y,(<span style="color:#a6e22e">function</span>(a, b) i <span style="color:#f92672">+</span> a<span style="color:#f92672">*</span>w1 <span style="color:#f92672">+</span> b<span style="color:#f92672">*</span>w2))
-
-fig <span style="color:#f92672">&lt;-</span> fig <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">add_surface</span>(x<span style="color:#f92672">=</span>x, y<span style="color:#f92672">=</span>y, z<span style="color:#f92672">=</span>z)
-fig
-</code></pre></div><h4 id="question-6">Question #6</h4>
-<p>Why can&rsquo;t we easily use normal 2d scatter plots to plot this last model? Can you think of any ways we could specifically show the relationship between only one of these genes and Topotecan sensitivity? (No right/wrong here, just ideas)</p>
-<h4 id="metrics">Metrics</h4>
-<p>The surface defined by our linear model does a pretty mediocre job of matching all of our data points. We might want to quantitatively measure how well our models do at predicting our data. This is usually done by calculating one or more <a href="https://mlr.mlr-org.com/articles/tutorial/performance.html"><em>metrics</em> to measure peformance</a>.</p>
-<p>Metrics commonly used for evaluating regression models include:</p>
-<ul>
-<li>Mean Absolute Error (MAE): The absolute value of the difference between each data point and the prediction the model makes for it, averaged across all data points.</li>
-<li>Mean Squared Error (MSE): The same idea as the MAE, but each difference is squared and then averaged together. This penalizes &ldquo;wronger&rdquo; answers more.</li>
-<li>Explained variance: A function that gives, roughly-speaking, a measurement of how much variability in the data is explained by the model. A perfect model gets a value of 1.0, a model just guessing the mean value gets a 0.0, and an actively-bad model might get a negative value.</li>
-<li>Correlation Coefficients: Measurements of the correlation between the true and predicted target values.</li>
-</ul>
-<p>mlr comes pre-programmed with a wide variety of metrics. We can use these to compare models and help us determine which models or features are most effective.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pred <span style="color:#f92672">=</span> <span style="color:#a6e22e">predict</span>(model, task<span style="color:#f92672">=</span>regr.task)
-<span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">performance</span>(pred, measures<span style="color:#f92672">=</span>mse))
-<span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">performance</span>(pred, measures<span style="color:#f92672">=</span>mae))
-<span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">performance</span>(pred, measures<span style="color:#f92672">=</span>expvar))
-</code></pre></div><h4 id="question-7">Question #7</h4>
-<p>Which of the four metrics shown here do you think would be more suitable for comparing models trained on slightly different datasets? Why?</p>
-<h3 id="classification">Classification</h3>
-<p>Not everything we want to create a model for can be quantified as nice rational numbers. Very frequently we work with <em>categories</em>, where some item fits into one category or another. In this case, we might draw a threshold and say that any cell lines below a certain IC50 value are susceptible, while those above that value are not. Exactly how we might pick a threshold really depends on the context and all sorts of domain-specific knowledge, but let&rsquo;s take a look at a <em>heatmap</em> of the IC50 values to make that choice somewhat arbitrarily. Sorry, this code is a bit complex to make it pretty.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">ccle_targets_log<span style="color:#f92672">$</span>cell_line <span style="color:#f92672">=</span> <span style="color:#a6e22e">rownames</span>(ccle_targets_log)
-
-ccle_targets_log[<span style="color:#f92672">!</span><span style="color:#a6e22e">is.na</span>(ccle_targets_log<span style="color:#f92672">$</span>Irinotecan),] <span style="color:#f92672">%&gt;%</span>
-<span style="color:#a6e22e">gather</span>(key<span style="color:#f92672">=</span>compound, value<span style="color:#f92672">=</span>ic50, <span style="color:#a6e22e">colnames</span>(ccle_targets_log)[<span style="color:#f92672">-</span><span style="color:#a6e22e">length</span>(ccle_targets_log)]) <span style="color:#f92672">%&gt;%</span>
-  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(compound, cell_line, fill<span style="color:#f92672">=</span>ic50)) <span style="color:#f92672">+</span> 
-    <span style="color:#a6e22e">geom_tile</span>() <span style="color:#f92672">+</span> 
-    <span style="color:#a6e22e">scale_fill_viridis</span>(direction<span style="color:#f92672">=</span><span style="color:#ae81ff">-1</span>) <span style="color:#f92672">+</span>
-    <span style="color:#a6e22e">theme</span>(axis.text.x <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_text</span>(angle <span style="color:#f92672">=</span> <span style="color:#ae81ff">45</span>, vjust<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, hjust<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)) <span style="color:#f92672">+</span>
-    <span style="color:#a6e22e">theme</span>(axis.text.y <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_blank</span>())
-
-</code></pre></div><p>We can see that across all drugs, sensitivites vary substantially across our range, but some drugs seem to kill all cancer cell lines at low concentrations while others only have very few effects. Unfortunately, one threshold for everything may just not work, some drugs may just need higher doses than others! This is where field-specific knowledge or additional research might be required to actually make an informed decision. It isn&rsquo;t always possible to make these sorts of choices <em>a priori</em> from the machine learning perspective.</p>
-<p>Let&rsquo;s take a look at PD-0325901, a drug specifically for neurofibromas:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">hist</span>(ccle_targets_log[,<span style="color:#e6db74">&#34;PD.0325901&#34;</span>])
-</code></pre></div><p>Although there is no obvious cutoff, let&rsquo;s pick a threshold of -1.0, or 0.1 uM/100 nM for now.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pd_valid_cell_lines <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">is.na</span>(ccle_targets_log[,<span style="color:#e6db74">&#39;PD.0325901&#39;</span>])
-PD_0325901_sensitive <span style="color:#f92672">=</span> ccle_targets_log[pd_valid_cell_lines,][<span style="color:#e6db74">&#39;PD.0325901&#39;</span>] <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">-1.0</span>
-</code></pre></div><p>Now, we can visualize a relationship between our PD-0325901 treatment and two genes targetted by this drug with a simple scatterplot and colors for the sensitivity:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">data <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cbind</span>(ccle_txomes[pd_valid_cell_lines, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#39;MAP2K1&#39;</span>, <span style="color:#e6db74">&#39;MAP2K2&#39;</span>)], <span style="color:#a6e22e">data.frame</span>(PD_0325901_sensitive))
-<span style="color:#a6e22e">ggplot</span>(data, <span style="color:#a6e22e">aes</span>(x<span style="color:#f92672">=</span>MAP2K1, y<span style="color:#f92672">=</span>MAP2K2, color<span style="color:#f92672">=</span>PD.0325901)) <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_point</span>()
-</code></pre></div><p>Even though MAP2K1 and MAP2K2 are the direct targets of this drug, they don&rsquo;t seem to do a good enough job to explain which cell lines would be sensitive to it. Let&rsquo;s start creating some classification models and metrics so we can decide how well individual sets of genes work to predict the sensitivity to PD-0325901. We will use one of the most-simple classifier models, <em>logistic regression</em>. Despite the name, logistic regression is for classification, not regression. I know, don&rsquo;t blame me. This is similar to before, but now we use our new data, a new target column, and a <code>classif.multinom</code> learner:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">classif.task <span style="color:#f92672">=</span> <span style="color:#a6e22e">makeClassifTask</span>(id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pd2&#34;</span>, data<span style="color:#f92672">=</span>data, target<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;PD.0325901&#34;</span>, positive<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TRUE&#34;</span>)
-classif.lrn <span style="color:#f92672">=</span> <span style="color:#a6e22e">makeLearner</span>(<span style="color:#e6db74">&#34;classif.multinom&#34;</span>)
-model <span style="color:#f92672">=</span> <span style="color:#a6e22e">train</span>(classif.lrn, classif.task)
-</code></pre></div><h4 id="metrics-1">Metrics</h4>
-<p>Like regression, there are many ways of measuring how good a classifier is. You are probably more familiar with some of these, like <em>accuracy</em>, the fraction of the answers that the classifier gets correct. We should discuss two related concepts now.</p>
-<p>When we talk about binary classification (classification into two groups), we have two values, the actual target value, and the predicted value. A <strong>positive</strong> value is when the classifier predicts a positive value, and <strong>negative</strong> is when the classifier predicts a negative, <em>regardless of whether it is correct</em>. We consider a classifcation <strong>true</strong> when the actual value matches the predicted value, either positive or negative. If the classifier is wrong, we consider that <strong>false</strong>. By combining these two, we can categorize every prediction a classifer makes:</p>
-<ul>
-<li>True Positive (TP): A correct guess for the <em>positive</em> category (Good)</li>
-<li>False Positive (FP): An incorrect guess, guessing that the value is <em>positive</em> (Bad)</li>
-<li>True Negative (TN): A correct guess that the value is <em>negative</em> (Good)</li>
-<li>False Negative (FN): An incorrect guess that the value is negative (Bad)</li>
-</ul>
-<p>The relative importance of positives and negatives depends on the context. If we were doing a COVID test, false positives are probably less important that false negatives!</p>
-<p>Since we care about all four of these, to varying degrees depending on our application, we usually calculate the <em>rates</em>, or relative amounts of all four, resulting in something called the <a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity#Confusion_matrix"><em>confusion matrix</em></a>. We also frequently use various combinations of these four rates to calculate a variety of metrics, including:</p>
-<ul>
-<li>Accuracy - How many guesses are correct?
-<ul>
-<li>$(TP+TN)/(TP+TN+FP+FN)$</li>
-</ul>
-</li>
-<li>Sensitivity/Recall or &ldquo;true positive rate&rdquo; - What proportion of positive values are correct?
-<ul>
-<li>$TP/(TP+FN)$</li>
-</ul>
-</li>
-<li>Specificity or &ldquo;true negative rate&rdquo; - What proportion of negative values are correct?
-<ul>
-<li>$TN/(TN+FP)$</li>
-</ul>
-</li>
-<li>Precision or &ldquo;positive predictive value&rdquo; - What proportion of <em>positive guesses</em> are correct?
-<ul>
-<li>$TP/(TP+FP)$</li>
-</ul>
-</li>
-</ul>
-<p>Let&rsquo;s take a look at how some of these metrics interact:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pred <span style="color:#f92672">=</span> <span style="color:#a6e22e">predict</span>(model, classif.task)
-<span style="color:#a6e22e">performance</span>(pred, measures<span style="color:#f92672">=</span>acc)
-</code></pre></div><p>Look at that! Our model is 84% accurate, that sounds great&hellip;at first. Consider what percentage of our data points are negative:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">sum</span>(pred<span style="color:#f92672">$</span>data<span style="color:#f92672">$</span>truth <span style="color:#f92672">==</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">length</span>(pred<span style="color:#f92672">$</span>data<span style="color:#f92672">$</span>truth)
-</code></pre></div><p>Oh, maybe 84% accuracy isn&rsquo;t so good when you can just always guess &ldquo;False&rdquo; and get 84% accuracy. What if we look at precision and recall? In mlr, we can get all of the relavent binary classification measures in one go with <code>calculateROCMeasures()</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">calculateROCMeasures</span>(pred)
-</code></pre></div><h4 id="question-8">Question #8</h4>
-<p>The previous command should give you an explanation of each metric. What are our precision and recall? What do you think these message means for our metric? Do you think this invalidates our conclusions?</p>
-<h3 id="feature-selection">Feature Selection</h3>
-<p>Let&rsquo;s give our classifier a bit more data to work with: let&rsquo;s select one hundred random genes from the beginning of the list, alphabetically.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">data <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cbind</span>(ccle_txomes[pd_valid_cell_lines, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">100</span>], <span style="color:#a6e22e">data.frame</span>(PD_0325901_sensitive))
-classif.task <span style="color:#f92672">=</span> <span style="color:#a6e22e">makeClassifTask</span>(id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pd100&#34;</span>, data<span style="color:#f92672">=</span>data, target<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;PD.0325901&#34;</span>, positive<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TRUE&#34;</span>)
-classif.lrn <span style="color:#f92672">=</span> <span style="color:#a6e22e">makeLearner</span>(<span style="color:#e6db74">&#34;classif.multinom&#34;</span>, predict.type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;prob&#34;</span>)
-model <span style="color:#f92672">=</span> <span style="color:#a6e22e">train</span>(classif.lrn, classif.task)
-
-pred <span style="color:#f92672">=</span> <span style="color:#a6e22e">predict</span>(model, classif.task)
-<span style="color:#a6e22e">calculateROCMeasures</span>(pred)
-</code></pre></div><p>Better! We are up to 93% accuracy with a respectable 84% precision and 66% recall. We can make some plots to better illustrate how our classifier performs now. The plots measure metrics using every possible &ldquo;threshold&rdquo; that the classifier could use to decide positive/negative and show them as a line plot.</p>
-<p>First, we will plot a so-called &ldquo;Receiver Operating Curve&rdquo; or ROC, which plots the true positive rate against the false positive rate. The ideal classifer is a line as close to the top-left as possible (all true positives, no false positives). A classifier that always guesses one value will be a straight line along the y=x line.</p>
-<p>People will also frequently measure the area under this curve, the ROC-AUC (area under curve), as a classifier metric.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df <span style="color:#f92672">=</span> <span style="color:#a6e22e">generateThreshVsPerfData</span>(pred, measures <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(fpr, tpr, mmce))
-<span style="color:#a6e22e">plotROCCurves</span>(df)
-<span style="color:#a6e22e">performance</span>(pred, auc)
-</code></pre></div><p>Another frequently-used plot is the precision-recall curve. This curve is compared to a line at the fraction of the population that is the positive class, in this case about 16%. The better the classifier, the higher this line will be across the board.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df <span style="color:#f92672">=</span> <span style="color:#a6e22e">generateThreshVsPerfData</span>(pred, measures <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(ppv, tpr))
-<span style="color:#a6e22e">plotROCCurves</span>(df, diagonal<span style="color:#f92672">=</span><span style="color:#66d9ef">FALSE</span>)
-</code></pre></div><p>A great resource for how these curves work and when to use them can be found here: <a href="https://mlr.mlr-org.com/articles/tutorial/roc_analysis.html">https://mlr.mlr-org.com/articles/tutorial/roc_analysis.html</a></p>
-<h4 id="overfitting">Overfitting</h4>
-<p>We have a lot of data, why not use it? Let&rsquo;s make our logistic regression classifier even better by using five hundred genes:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">data <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cbind</span>(ccle_txomes[pd_valid_cell_lines, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">500</span>], <span style="color:#a6e22e">data.frame</span>(PD_0325901_sensitive))
-classif.task <span style="color:#f92672">=</span> <span style="color:#a6e22e">makeClassifTask</span>(id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pd500&#34;</span>, data<span style="color:#f92672">=</span>data, target<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;PD.0325901&#34;</span>, positive<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TRUE&#34;</span>)
-classif.lrn <span style="color:#f92672">=</span> <span style="color:#a6e22e">makeLearner</span>(<span style="color:#e6db74">&#34;classif.multinom&#34;</span>, predict.type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;prob&#34;</span>)
-
-model <span style="color:#f92672">=</span> <span style="color:#a6e22e">train</span>(classif.lrn, classif.task)
-pred500 <span style="color:#f92672">=</span> <span style="color:#a6e22e">predict</span>(model, classif.task)
-
-<span style="color:#a6e22e">calculateROCMeasures</span>(pred500)
-</code></pre></div><p>It is perfect! We can perfectly predict susceptibility with no error at all, problem solved.</p>
-<p>Or not&hellip; predicting something as complicated as drug sensitivity in cancer cell lines is not that easy or simple, so what is happening? We are <em>overfitting</em> our problem. We are only predicting about 500 different values, but we have that many features! The model should have five hundred unique combinations of features and <em>can basically memorize the input and regurgitate it back to use</em>.</p>
-<p>How do we deal with this problem? There are two things we can do:</p>
-<ol>
-<li>Ensure we are using a small number of features relative to our number of observations/samples.</li>
-<li>Train our model on a subset of the data and test how effective the model is at <em>generalizing</em> to data it has not seen.</li>
-</ol>
-<p>These each have their place. All things equal, a simpler model with less features that can do equally good at prediction is better. <em>Don&rsquo;t use a neural network when logistic regression will suffice.</em> The question of &ldquo;how much is too much&rdquo; is complicated, but by splitting our data into <em>training</em> and <em>testing</em> data we can quantitatively measure how good our models are at generalizing. mlr has <a href="https://mlr.mlr-org.com/articles/tutorial/resample.html">excellent tools</a> to help us do this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">rdesc <span style="color:#f92672">=</span> <span style="color:#a6e22e">makeResampleDesc</span>(<span style="color:#e6db74">&#34;Holdout&#34;</span>, split<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>)
-res500 <span style="color:#f92672">=</span> <span style="color:#a6e22e">resample</span>(classif.lrn, classif.task, rdesc, measures<span style="color:#f92672">=</span><span style="color:#a6e22e">list</span>(acc, ppv, tpr))
-res500
-</code></pre></div><p>This re-trains our model on 2/3 of our data, uses the other 1/3 to test performance, and reports back accuracy, precision (ppv) and recall (tpr). After splitting our data randomly into training and testing &ldquo;splits&rdquo;, training our model on one, and evaluating its performance on the other, we get a much more reasonable 68% accuracy (remember 84% of the samples are negative in this case), with mediocre precision and recall. There is lots of room for improvement!</p>
-<pre><code>df500 = generateThreshVsPerfData(res500$pred, measures = list(fpr, tpr, mmce))
-plotROCCurves(df500)
-</code></pre><h4 id="question-9">Question #9</h4>
-<p>Take a look at this page on <a href="https://machinelearningmastery.com/k-fold-cross-validation/">Cross-Validation</a>. What is cross-validation and how does it compare with what we did in this last step?</p>
-<h4 id="finding-the-best-genes-to-use-as-features">Finding the best genes to use as features</h4>
-<p>We know that some genes are going to be irrelevant, some are important, but that we will need a combination to get good performance, but cannot use too many without overfitting. How can we go about picking out which combination may be useful? The <a href="https://mlr.mlr-org.com/articles/tutorial/feature_selection.html"><code>feature_selection</code> component</a> of mlr features a variety of approaches to do this.</p>
-<p>One general method is to calculate various statistics on the basic dataset to try to determine the relative &ldquo;importance&rdquo; of each feature, then choose the most important features. We can use <code>generateFilterValuesData()</code> to do this. First, we set up a task with all our genes genes (definitely overfitting). We then use the <code>generateFilterValuesData</code> function to generate importances for all of our genes. Here, we will use an ANOVA or analysis-of-variance test to rank our genes.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">data <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cbind</span>(ccle_txomes[pd_valid_cell_lines, ], <span style="color:#a6e22e">data.frame</span>(PD_0325901_sensitive))
-classif.task <span style="color:#f92672">=</span> <span style="color:#a6e22e">makeClassifTask</span>(id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pd_full&#34;</span>, data<span style="color:#f92672">=</span>data, target<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;PD.0325901&#34;</span>, positive<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TRUE&#34;</span>)
-fv <span style="color:#f92672">=</span> <span style="color:#a6e22e">generateFilterValuesData</span>(classif.task, method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;anova.test&#34;</span>)
-fv
-</code></pre></div><p>We can also choose just a subset, in this case, the top twenty, and create a new, smaller task to fit and evaluate:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">filtered.task <span style="color:#f92672">=</span> <span style="color:#a6e22e">filterFeatures</span>(classif.task, method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;anova.test&#34;</span>, abs <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>)
-
-rdesc <span style="color:#f92672">=</span> <span style="color:#a6e22e">makeResampleDesc</span>(<span style="color:#e6db74">&#34;Holdout&#34;</span>, split<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>)
-res20best <span style="color:#f92672">=</span> <span style="color:#a6e22e">resample</span>(classif.lrn, filtered.task, rdesc, measures<span style="color:#f92672">=</span><span style="color:#a6e22e">list</span>(acc, ppv, tpr))
-<span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">calculateROCMeasures</span>(res20best<span style="color:#f92672">$</span>pred))
-df20best <span style="color:#f92672">=</span> <span style="color:#a6e22e">generateThreshVsPerfData</span>(res20best<span style="color:#f92672">$</span>pred, measures <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(fpr, tpr, mmce))
-<span style="color:#a6e22e">plotROCCurves</span>(df20best)
-</code></pre></div><p>Very nice! With only twenty genes and training on our training data, we get 87% accuracy and 65/50% precision/recall on our test set. This is substantially better than our first choice of 500 random genes on the same problem. More data is good, but a ton of crappy data is no substitute for good data.</p>
-<h3 id="creating-composite-features">Creating composite features</h3>
-<p>Although using individual genes directly as our individual features is effective, there are other ways we can create a smaller number of features to use in our models. One class of methods, based on a variety of linear algebra techniques, are known as &ldquo;dimensionality reduction&rdquo;. We saw before that adding a second feature to our models makes it a &ldquo;three dimensional&rdquo; problem. We have over 18,000 features so by using them all our problem has tens of thousands of dimensions! That is definitely too unweidly for most algorithms.</p>
-<p>While we can simply take the most-useful dimensions, and alternative is to <em>create</em> new dimensions formed from combinations of our existing features. There are many ways to do this, both supervised and unsupervised. We&rsquo;ll start with perhaps the simplest and most commonly-used method: <a href="https://www.datacamp.com/community/tutorials/pca-analysis-r">Principal Component Analysis (PCA)</a>.</p>
-<p>I&rsquo;m not going to go over how PCA works here, but the short version is that it projects our data into new dimensions, packing as much information into as few dimensions or &ldquo;composite feature&rdquo; as possible.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pca <span style="color:#f92672">=</span> <span style="color:#a6e22e">prcomp</span>(ccle_txomes, rank<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
-pca<span style="color:#f92672">$</span>x[pd_valid_cell_lines, ]
-</code></pre></div><p>Now instead of a 493 x 18874 matrix of features, we have only a 493 x 20. We can use this to fit our model instead:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">data <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cbind</span>(pca<span style="color:#f92672">$</span>x[pd_valid_cell_lines, ], <span style="color:#a6e22e">data.frame</span>(PD_0325901_sensitive))
-classif.task <span style="color:#f92672">=</span> <span style="color:#a6e22e">makeClassifTask</span>(id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pd20pca&#34;</span>, data<span style="color:#f92672">=</span>data, target<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;PD.0325901&#34;</span>, positive<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TRUE&#34;</span>)
-classif.lrn <span style="color:#f92672">=</span> <span style="color:#a6e22e">makeLearner</span>(<span style="color:#e6db74">&#34;classif.multinom&#34;</span>, predict.type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;prob&#34;</span>)
-
-res20pca <span style="color:#f92672">=</span> <span style="color:#a6e22e">resample</span>(classif.lrn, filtered.task, rdesc, measures<span style="color:#f92672">=</span><span style="color:#a6e22e">list</span>(acc, ppv, tpr))
-
-<span style="color:#a6e22e">calculateROCMeasures</span>(res20pca<span style="color:#f92672">$</span>pred)
-</code></pre></div><p>This is (in some ways, but not others) an improvement over our 500 random features, but not as good as 20 carefully-selected features. Perhaps a combination of methods or different methods might result in even better models!</p>
-<p>We can get a quick overview of all of our attempts to compare them directly:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df_compare <span style="color:#f92672">=</span> <span style="color:#a6e22e">generateThreshVsPerfData</span>(<span style="color:#a6e22e">list</span>(pred500<span style="color:#f92672">=</span>res500, pred20best<span style="color:#f92672">=</span>res20best, pred20pca<span style="color:#f92672">=</span>res20pca), measures <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(fpr, tpr, mmce))
-<span style="color:#a6e22e">plotROCCurves</span>(df_compare)
-</code></pre></div><h4 id="question-10">Question #10</h4>
-<p>PCA is perhaps more-frequently used for visualzation purposes. Using the ggplot2 <a href="https://cran.r-project.org/web/packages/ggfortify/vignettes/plot_pca.html">PCA example</a>, how can you visualize the two primary principal components (most important composite features) from our PCA?</p>
-<h2 id="next-steps">Next Steps</h2>
-<p>Our goal in this module is to use the transcriptome data to create the best model we can at predicting the drug response of unseen samples. Concepts we may want to take advantage of for our deliverable include:</p>
-<ul>
-<li><a href="">Alternative models for supervised classification learning</a></li>
-<li><a href="">Cross-Validation to automate train/test splitting</a></li>
-<li><a href="">Hyperparamter tuning for models that use them</a></li>
-<li><a href="">Feature selection</a> and <a href="">engineering</a></li>
-</ul>
+<h2 id="this-training-continues">This training continues</h2>
+<p>This first half of our Machine Learning for Biology training module asked you to begin understanding our CCLE data and how to maniuplate it in R. In the <a href="/mlr_module/intro2/">second half</a>, we will use the <code>mlr</code> R modeling and machine learning libraries to create models to try to understand and predict how cancer cell lines respond to chemotherapies.</p>
 <ul class="pa0">
   
 </ul>

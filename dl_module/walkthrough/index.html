@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>2021 FIRE-CB Training Modules</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Introduction In our previous module we got an introduction to some machine learning concepts including modeling, supervised training, and classification. Machine learning, and deep learning are obviously increasingly big fields tackling an ever-increasing variety of problems. So far, we have learned about models that take in numerical input of a specific size and output predictions about individual data points. We had individual observations (cell lines) that we had a fixed number of input features for (individual genes).">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+
+  
+  
+    <link rel="stylesheet" href="/ananke/dist/main.css_5c99d70a7725bacd4c701e995b969fea.css" >
+  
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Introduction In our previous module we got an introduction to some machine learning concepts including modeling, supervised training, and classification. Machine learning, and deep learning are obviously increasingly big fields tackling an ever-increasing variety of problems. So far, we have learned about models that take in numerical input of a specific size and output predictions about individual data points. We had individual observations (cell lines) that we had a fixed number of input features for (individual genes)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://training.fire.tryps.in/dl_module/walkthrough/" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="Introduction In our previous module we got an introduction to some machine learning concepts including modeling, supervised training, and classification. Machine learning, and deep learning are obviously increasingly big fields tackling an ever-increasing variety of problems. So far, we have learned about models that take in numerical input of a specific size and output predictions about individual data points. We had individual observations (cell lines) that we had a fixed number of input features for (individual genes).">
+
+<meta itemprop="wordCount" content="4170">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Introduction In our previous module we got an introduction to some machine learning concepts including modeling, supervised training, and classification. Machine learning, and deep learning are obviously increasingly big fields tackling an ever-increasing variety of problems. So far, we have learned about models that take in numerical input of a specific size and output predictions about individual data points. We had individual observations (cell lines) that we had a fixed number of input features for (individual genes)."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        2021 FIRE-CB Training Modules
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        DL_MODULES
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://training.fire.tryps.in/dl_module/walkthrough/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://training.fire.tryps.in/dl_module/walkthrough/&amp;text=" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://training.fire.tryps.in/dl_module/walkthrough/&amp;title=" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1"></h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="0001-01-01T00:00:00Z">January 1, 0001</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="introduction">Introduction</h1>
+<p>In our previous module we got an introduction to some machine learning concepts including modeling, supervised training, and classification. Machine learning, and deep learning are obviously increasingly big fields tackling an ever-increasing variety of problems. So far, we have learned about models that take in numerical input of a specific size and output predictions about individual data points. We had individual observations (cell lines) that we had a fixed number of input features for (individual genes). We then use those to create one or more classifications for each cell line. This sort of setup is the most common setup in machine learning.</p>
+<p>Even applications you might think of as more complicated, like image recognition, frequently operate on the same principal. Basic image recognition models may just treat a fixed-size images as arrays of values, one for each pixel. The importance of a particular pixel value is really only relevant in the context of all of the pixels around it in a particular pattern. Image recognition models use functions like convolution to enable the model to take into account the context an individual feature is in.</p>
+<p>In our stream we have an ongoing project where we seek to apply deep learning techniques to biological sequences like genes or genomes. Unlike a transcriptome pattern or a fixed-size image, genes and genomes come in all sorts of lengths. There are not really ways to &ldquo;resize&rdquo; a gene like you might an image. What type of models might we use to teach machines to &ldquo;learn&rdquo; about these types of sequences?</p>
+<p>The approach we take is to borrow methods from a field known as <strong>natural language modeling (NLM)</strong> or <strong>natural language processing (NLP)</strong>. Natural language models are used whenever we need a computer to work with human language. Whether it is your phone performing voice recognition to turn an audio recording of your voice into a command that can be interpreted, a customer-service chatbot attempting to help you, or a tool to parse sentiment from tweets, some sort of language model is working the background. Natural language models work by breaking down human language into individual <strong>tokens</strong>, which could be letters, words, or word fragments. These models catalog every possible token they might need to know about, and represent language as a sequence of numerical tokens.</p>
+<p>Models used for NLP work by using functions that are effective in taking into account the sort of context-dependent meaning our words have. Take, for instance, the word &ldquo;sentence&rdquo;. There are two major meanings: the grammatical construct and the judical concept. Which is meant depends on both local context, other words in the sentence, but might also depend on global context, words in the rest of the body of text, like paragraph, article, or book. The reason we choose to use NLM for our biological sequence learning is because we can interpret this as a metaphor for how biological sequences work. Much like human language, genes are also one dimensional sequences made up of individual building blocks. Like letters or words, the &ldquo;meaning&rdquo; of a particular amino acid or gene is not fixed. A lysine in a protein may do very different things depending on the neighboring amino acids, which determine what type of local secondary structure it is in, whether it is on the inside or outside of a protein. There are effects of both local and global context on individual elements of a biological sequence. Since NLP models are designed to look for these sorts of interactions, but not in any way hard-coded to represent real langauges, they can fairly be used for &ldquo;biological language&rdquo; just as well!</p>
+<p>In this walkthrough we are going to step through, at a relatively low level, the process of using a modern deep neural network, known as a Transformer network, to build a model to predict protein secondary structure from raw sequences.</p>
+<h1 id="embedding-a-sequence-into-a-form-suitable-for-deep-learning">&ldquo;Embedding&rdquo; a sequence into a form suitable for deep learning</h1>
+<p>Hopefully by this point you have, correctly, gotten the impression that machine learning is built on math and needs numbers to work. When we work with categorical data, we have to convert it to numbers, but carefully. If we have three categories: red, blue, and yellow, we might represent them as 0, 1, and 2 for modeling. We need to be careful, because how we represent our data as numbers might build in certain assumptions. If we were to treat these as true numbers, we would assume that 0 and 1 are &ldquo;closer together&rdquo; or more similar than 0 and 2, but red and blue aren&rsquo;t necessarily any more similar than red and yellow.</p>
+<p>How do we avoid this? There are a variety of ways to represent these categories by <strong>embedding</strong> them in more dimensions. One common method used in machine learning is called &ldquo;one-hot encoding&rdquo;. In this scheme, we would represent each of the three categories with a 3-vector. Red might be [1 0 0], blue might be [0 1 0], and yellow [0 0 1]. This way each representation is &ldquo;orthogonal&rdquo; and equally-different from each other representation.</p>
+<p>When we represent words, or amino acids, we want to be careful about what assumptions we are building in. NLM models take the same approach of representing each possible token as a different vector, but especially for language models where you might have tens of thousands of possible word tokens, using 40,000-dimensional vectors might become infeasible. Instead, they use &ldquo;embedding&rdquo; functions to represent each as a specific vector, not necessarily all orthogonal. If done carefully, this can create some <em>good</em> assumptions. You might create embeddings where words with similar meaning have vectors that are more similar, or embeddings where verbs are more similar to each other than they are to nouns. These might help kickstart the models.</p>
+<h2 id="the-bert-way">The BERT Way</h2>
+<p>There are quite a few ways to embed tokens as vectors, including the venerable word2vec. You can generate specific embeddings for specific words ahead of time and use them in your model. A recent NLM Transformer model, BERT, takes a different approach. Instead of predetermined vectors for each token, BERT <em>learns</em> the embedding for each token as it is trained on a task. The embedding of each token is a <strong>parameter</strong> in the BERT model that can be changed to result in better task performance. We will see what this looks like.</p>
+<h3 id="tokenizing">Tokenizing</h3>
+<p>First, we need to <strong>tokenize</strong> our sequences. Unlike human language, which may have hundreds of thousands of infrequently used words, new words, abbreviations, or slang that might need to be represented as word fragments or letters, protein sequences have a nice, fixed, set of possibilities. In addition to the 20 standard amino acids, we have a few extra symbols or ambiguity codes. We also want to use a few tokens to represent special features like the beginning or end of a seequence, or padding tokens to make the sequence a specific size. All in all, we will use 30 different tokens:</p>
+<p>&ndash;CODE</p>
+<p>In order to actually tokenize our sequence, we just look up each letter in the sequence and replace it with the corresponding integer in our table, and add the beginning and end tokens:</p>
+<p>&ndash;CODE</p>
+<h4 id="question-1">Question 1</h4>
+<p>Q</p>
+<h3 id="embedding">Embedding</h3>
+<p>As we mentioned before, using raw integers creates some misleading assumptions about similarity. An alanine (A, 5) is not more similar to cysteine (C, 7) than it is to glycine (G, 11). In fact, the opposite is true! We will replace each token with a <strong>vector representation</strong>. Because this is so common, PyTorch includes a <strong>module</strong> to do just this. the <code>nn.Embedding</code> module creates enough trainable parameters to replace each of the <em>first argument</em> number of tokens with vectors of length <em>second argument</em>. Here we create embeddings to turn each of 30 tokens into a distinct vectors each of length 128.</p>
+<p>&ndash;CODE</p>
+<p>In order to actually embed our tokens, we need to convert our tokens to a special type of data structure called a <strong>tensor</strong>. Tensors are a lot like (multi-dimensional) arrays, but include extra special features to enable training that we will talk about later. We can convert our tokens (a list of integers) to a tensor this way:</p>
+<p>&ndash;CODE</p>
+<p>We need to tell PyTorch to make this a <code>long</code> datatype. In this case, since we have categorical data, we want it represented as integers, instead of the default floating-point values. PyTorch in general likes 4-byte &ldquo;long&rdquo; integers. We also call a specific method, <code>unsqueeze()</code> here. This tweaks the &ldquo;shape&rdquo; of the tensor array to introduce an extra dimension.</p>
+<h4 id="question-2">Question 2</h4>
+<p>Unsqueeze and shapes</p>
+<h4 id="pytorch-modules">PyTorch modules</h4>
+<p>To actually embed our sequences we use our <code>Embedding</code> module like a function:</p>
+<p>&ndash;CODE</p>
+<p>PyTorch modules are objects that both contain trainable parameters as well as the code that uses them as functions. When we call our <code>embedding</code> object like a function, it uses its built-in parameters to replace each token with a vector!</p>
+<h4 id="question-3">Question 3</h4>
+<p>What shape is the output tensor? How did this change from the input tensor? What happened to the original tokens?</p>
+<h4 id="question-4">Question 4</h4>
+<p>Take a look at the original sequence. The first and fifth amino acids are both methionines (M). You can access these in our tensors by indexing like <code>tok_seq_tensor[0][1]</code> and <code>tok_seq_tensor[0][5]</code>. What relationship do the vectors representing these amino acids in <code>embedded_seq</code> have?</p>
+<h1 id="learning-sequence-context">Learning sequence context</h1>
+<p>Right now we have a rich representation of our sequence. We still have a sequence of (roughly) the same length as our original sequence, but each letter is now a big numerical vector of (currently random) numbers. As we discussed earlier, the &ldquo;meaning&rdquo; of our amino acids is different depending on which protein it is in, where it is in the protein, and the surrounding amino acids. Transformer models use a mathematical function known as <strong>attention</strong> to allow information to flow between different positions in a sequence. Attention creates relationships between different positions in a sequence to share information from earlier layers in the network. BERT is an <strong>encoder model</strong> that is made by stacking alternating layers of attention and standard feed-forward neurons.</p>
+<h2 id="using-transformers">Using Transformers</h2>
+<p>We aren&rsquo;t going to implement a Transformer ourselves (at least in this assignment). There is an excellent Python library simply called <a href="https://huggingface.co/transformers/index.html">Transformers</a> made by a company called HuggingFace 🤗. The Transformers library includes a wide selection of Transformer models with a similar API and a database of pre-trained language models.</p>
+<p>We will use the HuggingFace implementation of BERT. First, we need to install Transformers:</p>
+<p>&ndash;CODE</p>
+<p>Next, to create a BERT encoder model, we need two pieces, the model module itself, and a special configuration object we use to select hyperparameters for the BERT network.</p>
+<p>&ndash;CODE</p>
+<p>To create the model, we instantiate a <code>BertConfig</code> object with a few parameters to make the network a bit smaller and manageable for this walkthrough. Next, we create a <code>BertConfig</code> module with the configuration:</p>
+<p>&ndash;CODE</p>
+<p>This <code>BertModel</code> is a PyTorch module just like our <code>Embedding</code> module was. This includes many (<em>many</em>) trainable parameters for each layer in the model and is called like a function to generate <strong>contextual representations</strong> of our sequence. In this case, we need to specific our input as for the parameter <code>inputs_embeds</code>. By default BERT actually performs embedding in a way that is designed for human language, but we did this ourselves for protein sequence. Fortunately, <code>BertModel</code> can accept already-embedded input this way:</p>
+<p>&ndash;CODE</p>
+<p>The output from <code>BertModel</code> is not actually just one tensor like with embeddings. Instead, it outputs a dictionary with multiple outputs. By default, this model outputs a <strong>sequence representation</strong> called <code>&quot;last_hidden_state&quot;</code> and a <strong>pooled representation</strong> called <code>&quot;pooler_output&quot;</code>.</p>
+<h4 id="question-5">Question 5</h4>
+<p>What shape are each of the two outputs? Which one contains contextual representations for our amino acids? How many representations does the other output have? What biological object would this represent?</p>
+<h2 id="using-contextual-representations-for-learning">Using contextual representations for learning</h2>
+<p>In this walthrough we are going to do <strong>supervised learning</strong> like we did in module 3. We want to teach our model to take in raw protein sequences (or at least tokenized sequences) and predict something biologically useful. In our example we are going to predict <strong>protein secondary structure</strong>.</p>
+<h3 id="protein-secondary-structure">Protein secondary structure</h3>
+<p>When a protein strand is made, it doesn&rsquo;t stay elongated as a single strand. It folds up on itself like a piece of string does if you squished in into a ball in your hand. Unlike string, proteins don&rsquo;t fold randomly. They first form &ldquo;secondary structure&rdquo; where different parts of the strand might form spirals called <strong>helices</strong> or flat strands called <strong>sheets</strong>. This secondary structure then influences how the different section fold up in three dimensions to form <strong>tertiary structure</strong> which ultimately determines what a protein does.</p>
+<p>We are going to teach our model to predict, for each amino acid in our protein, whether it will form into a helix or not. You cannot simply look at once amino acid at a time, a methionine may or may not be in a helix, whether it is depends on the amino acids around it. This is exactly the sort of thing Transformers should be good at!</p>
+<p>We have <strong>target data</strong> that is a second sequence, the same length as our protein sequence, with an <code>H</code> if the corresponding amino acid is in a helix and a <code>-</code> if it is not.</p>
+<p>&ndash;CODE</p>
+<p>We need to convert this to a tensor in the same manner we did our tokenized protein sequence:</p>
+<p>&ndash;CODE</p>
+<h4 id="question-6">Question 6</h4>
+<p>Find your two methionines you have hopefully become familiar with in this secondary structure. Do they both form the same type of secondary structure?</p>
+<h3 id="anns-at-every-level">ANNs at every level&hellip;</h3>
+<p>Once we have the target data, we have what we want our model to output. Our complete model should take in tokenized protein sequences and output predictions. We are going to have our model output <strong>scores</strong> for each of the possible secondary structures which we can interpret as probabilities of being each class. Since our BERT model outputs vectors of length 128, we cannot use this directly. Instead, we need to add another model or <strong>head</strong> to the model to do the actually classification using the contextual representations BERT outputs.</p>
+<p>We will use a simple, single hidden layer convolutional network for this, and in this case we will implement it ourselves!</p>
+<p>&ndash;CODE</p>
+<p>In this code we make a PyTorch module class. We define one <code>main</code> submodule that is a sequential combination of three steps. First, we take our input data and apply a convolution to transform it from size <code>in_dim</code> (128 in our case) to <code>hid_dim</code> (hidden layer dimension). We then apply a neuron activation function, in this case ReLU or a <strong>Re</strong>ctified <strong>L</strong>inear <strong>U</strong>nit. Finally, we convolve the data again to transform it to <code>out_dim</code> which will correspond to the number of different labels we have (two). The output of this function will be interpreted as two scores, one for each class.</p>
+<p>To create the module we simply instantiate it like before with our dimensions:</p>
+<p>&ndash;CODE</p>
+<p>and classify our data by calling it with our BERT output!</p>
+<p>&ndash;CODE</p>
+<h4 id="question-7">Question 7</h4>
+<p>Take a look at the output for your friendly methionines. Do these look like probabilities?</p>
+<h3 id="loss-functions">Loss Functions</h3>
+<p>To decide whether or not our model is doing a good job of classifying our amino acids, we need a way to compare our models output to the &ldquo;right answers&rdquo;. We do this using a <strong>loss function</strong>. Loss functions are functions that take in the predictions and the right answers and output a single, <strong>scalar</strong> value that is lower the more &ldquo;correct&rdquo; the predictions are. Ideally, perfect predictions experience no &ldquo;loss&rdquo; relative to the correct answers so the loss would be 0. The more data is &ldquo;missing&rdquo; from the predictions, the higher the loss.</p>
+<p>For this type of classification, comparing scores for class labels to class labels, we use a function called <strong>cross-entropy</strong>. This measures how much information is lost when comparing two probability distributions. When we optimize our model to minimize this loss function, it will make our classifier output reprsent something like the probabilities for each class-helix vs not-helix.</p>
+<p>&ndash;CODE</p>
+<p>We need to specify <code>ignore_index=-1</code> to tell the loss function to ignore the first and last positions where we put -1 as the class since these special start/end tokens aren&rsquo;t amino acids and don&rsquo;t have secondary structure.</p>
+<p>We calculate the loss value by calling the loss function with the predicted scores and the target true values:</p>
+<p>&ndash;CODE</p>
+<h1 id="optimization">Optimization</h1>
+<h2 id="parameters">Parameters</h2>
+<p>We&rsquo;ve created a model that is capable of taking in tokenized protein sequences and outputing predictions for secondary structure. This model is made up of three <strong>modules</strong>, one for embedding, one for contextual transformation, and one for classification. Each of these models has parameters which can be trained to teach it to <em>understand</em> protein sequences to some degree and successfully predict the structure.</p>
+<p>We can extract the parameters from a module by calling the <code>parameters()</code> method. This returns an <strong>iterable</strong> of all the parameters. You can call <code>list()</code> on the resulting iterable to turn it into a list. Each element in this list is a PyTorch tensor, which can be a single scalar value, an linear array, or a multi-dimensional array. The number of individual parameters in a 30 x 128 dimensional array is 3840. By having lots of large matrices as parameters, you can quickly scale up the number of paramters in your model! You can check the size of these by calling the <code>size()</code> method of them.</p>
+<p>&ndash;CODE</p>
+<h4 id="question-8">Question 8</h4>
+<p>How many individual parameters (individual numbers) are there in each of our three modules? How did you calculate this?</p>
+<h2 id="neural-network-training">Neural network training</h2>
+<p>The breakthroughs that led to neural networks changing from a mathematical curiosity from the 50s to a widely-exploited tool able to be (relatively) quickly and efficiently trained to do a huge variety of tasks concern how we tune the many parameters determining the behavior of each neuron in the network. Our network has a large number of parameters across the three modules. Using traditional optimization techniques on these millions of parameters would get us nowhere quickly.</p>
+<p>The concept that allows us to actually train these models is called <strong>backpropogation</strong>. I&rsquo;m not going to go in depth on this. The basics is that as big as our network is, it can be thought of as a single function to map input to output with a variety of parameters.</p>
+<p>For those of you who have much calculus: backpropogation is a process where you calculate the gradient, or partial derivative, of your function output relative to all of your function/network parameters. If you calculate these gradients, which are directional vectors, from your loss value, you effectively get a direction that you can move your parameter to make the loss value lower, and hence your model better.</p>
+<p>For those of you without much calculus: backpropogation allows you to calculate which direction in which to change each parameter in your model to best make the model better.</p>
+<h3 id="backpropogation-and-tensors">Backpropogation and tensors</h3>
+<p>Backpropogation is a process where you basically apply the chain rule over and over and over to the individual pieces of the composite function that is your model to get the derivative. Our models are huge and have millions of steps. The thing that makes this possible happens behind the scenes when we use PyTorch <em>tensors</em>. The special sauce tensors supply is the ability to track every calculation that happens using them. As we pass our tensors through our model, PyTorch creates as <strong>computational graph</strong> tracking every operation. Once we have our loss value, we can ask PyTorch to step backward through this graph from the loss value to calculate the gradient of every parameter involved. Understandably, this involes a lot of computation and is why deep learning models need expensive hardware capable of lots of very fast, very parallel math.</p>
+<p>Actually doing the backpropogation and calculating gradients is made incredibly simple by PyTorch:</p>
+<p>&ndash;CODE</p>
+<p>When you call <code>backward()</code> PyTorch stores the gradient information inside each parameter tensor.</p>
+<h3 id="optimizing-a-model">Optimizing a model</h3>
+<p>To train our model, we need to update our parameters. To do this, we need a scheme to accept parameter gradients and decide what new values to set our parameters to. We do this with an <strong>optimizer</strong>. There are different algorithms available to do this. One of the common methods is called <strong>stochastic gradient descent</strong>. As this name might imply, this process somewhat-randomly moves parameters down in the direction of their gradient. We can create an SGD optimizer in PyTorch by instantiating a <code>torch.optim.SGD</code> object with the parameters of our model and a learning rate telling it how much to update the parameters each step.</p>
+<p>&ndash;CODE</p>
+<p>Much like backpropogation, performining an optimization step is made incredibly simple:</p>
+<p>&ndash;CODE</p>
+<p>We just began the process of optimizing our model! If we repeat the modeling, loss calculation, and optimization stpe, we should see our loss value go down!</p>
+<p>&ndash;code</p>
+<h3 id="iterative-optimization">Iterative optimization</h3>
+<p>Training a neural network can take hundreds, thousands, or even millions of steps. We do this in an iterative fashion, feeding the network new data, calculating gradients, updating parameters, and repating indefinitely! We do this for either a fixed number of steps or until we are happy with the performance of our model. Here, we can make a simple for loop to repeat our process 100 times and store the loss values at each step:</p>
+<p>&ndash;CODE</p>
+<p>And plot the loss function values&hellip;</p>
+<p>&ndash;CODE</p>
+<p>Our model learns! The loss value pretty steadily drops until it reaches a quite low value.</p>
+<p>At this point, we should take a look at what our model is outputing. As we saw before, our classifier outputs <strong>scores</strong> not actual probabilities. These numbers can be outside the range of 0..1, or even negative! We can convert these scores to probabilities using a function called <strong>softmax</strong> that represents these scores as a series of probabilities for each class adding up to one. We are going to run our model again to generate scores and then call <code>softmax()</code> on them.</p>
+<p>We need to construct a <code>Softmax</code> module telling it which dimension we want it to turn into probabilities. In this case, our model is outputting a tensor of shape [1, 2, 112] where the first dimension contains a sequence, the second dimension represents each class, and the final dimension represents all of the individual sequence elements. Since we want probabilities for each class, we tell make a <code>Softmax</code> function that turns the second dimension (1) into probabilities:</p>
+<p>&ndash;CODE</p>
+<p>We run our model inside a <strong>context manager</strong> calling <code>torch.no_grad()</code> to prevent PyTorch from tracking the computation graph since we won&rsquo;t be calling <code>backward()</code> to make it faster and use less memory.</p>
+<p>If we subset our output with <code>[0, 1]</code> (selecting the only sequence, and the second class) we get our probabilities for being a helix! I&rsquo;m not great at reading a big list of scientific notation fractions. We can visualize these over our sequence with a lineplot:</p>
+<p>&ndash;CODE</p>
+<p>Here, the blue line represents the true values, sections at y=1 represent helices and y=0 represent not-helices. Our model is doing a pretty good job! The values are quite high for all of our helix amino acids and although there may be a few spikes in non-helix regions, they are in general pretty low!</p>
+<p>&ndash;CODE</p>
+<h1 id="working-with-sequence-batches">Working with sequence batches</h1>
+<p>Big models require big data. To effectively train a model with millions of paramters you need data with millions of obversations. In our case, we only have 110 inputs for a model with 5 million parameters. Talk about overfitting!</p>
+<p>Since the models are so big, need so many obversations and our hardware is so much better at operating in parallel than operating faster, it is best if our models can work on multiple input sequences at once. Fortunately all of our modules are designed to do just this. In fact, the reason we needed to <code>unsqueeze()</code> our original input at the beginning to make it a different shape was because our models expect <strong>batches</strong> of data. The shape of input tensorts BERT expects is [batch_size, sequence_length, vector_dim]. We can fit as many sequences into a batch as our computer can handle doing backpropogation for without running out of RAM.</p>
+<p>Let&rsquo;s try out four sequences at once. We&rsquo;ll introduce three new, completely different, protein sequences of different length to train as a single batch:</p>
+<p>&ndash;CODE</p>
+<p>We tokenize and form a tensor with these sequences in a very similar way. We don&rsquo;t need to <code>unsqueeze()</code> here since the batch dimension is naturally formed when we have more than one sequence.</p>
+<p>&ndash;CODE</p>
+<p>With new sequences, we need new secondary structure to predict. We tensorize these in the same way:</p>
+<p>&ndash;CODE</p>
+<p>And we can use exactly the same training method on this sequence batch as a single sequence. This is the same code as before, but with slightly different variable names:</p>
+<p>&ndash;CODE</p>
+<p>This training progress plot looks a bit more wild, and take a bit longer, but works just as well!</p>
+<p>If we extract proabilities in the same way we can see how the predictions for each of our proteins is succesfully learned even though the sequences are of different length and have the helices in different number, lengths, and positions!</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://training.fire.tryps.in/" >
+    &copy;  2021 FIRE-CB Training Modules 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -18,6 +18,11 @@
   </url>
   
   <url>
+    <loc>https://training.fire.tryps.in/mlr_module/intro2/</loc>
+    <lastmod>2021-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://training.fire.tryps.in/transcriptomics_module/</loc>
     <lastmod>2021-02-24T00:00:00+00:00</lastmod>
   </url>
@@ -73,7 +78,15 @@
   </url>
   
   <url>
+    <loc>https://training.fire.tryps.in/dl_module/walkthrough/</loc>
+  </url>
+  
+  <url>
     <loc>https://training.fire.tryps.in/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://training.fire.tryps.in/dl_module/</loc>
   </url>
   
   <url>

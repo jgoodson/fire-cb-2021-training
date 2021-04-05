@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>Machine Learning for Biology Part 2</title>
+      <link>https://training.fire.tryps.in/mlr_module/intro2/</link>
+      <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.fire.tryps.in/mlr_module/intro2/</guid>
+      <description>*Note: This assignment has a number of associated questions you&amp;rsquo;ll find as you go through this that need to be submitted on ELMS. Some of these ask you to explain or guess why certain things may be the way that they are. I am not grading on correctness here, rather I am grading based on whether you have completed the assignment and put some thought into the answers. Feel free to discuss these with your group or with me in lab.</description>
+    </item>
+    
+    <item>
       <title>Transcriptomics Part 1 - Sequence Reads and Transcript Counting</title>
       <link>https://training.fire.tryps.in/transcriptomics_module/intro1/</link>
       <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
@@ -90,6 +99,15 @@ If you are using ssh to connect to our remote server: save time connecting with 
       <guid>https://training.fire.tryps.in/basics_module/cli/</guid>
       <description>Using the Command Line You have all extensively used computers in your life, whether that is a traditional desktop/laptop or just a smart phone. But so far, you&amp;rsquo;ve likely only interacted with computer programs through graphical user interfaces. For example, you would use an email client program through a graphical user interface, and select various options and buttons depending on what you wanted to do.
 During a single run of the email program, you could, for example, both add a new contact and then edit their name.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://training.fire.tryps.in/dl_module/walkthrough/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.fire.tryps.in/dl_module/walkthrough/</guid>
+      <description>Introduction In our previous module we got an introduction to some machine learning concepts including modeling, supervised training, and classification. Machine learning, and deep learning are obviously increasingly big fields tackling an ever-increasing variety of problems. So far, we have learned about models that take in numerical input of a specific size and output predictions about individual data points. We had individual observations (cell lines) that we had a fixed number of input features for (individual genes).</description>
     </item>
     
   </channel>
