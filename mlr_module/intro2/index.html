@@ -40,7 +40,7 @@
 <meta itemprop="description" content="*Note: This assignment has a number of associated questions you&rsquo;ll find as you go through this that need to be submitted on ELMS. Some of these ask you to explain or guess why certain things may be the way that they are. I am not grading on correctness here, rather I am grading based on whether you have completed the assignment and put some thought into the answers. Feel free to discuss these with your group or with me in lab.">
 <meta itemprop="datePublished" content="2021-03-30T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-03-30T00:00:00+00:00" />
-<meta itemprop="wordCount" content="3186">
+<meta itemprop="wordCount" content="3187">
 
 
 
@@ -159,7 +159,9 @@
 <p>The idea is that we input our feature values as X, these are multiplied by some <em>learned</em> weight <code>w</code>, added together with a <em>intercept</em> or <em>bias</em>, and the resulting value is the prediction for our target variable! These &ldquo;weights&rdquo; are the values that our machine is <em>learning</em> during the process of fitting a model to data.</p>
 <p>Linear regression can be solved exactly by a particular mathematical process caled &ldquo;ordinary least squares&rdquo;, but other types of regression need more complicated algorithms to learn their weights. A simple linear regression with one feature variable only has two weights, while complicated neural network models might have billions. At their core, they are both models and the process of fitting them is very similar!</p>
 <p>Let&rsquo;s use mlr to do a simple linear regression with two feature varaibles:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">data <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cbind</span>(ccle_txomes<span style="color:#a6e22e">[c</span>(<span style="color:#e6db74">&#39;BRCA1&#39;</span>, <span style="color:#e6db74">&#39;HTT&#39;</span>)], ccle_targets_log<span style="color:#a6e22e">[c</span>(<span style="color:#e6db74">&#39;Topotecan&#39;</span>)])
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(mlr)
+
+data <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cbind</span>(ccle_txomes<span style="color:#a6e22e">[c</span>(<span style="color:#e6db74">&#39;BRCA1&#39;</span>, <span style="color:#e6db74">&#39;HTT&#39;</span>)], ccle_targets_log<span style="color:#a6e22e">[c</span>(<span style="color:#e6db74">&#39;Topotecan&#39;</span>)])
 topo_valid_cell_lines <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">is.na</span>(ccle_targets_log[<span style="color:#e6db74">&#39;Topotecan&#39;</span>])
 topo_valid_data <span style="color:#f92672">&lt;-</span> data[topo_valid_cell_lines,]
 
