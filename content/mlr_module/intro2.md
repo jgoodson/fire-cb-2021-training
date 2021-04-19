@@ -37,6 +37,8 @@ Linear regression can be solved exactly by a particular mathematical process cal
 Let's use mlr to do a simple linear regression with two feature varaibles:
 
 ```r
+library(mlr)
+
 data <- cbind(ccle_txomes[c('BRCA1', 'HTT')], ccle_targets_log[c('Topotecan')])
 topo_valid_cell_lines = !is.na(ccle_targets_log['Topotecan'])
 topo_valid_data <- data[topo_valid_cell_lines,]

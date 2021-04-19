@@ -18,7 +18,7 @@ Note: This assignment has a number of associated questions you'll find as you go
 **Learning Objectives:**
   * Gain an introduction to the `data.frame` data structures of R
   * Access and manipulate data within these data structures
-  * Import CSV data into a *pandas* `data.frame`
+  * Import CSV data into a *R* `data.frame`
   * Reindex a `data.frame` to shuffle data
   
 R Data Frames are a column-oriented data analysis API. They are a great tool for handling and analyzing input data, and essentially R analysis, modeling, and machine learning tools use tese data structures as inputs.
